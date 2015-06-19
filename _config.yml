@@ -1,0 +1,10 @@
+excerpt_separator: ""
+pygments: true
+markdown: kramdown
+url: http://mhorga.github.io
+title: Swift development
+email: mhorga@gmail.com
+author: Marius Horga
+description: A blog about iOS, watchOS and OS X development in Objective-C and Swift. 
+paginate: 5
+google_analytics: 
