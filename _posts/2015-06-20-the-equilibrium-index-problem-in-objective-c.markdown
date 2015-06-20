@@ -50,9 +50,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 {% endhighlight %}
-
-
-
+<br />
 Here is the score I got using this approach:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_bad.png "Bad score")
 
@@ -83,9 +81,7 @@ int equilibrium(NSMutableArray *A) {
     return equi;
 }
 {% endhighlight %}
-
-
-
+<br />
 Using this solution I got the perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
 
