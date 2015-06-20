@@ -21,7 +21,7 @@ The _equilibrium index_ of a sequence is an index such that the sum of elements 
 
 Your challenge is to write a function __int equilibrium(int A[])__ that, given a sequence, returns its equilibrium index (any) or -1 if no equilibrium index exists. Assume that the sequence may be very long. The problem can be solved by using various approaches, the most common being simply to follow the equilibrium definition. Create an empty project and use the __main.m__ file to run the code:
 
-```objective-c
+<pre>
 int equilibrium(NSMutableArray *A) {
     int i, j, equi = -1;
     for (i=0; i<A.count; ++i) {
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
     }
     return 0;
 } 
-```
+</pre>
 
 Here is the score I got using this approach:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_bad.png "Bad score")
@@ -61,7 +61,7 @@ It seems this approach was not efficient for two reasons:
 
 We can improve our algorithm by updating the left/right sums in O(0) time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
-```
+<pre>
 int equilibrium(NSMutableArray *A) {
 
     long long sum = 0;
@@ -95,9 +95,9 @@ int equilibrium(NSMutableArray *A) {
     return equi;
     
 }
-```
+</pre>
 
-Using this solution we get perfect score:
+Using this solution we get the perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
 
 Until next time!
