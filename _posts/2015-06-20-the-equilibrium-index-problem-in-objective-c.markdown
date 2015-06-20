@@ -42,13 +42,15 @@ int equilibrium(NSMutableArray *A) {
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSMutableArray *array = [[NSMutableArray alloc] initWithArray:@[@-1, @3, @-4, @5, @1, @-6, @2, @1]];
+        NSMutableArray *array = [[NSMutableArray alloc] 
+            initWithArray:@[@-1, @3, @-4, @5, @1, @-6, @2, @1]];
         NSLog(@"Equilibrium points:");
         equilibrium(array);
     }
     return 0;
 }
 {% endhighlight %}
+
 
 Here is the score I got using this approach:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_bad.png "Bad score")
@@ -80,6 +82,7 @@ int equilibrium(NSMutableArray *A) {
     return equi;
 }
 {% endhighlight %}
+
 
 Using this solution I got the perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
