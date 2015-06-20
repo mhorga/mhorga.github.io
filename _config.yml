@@ -1,4 +1,5 @@
 excerpt_separator: ""
+animated: true
 pygments: true
 markdown: kramdown
 url: http://mhorga.github.io
