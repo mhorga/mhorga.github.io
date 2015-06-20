@@ -61,7 +61,8 @@ It seems this approach was not efficient for two reasons:
 
 We can improve our algorithm by updating the left/right sums in O(0) time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
-```int equilibrium(NSMutableArray *A) {
+```
+int equilibrium(NSMutableArray *A) {
 
     long long sum = 0;
     
@@ -93,7 +94,8 @@ We can improve our algorithm by updating the left/right sums in O(0) time instea
     
     return equi;
     
-}```
+}
+```
 
 Using this solution we get perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
