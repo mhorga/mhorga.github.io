@@ -62,6 +62,7 @@ It seems this approach was not efficient for two reasons:
 We can improve our algorithm by updating the left/right sums in O(0) time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
 ```
+
 int equilibrium(NSMutableArray *A) {
 
     long long sum = 0;
@@ -74,13 +75,13 @@ int equilibrium(NSMutableArray *A) {
         
     }
     
-    long long sum_left = 0;
+    long long lsum = 0;
     
     for(i=0;i<A.count;i++) {
     
-        long long sum_right = sum - sum_left - (long long)[A[i] integerValue];
+        long long rsum = sum - lsum - (long long)[A[i] integerValue];
         
-        if (sum_left == sum_right) {
+        if (lsum == rsum) {
         
             equi = i;
             
@@ -88,7 +89,7 @@ int equilibrium(NSMutableArray *A) {
             
         }
         
-        sum_left += (long long)[A[i] integerValue];
+        lsum += (long long)[A[i] integerValue];
         
     }
     
