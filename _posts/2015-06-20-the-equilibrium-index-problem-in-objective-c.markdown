@@ -61,7 +61,7 @@ It seems this approach was not efficient for two reasons:
  
 - it fails on large input values (outside the __int__ min/max limits) due to the arithmetic overflows
 
-We can improve our algorithm by updating the left/right sums in O(1) constant time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
+We can improve our algorithm by updating the left/right sums in O(1) constant time instead of recomputing them both at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
 <pre>
 
