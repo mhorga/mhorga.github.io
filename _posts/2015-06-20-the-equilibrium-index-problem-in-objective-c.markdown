@@ -51,7 +51,7 @@ int main(int argc, const char * argv[]) {
 ```
 
 Here is the score I got using this approach:
-![alt text](../images/equi_bad.png "Bad score")
+![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_bad.png "Bad score")
 
 It seems this approach was not efficient for two reasons:
 - it takes way too long to process large input data sets because time complexity is quadratic: O(n^2)
@@ -60,7 +60,9 @@ It seems this approach was not efficient for two reasons:
 We can improve our algorithm by updating the left/right sums in O(0) time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
 ```objective-c
+
 int equilibrium(NSMutableArray *A) {
+
     long long sum = 0;
     int i, equi = -1;
     for(i=0; i<A.count; i++) {
@@ -77,9 +79,10 @@ int equilibrium(NSMutableArray *A) {
     }
     return equi;
 }
+
 ```
 
 Using this solution we get perfect score:
-![alt text](../images/equi_good.png "Good score")
+![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
 
 Until next time!
