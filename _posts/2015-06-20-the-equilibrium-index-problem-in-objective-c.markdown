@@ -54,29 +54,48 @@ Here is the score I got using this approach:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_bad.png "Bad score")
 
 It seems this approach was not efficient for two reasons:
-- it takes way too long to process large input data sets because time complexity is quadratic: O(n^2)
+
+- it takes way too long to process large input data sets because time complexity is quadratic or O(n^2)
+ 
 - it fails on large input values (outside the __int__ min/max limits) due to the arithmetic overflows
 
 We can improve our algorithm by updating the left/right sums in O(0) time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
 ```
 int equilibrium(NSMutableArray *A) {
+
     long long sum = 0;
+    
     int i, equi = -1;
+    
     for(i=0; i<A.count; i++) {
+    
         sum += (long long)[A[i] integerValue];
+        
     }
+    
     long long sum_left = 0;
+    
     for(i=0;i<A.count;i++) {
+    
         long long sum_right = sum - sum_left - (long long)[A[i] integerValue];
+        
         if (sum_left == sum_right) {
+        
             equi = i;
+            
             NSLog(@"%d", i);
+            
         }
+        
         sum_left += (long long)[A[i] integerValue];
+        
     }
+    
     return equi;
+    
 }
+
 ```
 
 Using this solution we get perfect score:
