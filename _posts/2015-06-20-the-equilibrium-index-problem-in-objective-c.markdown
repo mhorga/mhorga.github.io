@@ -17,11 +17,7 @@ The __equilibrium index__ of a sequence is an index such that the sum of element
 
 `A[0]+A[1]+A[2]+A[3]+A[4]+A[5]=0`
 
-(The sum of zero elements is zero) so 7 is not an equilibrium index because it is not a valid index of sequence A. Your challenge is to write a function:
-
-`int equilibrium(int A[])`
-
-that, given a sequence, returns its equilibrium index (any) or -1 if no equilibrium index exists. Assume that the sequence may be very long.
+(The sum of zero elements is zero) so 7 is not an equilibrium index because it is not a valid index of sequence A. Your challenge is to write a function __int equilibrium(int A[])__ that, given a sequence, returns its equilibrium index (any) or -1 if no equilibrium index exists. Assume that the sequence may be very long.
 
 The problem can be solved by using various approaches, the most common being simply to follow the equilibrium definition. Create an empty project and use the __main.m__ file to run the code:
 
