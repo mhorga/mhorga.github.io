@@ -5,8 +5,10 @@ layout: post
 ---
 One of demo challenges at __Codility.com__ is the [Equilibrium Index](https://codility.com/demo/take-sample-test/) problem. Since I noticed in the solution feedback that there were few complaints about the Objective-C online compiler not working I decided to give it a try myself. The problem description follows.
 
-The `equilibrium index` of a sequence is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes. For example, in a sequence A:
-`A[0]=-7 A[1]=1 A[2]=5 A[3]=2 A[4]=-4 A[5]=3 A[6]=0`
+The __equilibrium index__ of a sequence is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes. For example, in a sequence A:
+
+__A[0]=-7 A[1]=1 A[2]=5 A[3]=2 A[4]=-4 A[5]=3 A[6]=0__
+
 3 is an equilibrium index, because:
 `A[0]+A[1]+A[2]=A[4]+A[5]+A[6]`
 6 is also an equilibrium index, because:
