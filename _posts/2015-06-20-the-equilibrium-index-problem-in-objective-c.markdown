@@ -7,15 +7,15 @@ One of the demo challenges at __Codility.com__ is the [Equilibrium Index](https:
 
 The _equilibrium index_ of a sequence is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes. For example, in a sequence A:
 
-`A[0]=-7 A[1]=1 A[2]=5 A[3]=2 A[4]=-4 A[5]=3 A[6]=0`
+> A[0]=-7 A[1]=1 A[2]=5 A[3]=2 A[4]=-4 A[5]=3 A[6]=0
 
 3 is an equilibrium index, because:
 
-`A[0]+A[1]+A[2]=A[4]+A[5]+A[6]`
+> A[0]+A[1]+A[2]=A[4]+A[5]+A[6]
 
 6 is also an equilibrium index, because:
 
-`A[0]+A[1]+A[2]+A[3]+A[4]+A[5]=0`
+> A[0]+A[1]+A[2]+A[3]+A[4]+A[5]=0
 
 (The sum of zero elements is zero) so 7 is not an equilibrium index because it is not a valid index of sequence A.
 
@@ -51,15 +51,12 @@ int main(int argc, const char * argv[]) {
 }
 {% endhighlight %}
 
-
 Here is the score I got using this approach:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_bad.png "Bad score")
 
 It seems this approach was not efficient for two reasons:
-
-- it takes way too long to process large input data sets because time complexity is quadratic or O(n^2)
- 
-- it fails on large input values (outside the __int__ min/max limits) due to the arithmetic overflows
+* it takes way too long to process large input data sets because time complexity is quadratic or O(n^2)
+* it fails on large input values (outside the __int__ min/max limits) due to the arithmetic overflows
 
 We can improve our algorithm by updating the left/right sums in O(1) constant time instead of recomputing them both at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
@@ -82,7 +79,6 @@ int equilibrium(NSMutableArray *A) {
     return equi;
 }
 {% endhighlight %}
-
 
 Using this solution I got the perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
