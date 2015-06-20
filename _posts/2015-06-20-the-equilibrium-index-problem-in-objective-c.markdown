@@ -3,7 +3,7 @@ published: true
 title: The Equilibrium Index problem in Objective-C
 layout: post
 ---
-One of the demo challenges at __Codility.com__ is the [Equilibrium Index](https://codility.com/demo/take-sample-test/) problem. Since I noticed in the solution feedback that there were few complaints about the Objective-C online compiler not working I decided to give it a try myself. The problem description follows.
+One of the demo challenges at __Codility.com__ is the [Equilibrium Index](https://codility.com/demo/take-sample-test/) problem. Since I noticed in the solution feedback that there were few complaints about the Objective-C online compiler not working I decided to give it a try myself. 
 
 The _equilibrium index_ of a sequence is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes. For example, in a sequence A:
 
@@ -61,7 +61,7 @@ It seems this approach was not efficient for two reasons:
  
 - it fails on large input values (outside the __int__ min/max limits) due to the arithmetic overflows
 
-We can improve our algorithm by updating the left/right sums in O(0) time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
+We can improve our algorithm by updating the left/right sums in O(1) constant time instead of recomputing them again at each iteration. To handle larger input values we should use a proper data-type such as __long long__ instead of __int__. Here is a better solution:
 
 <pre>
 
@@ -101,7 +101,7 @@ int equilibrium(NSMutableArray *A) {
 
 </pre>
 
-Using this solution we get the perfect score:
+Using this solution I got the perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
 
 Until next time!
