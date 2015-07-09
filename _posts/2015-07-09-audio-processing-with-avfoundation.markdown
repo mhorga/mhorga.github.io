@@ -16,10 +16,10 @@ Here is how this could translate into code:
 > var audioPlayer: AVAudioPlayer!
 
 > // initialize the audio player
-let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3")
-let url = NSURL.fileURLWithPath(filePath)
-audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
 
+> let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3")<br />
+let url = NSURL.fileURLWithPath(filePath)<br />
+audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
 
 > // play the audio file
 audioPlayer.play()
