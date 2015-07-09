@@ -11,28 +11,25 @@ In order to be able to play audio files inside an iOS app, you first need to add
 
 Here is how this could translate into code:
 
-> // declare the audio player as a property
+> // declare the audio player as a property<br />
+var audioPlayer: AVAudioPlayer!
 
-> var audioPlayer: AVAudioPlayer!
-
-> // initialize the audio player
-
-> let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3")<br />
+> // initialize the audio player<br />
+let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3")<br />
 let url = NSURL.fileURLWithPath(filePath)<br />
 audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
 
-> // play the audio file
+> // play the audio file<br/>
 audioPlayer.play()
-
 
 Now you can apply various effects on the audio file, such as increasing/decreasing the speed or the pitch. For changing the playback speed you need to first enable the audio player's __rate__ property:
 
-> // right after initializing audioPlayer, enable the rate
+> // right after initializing audioPlayer, enable the rate<br />
 audioPlayer.enableRate = true
 
 Then inside your calling method you can set the rate to a value between __0.5__ (slowest) and __2.0__ (fastest). A value of __1.0__ would be the normal speed, so you can play the file at any speed from half the normal speed to double the normal speed.
 
-> // before playing the audio file change the rate
+> // before playing the audio file change the rate<br />
 audioPlayer.rate = 0.5
 
 To change the pitch of the audio file
