@@ -34,7 +34,7 @@ audioPlayer.rate = 0.5
 
 To change the pitch of the audio file
 
-Here is the complete code:
+Here is the complete code:<br />
 {% highlight swift %}
 // declare the audio player as a property
 var audioPlayer: AVAudioPlayer!
@@ -52,7 +52,7 @@ func playAudio(sender: UIButton) {
         audioPlayer.rate = 0.5
         audioPlayer.play()
     }
-{% endhighlight %}
+{% endhighlight %}<br />
 You can also see [my demo app](https://github.com/mhorga/PitchPerfect) (based on Udacity's course) using all these concepts.
 
 Until next time!
