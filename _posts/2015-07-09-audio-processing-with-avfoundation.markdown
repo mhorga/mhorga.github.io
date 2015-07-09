@@ -24,7 +24,7 @@ audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
 audioPlayer.play()
 {% endhighlight %}
 
-Now you could apply various effects on the audio file, such as increasing/decreasing the _speed_ or the _pitch_. For changing the playback speed you need to first enable the audio player's __rate__ property. Then inside your calling method you can set the rate to a value between __0.5__ (slowest) and __2.0__ (fastest). A value of __1.0__ would be the normal speed, so you can play the file at any speed from half the normal speed to double the normal speed.
+Now you could apply various effects on the audio file, such as increasing and decreasing the _speed_ or the _pitch_. For changing the playback speed you need to first enable the audio player's __rate__ property. Then inside your calling method you can set the rate to a value between __0.5__ (slowest) and __2.0__ (fastest). A value of __1.0__ would be the normal speed, so you can play the file at any speed from half the normal speed to double the normal speed.
 
 {% highlight swift %} 
 // right after initializing audioPlayer, enable its rate
@@ -45,7 +45,7 @@ To change the pitch of the audio file, the following steps need to take place in
 - connect AVAudioUnitTimePitch to an output
 - play the audio file
 
-The pitch is measured in _cents_, a logarithmic value used for measuring musical intervals. One octave equals 1200 cents. One musical semitone is equal to 100 cents. The default value is 1.0 (normal pitch). The range of values is -2400 (lowest pitch) to 2400 (highest pitch). Here is how this could translate into code:
+The __pitch__ is measured in _cents_, a logarithmic value used for measuring musical intervals. One octave equals 1200 cents. One musical semitone is equal to 100 cents. The default value is 1.0 (normal pitch). The range of values is -2400 (lowest pitch) to 2400 (highest pitch). Here is how this could translate into code:
 
 {% highlight swift %}
 // declare the audio engine as a property 
