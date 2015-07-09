@@ -14,13 +14,16 @@ Here is how this could translate into code:
 > // declare the audio player as a property
 var audioPlayer: AVAudioPlayer!
 
+
 > // initialize the audio player
 let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3")
 let url = NSURL.fileURLWithPath(filePath)
 audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
 
+
 > // play the audio file
 audioPlayer.play()
+
 
 Now you can apply various effects on the audio file, such as increasing/decreasing the speed or the pitch. For changing the playback speed you need to first enable the audio player's __rate__ property:
 
