@@ -32,27 +32,20 @@ Then inside your calling method you can set the rate to a value between __0.5__ 
 > // before playing the audio file change the rate<br />
 audioPlayer.rate = 0.5
 
-To change the pitch of the audio file
+To change the pitch of the audio file, the following steps need to take place in order:
 
-Here is the complete code:<br />
+- create an AVAudioEngine object
+- create an AVAudioPlayerNode object
+- attach AVAudioPlayerNode to AVAudioEngine
+- create an AVAudioUnitTimePitch object
+- attach AVAudioUnitTimePitch to AVAudioEngine
+- connect AVAudioPlayerNode to AVAudioUnitTimePitch
+- connect AVAudioUnitTimePitch to an output
+
 {% highlight swift %}
-// declare the audio player as a property
-var audioPlayer: AVAudioPlayer!
-// initialize the audio player
-override func viewDidLoad() {
-        super.viewDidLoad()
-        if let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3") {
-            let url = NSURL.fileURLWithPath(filePath)
-            audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
-            audioPlayer.enableRate = true
-        }
-    }
-// play the audio file
-func playAudio(sender: UIButton) {
-        audioPlayer.rate = 0.5
-        audioPlayer.play()
-    }
-{% endhighlight %}<br />
-You can also see [my demo app](https://github.com/mhorga/PitchPerfect) (based on Udacity's course) using all these concepts.
+
+{% endhighlight %}
+
+You can see [my demo app](https://github.com/mhorga/PitchPerfect) (based on Udacity's course) using all these concepts.
 
 Until next time!
