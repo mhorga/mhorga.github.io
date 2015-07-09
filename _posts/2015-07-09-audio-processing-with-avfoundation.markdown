@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Audio processing with AVFoundation
 layout: post
 ---
