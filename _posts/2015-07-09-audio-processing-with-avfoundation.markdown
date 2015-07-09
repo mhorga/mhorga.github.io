@@ -12,8 +12,8 @@ In order to be able to play audio files inside an iOS app, you first need to add
 Here is how this could translate into code:
 
 > // declare the audio player as a property
-var audioPlayer: AVAudioPlayer!
 
+> var audioPlayer: AVAudioPlayer!
 
 > // initialize the audio player
 let filePath = NSBundle.mainBundle().pathForResource("myAudioFile", ofType: "mp3")
