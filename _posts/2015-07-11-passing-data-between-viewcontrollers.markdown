@@ -27,7 +27,7 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = receivedData
+        label.text = "\(receivedData)"
     }
 
     @IBAction func goBack(sender: UIButton) {
@@ -70,7 +70,7 @@ For the third button we need to create another segue named __ButtonThreeSegue__ 
 {% highlight swift %} 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ButtonThreeSegue" {
-            let controller = segue.destinationViewController as! ResultViewController
+            let controller = segue.destinationViewController as! SecondViewController
             controller.receivedData = 3
         }
     }
