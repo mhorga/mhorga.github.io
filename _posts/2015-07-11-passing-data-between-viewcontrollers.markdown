@@ -39,41 +39,41 @@ class SecondViewController: UIViewController {
 Now let's focus on the first button. We want to send some data to the SecondViewController when it's pressed. For this we need to first give the second view an identifier named _SecondViewController_ (or some other name of your choice) under the _Identity Inspector_ in the storyboard. Now we can instantiate the second view by its identifier like this:
 
 {% highlight swift %} 
-    @IBAction func sendData(sender: UIButton) {
-        if sender == buttonOne {
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController") as! SecondViewController
-            controller.receivedData = 1
-            self.presentViewController(controller, animated: true, completion: nil)
-        }
+@IBAction func sendData(sender: UIButton) {
+    if sender == buttonOne {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController") as! SecondViewController
+        controller.receivedData = 1
+        self.presentViewController(controller, animated: true, completion: nil)
     }
+}
 {% endhighlight %}
 
 For the second button we need to create a segue named __ButtonTwoSegue__ that connects the first view to the second view. Now, inside the _sendData()_ method right after the __if__ statement append an __else__ statement where we handle the action for our second button:
 
 {% highlight swift %} 
-    @IBAction func sendData(sender: UIButton) {
-        if sender == buttonOne {
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController") as! SecondViewController
-            controller.receivedData = 1
-            self.presentViewController(controller, animated: true, completion: nil)
-        } 
-        else if sender == buttonTwo {
-            // notice that we do not change receivedData here - we leave it to its default value of 2
-            performSegueWithIdentifier("ButtonTwoSegue", sender: self)
-        } 
-        // else, do nothing else anymore - for the third button we create another method
+@IBAction func sendData(sender: UIButton) {
+    if sender == buttonOne {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController") as! SecondViewController
+        controller.receivedData = 1
+        self.presentViewController(controller, animated: true, completion: nil)
     }
+    else if sender == buttonTwo {
+        // notice that we do not change receivedData here - we leave it to its default value of 2
+        performSegueWithIdentifier("ButtonTwoSegue", sender: self)
+    }
+    // else, do nothing else anymore - for the third button we create another method
+}
 {% endhighlight %}
 
 For the third button we need to create another segue named __ButtonThreeSegue__ that connects buttonThree this time (not the first view) to the second view. Now, we override the _prepareForSegue()_ method to pass the data when the third button is pressed:
 
 {% highlight swift %} 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ButtonThreeSegue" {
-            let controller = segue.destinationViewController as! SecondViewController
-            controller.receivedData = 3
-        }
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ButtonThreeSegue" {
+        let controller = segue.destinationViewController as! SecondViewController
+        controller.receivedData = 3
     }
+}
 {% endhighlight %}
 
 At this point you can run your project and try each of the three buttons to see how the label has a _receivedData_ value of 1, 2 or 3 depending on what button was pressed.
