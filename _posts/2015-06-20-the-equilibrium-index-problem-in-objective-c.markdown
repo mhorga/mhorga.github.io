@@ -84,5 +84,5 @@ int equilibrium(NSMutableArray *A) {
 <br />
 Using this solution I got the perfect score:
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/equi_good.png "Good score")
-
+ 
 Until next time!
