@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Passing data between View Controllers
 layout: post
 ---
