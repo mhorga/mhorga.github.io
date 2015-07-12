@@ -48,7 +48,7 @@ Now let's focus on the first button. We want to send some data to the SecondView
     }
 {% endhighlight %}
 
-For the second button we need to create a segue named __ButtonTwoSegue__ that connects the first view to the second view. Now, inside the _sendData()_ method right after the _if_ statement append an __else__ statement where we handle the action for our second button:
+For the second button we need to create a segue named __ButtonTwoSegue__ that connects the first view to the second view. Now, inside the _sendData()_ method right after the __if__ statement append an __else__ statement where we handle the action for our second button:
 
 {% highlight swift %} 
     @IBAction func sendData(sender: UIButton) {
@@ -65,7 +65,7 @@ For the second button we need to create a segue named __ButtonTwoSegue__ that co
     }
 {% endhighlight %}
 
-For the third button we need to create another segue named __ButtonThreeSegue__ that connects buttonThree this time (not the first view) to the second view. Now, we override the method _prepareForSegue()_ method right after the _if_ statement append an __else__ statement where we handle the action for our second button:
+For the third button we need to create another segue named __ButtonThreeSegue__ that connects buttonThree this time (not the first view) to the second view. Now, we override the _prepareForSegue()_ method to pass the data when the third button is pressed:
 
 {% highlight swift %} 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
