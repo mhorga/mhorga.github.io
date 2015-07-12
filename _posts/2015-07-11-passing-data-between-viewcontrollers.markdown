@@ -77,5 +77,5 @@ For the third button we need to create another segue named __ButtonThreeSegue__ 
 {% endhighlight %}
 
 At this point you can run your project and try each of the three buttons to see how the label has a _receivedData_ value of 1, 2 or 3 depending on what button was pressed.
-
+ 
 Until next time!
