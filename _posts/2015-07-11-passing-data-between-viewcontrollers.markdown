@@ -36,7 +36,7 @@ class SecondViewController: UIViewController {
 }
 {% endhighlight %}
 
-Now let's focus on the first button. We want to send some data to the SecondViewController when it's pressed. For this we need to first give the second view an identifier named _SecondViewController_ (or some other name of your choice) under the _Identity Inspector_ in the storyboard. Now we can instantiate the second view by its identifier like this:
+Now let's focus on the first button. We want to send some data to the SecondViewController when it's pressed. For this we need to first give the second view an identifier (Storyboard ID) named _SecondViewController_ (or some other name of your choice) under the _Identity Inspector_ in the storyboard. Now we can instantiate the second view by its identifier like this:
 
 {% highlight swift %} 
 @IBAction func sendData(sender: UIButton) {
