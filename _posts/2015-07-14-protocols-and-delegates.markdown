@@ -22,13 +22,8 @@ class ViewController: UIViewController {
     // Delegate objects
     
     // Life Cycle Methods
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     // Delegate Methods
-    
 }
 
 {% endhighlight %}
@@ -44,47 +39,49 @@ In the storyboard, create three text field objects. In the view controller creat
 
 {% endhighlight %}
 
-Next let's use protocols in three different ways. First, create a Swift file named ZipCodeDelegate:
+Next let's use protocols in three different ways for each of the three text fields. First, create a Swift file named FirstDelegate:
 
 {% highlight swift %} 
 
-class ZipCodeDelegate: NSObject, UITextFieldDelegate {
+import UIKit
 
+class FirstDelegate: NSObject, UITextFieldDelegate {
     override init() {
         super.init()
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        textField.textColor = UIColor.greenColor()
+        return true
     }
 } 
 
 {% endhighlight %}
 
-Since this class conforms to the UITextFieldDelegate protocol we can also use ZipCodeDelegate type as protocol. Now create a second Swift file named CashDelegate:
+Since this class conforms to the UITextFieldDelegate protocol we can also use FirstDelegate type as protocol, so we implemented its method named _textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String)_ and the only thing this method will do is change the text field's text color to _green_. Now create a second Swift file named SecondDelegate:
 
 {% highlight swift %} 
 
-class Cash: NSObject {
-    
-    var delegate: CashDelegate?
-    
+import UIKit
+
+class Second: NSObject {
     override init() {
         super.init()
     }
 }
 
-protocol CashDelegate: UITextFieldDelegate {
-    
+protocol SecondDelegate {
+    func protocolMethod(textField: UITextField)
 }
 
 {% endhighlight %}
 
-Notice that this time the Cash class does not conform to UITextFieldDelegate anymore. Instead we created a protocol named CashDelegate that conforms to UITextFieldDelegate. Inside the Cash class we declare a delegate variable of type CashDelegate so we can use it later in other classes that want to conform to the CashDelegate protocol.
-
-Let's head back to the view controller and declare a couple of class properties for the delegates:
+Notice that this time the Second class does not conform to UITextFieldDelegate anymore. Instead we created a protocol named SecondDelegate so we can use it later in other classes that want to conform to the SecondDelegate protocol. Inside this protocol we declare a new method _protocolMethod()_ which conforming classes will need to implement. Let's head back to the view controller and declare a class property for the FirstDelegate protocol:
 
 {% highlight swift %} 
 
     // Delegate objects
-    let zipCodeDelegate = ZipCodeDelegate()
-    let cashDelegate = Cash().delegate
+    let firstDelegate = FirstDelegate()
 
 {% endhighlight %}
 
@@ -92,16 +89,44 @@ In the _viewDidLoad()_ method set the delegates:
 
 {% highlight swift %} 
 
+    // Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.textField1.delegate = self
-        self.textField2.delegate = zipCodeDelegate
-        self.textField3.delegate = cashDelegate
+        textField1.delegate = self
+        textField2.delegate = firstDelegate
+        protocolMethod(textField3)
     }
 
 {% endhighlight %}
 
-Notice that the first text field's delegate is set to __self__. This means the view controller itself is the delegate in this case, and later it will implement methods from the protocol it conforms to.
+Notice that the first text field's delegate is set to __self__. This means the view controller itself is the delegate in this case, and later it will implement methods from the protocol it conforms to. We want our view controller to conform to the other two protocols we need, so change the class signature accordingly:
+
+{% highlight swift %} 
+
+class ViewController: UIViewController, UITextFieldDelegate, SecondDelegate {
+
+{% endhighlight %}
+
+You will notice we now see an error:
+
+`Type 'ViewController' does not conform to protocol 'SecondDelegate'`
+
+To fix this, we need to implement the delegate methods for the protocols we conformed to:
+
+{% highlight swift %} 
+
+    // Delegate Methods
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        textField.textColor = UIColor.redColor()
+        return true
+    }
+    
+    func protocolMethod(textField: UITextField) {
+        textField.textColor = UIColor.blueColor()
+    }
+
+{% endhighlight %}
+
+Now run the program and try typing text in each of the three text fields. You will notice that the first one is red, the second one is green and the third one is blue. To recap, we conformed to _UITextFieldDelegate_ to color the text, then we used a delegate for the _FirstDelegate_ class, and finally we conformed to SecondDelegate and implemented a new method for this protocol.
 
 Until next time!
