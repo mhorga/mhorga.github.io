@@ -33,4 +33,15 @@ class ViewController: UIViewController {
 
 {% endhighlight %}
 
+In the storyboard, create three text field objects. In the view controller create outlets for all the text fields: 
+
+{% highlight swift %} 
+
+    // Outlets
+    @IBOutlet weak var textField1: UITextField!
+    @IBOutlet weak var textField2: UITextField!
+    @IBOutlet weak var textField3: UITextField!    
+
+{% endhighlight %}
+
 Until next time!
