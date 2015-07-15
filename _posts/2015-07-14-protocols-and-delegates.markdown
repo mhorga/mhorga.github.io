@@ -102,6 +102,6 @@ In the _viewDidLoad()_ method set the delegates:
 
 {% endhighlight %}
 
-Notice that the first text field's delegate is set to __self__.
+Notice that the first text field's delegate is set to __self__. This means the view controller itself is the delegate in this case, and later it will implement methods from the protocol it conforms to.
 
 Until next time!
