@@ -6,13 +6,14 @@ layout: post
 We start with an empty view controller template like this:
 
 {% highlight swift %} 
+
 import UIKit
 
 class ViewController: UIViewController {
 
     // Outlets
     
-    // Text Field Delegate objects
+    // Delegate objects
     
     // Life Cycle Methods
 
@@ -20,9 +21,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // Text Field Delegate Methods
+    // Delegate Methods
     
 }
+
 {% endhighlight %}
 
 Until next time!
