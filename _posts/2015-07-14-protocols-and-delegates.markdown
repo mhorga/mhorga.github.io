@@ -44,4 +44,64 @@ In the storyboard, create three text field objects. In the view controller creat
 
 {% endhighlight %}
 
+Next let's use protocols in three different ways. First, create a Swift file named ZipCodeDelegate:
+
+{% highlight swift %} 
+
+class ZipCodeDelegate: NSObject, UITextFieldDelegate {
+
+    override init() {
+        super.init()
+    }
+} 
+
+{% endhighlight %}
+
+Since this class conforms to the UITextFieldDelegate protocol we can also use ZipCodeDelegate type as protocol. Now create a second Swift file named CashDelegate:
+
+{% highlight swift %} 
+
+class Cash: NSObject {
+    
+    var delegate: CashDelegate?
+    
+    override init() {
+        super.init()
+    }
+}
+
+protocol CashDelegate: UITextFieldDelegate {
+    
+}
+
+{% endhighlight %}
+
+Notice that this time the Cash class does not conform to UITextFieldDelegate anymore. Instead we created a protocol named CashDelegate that conforms to UITextFieldDelegate. Inside the Cash class we declare a delegate variable of type CashDelegate so we can use it later in other classes that want to conform to the CashDelegate protocol.
+
+Let's head back to the view controller and declare a couple of class properties for the delegates:
+
+{% highlight swift %} 
+
+    // Delegate objects
+    let zipCodeDelegate = ZipCodeDelegate()
+    let cashDelegate = Cash().delegate
+
+{% endhighlight %}
+
+In the _viewDidLoad()_ method set the delegates:
+
+{% highlight swift %} 
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.textField1.delegate = self
+        self.textField2.delegate = zipCodeDelegate
+        self.textField3.delegate = cashDelegate
+    }
+
+{% endhighlight %}
+
+Notice that the first text field's delegate is set to __self__.
+
 Until next time!
