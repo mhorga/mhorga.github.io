@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 {% endhighlight %}
 
 You will immediately notice an error message:
+
 `Type 'ViewController' does not conform to protocol 'UITableViewDataSource'`
 
 This is because the protocol we want to conform to has at least two methods that we are forced to implement. Delete everything inside ViewController, and add a new array with a few cities as values:
@@ -24,7 +25,7 @@ This is because the protocol we want to conform to has at least two methods that
 
 {% endhighlight %}
 
-Now add the two method that the _UITableViewDataSource_ protocol needs implemented:
+Now add the two methods that the _UITableViewDataSource_ protocol needs implemented:
 
 {% highlight swift %} 
 
@@ -41,18 +42,16 @@ Now add the two method that the _UITableViewDataSource_ protocol needs implement
 
 {% endhighlight %}
 
-In the first method, the only notable thing is how the number of rows is returned - as the size of our array. In the second method, we first create our cell as a UITableViewCell type and identified by the string "MyCellReuseIdentifier" which we set in the storyboard at the beginning. What happens next is interesting: each cell's title will be one value from our array, while the cell's subtitle will be always the same string because we set it this way. 
-
-Now save your work and run the project. It should look like this:
+In the first method, the only notable thing is how the number of rows is returned - as the size of our array. In the second method, we first create our cell as a UITableViewCell type and identified by the string "MyCellReuseIdentifier" which we set in the storyboard at the beginning. What happens next is interesting: each cell's title will be one value from our array, while the cell's subtitle will be always the same string because we set it this way. Now save your work and run the project. It should look like this:
 
 ![simulator](https://github.com/mhorga/mhorga.github.io/blob/master/images/simulator1.png "Simulator")
 
-Wasn't it amazing to be able set up a functional app that handles data in table view cells, in just a couple of minutes?  Suggestions for a more advanced project:
+Wasn't it great to be able set up a functional app that handles data in table view cells, in just a couple of minutes?  Suggestions for a more advanced project:
 
 - move the array in a Model class so we can use a proper MVC design pattern
 - set a bigger cell height so it can fit more content
 - add labels and images to your cell for a richer content
-- create a custom table view cell class and move all the cell details into it; then dequeue a reusable cell as your new cell type instead of UITableViewCell
-- make the cell scrolling dynamic so they are only populated with content when they appear on the screen 
+- create a custom table view cell class and move all the cell details into it
+- then dequeue a reusable cell as your new cell type instead of UITableViewCell
 
 Until next time!
