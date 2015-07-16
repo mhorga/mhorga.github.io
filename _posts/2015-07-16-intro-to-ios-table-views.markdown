@@ -21,7 +21,7 @@ This is because the protocol we want to conform to has at least two methods that
 
 {% highlight swift %} 
 
-    let array = ["Chicago", "New York", "San Francisco"]
+let array = ["Chicago", "New York", "San Francisco"]
 
 {% endhighlight %}
 
@@ -29,16 +29,16 @@ Now add the two methods that the _UITableViewDataSource_ protocol needs implemen
 
 {% highlight swift %} 
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyCellReuseIdentifier") as! UITableViewCell
-        cell.textLabel?.text = array[indexPath.row]
-        cell.detailTextLabel?.text = "One of the largest IT job markets in US."
-        return cell
-    }
+func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return array.count
+}
+
+func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("MyCellReuseIdentifier") as! UITableViewCell
+    cell.textLabel?.text = array[indexPath.row]
+    cell.detailTextLabel?.text = "One of the largest IT job markets in US."
+    return cell
+}
 
 {% endhighlight %}
 
