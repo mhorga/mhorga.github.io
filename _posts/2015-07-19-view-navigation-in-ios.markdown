@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: View navigation in iOS
 layout: post
 ---
