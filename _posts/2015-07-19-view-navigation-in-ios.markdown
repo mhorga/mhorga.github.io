@@ -36,6 +36,6 @@ What we did here was to add a button at the right side end of the navigation bar
     }
 {% endhighlight %}
 
-If you run the project and navigate all the way to _scene 4_ or _scene 5_ and then click the _Start Over_ button, you will notice that __deallocated__ is printed out twice, because the _scene 4/5_ is dismissed first, and then _scene 3_ is dismissed before reaching back to the home scene (_scene 1_). You now have the barebones for creating a great adventure game with lots and lots of scenes. To make the app more interesting, you could add some images beside the existing text. To make it even more interesting you could use a table view on the home scene to present a set of different adventures, instead of just this one.
+If you run the project and navigate all the way to _scene 4_ or _scene 5_ and then click the _Start Over_ button, you will notice that __deallocated__ is printed out twice, because the _scene 4/5_ is dismissed first, and then _scene 3_ is dismissed before reaching the home scene (_scene 1_). You now have the barebones for creating a great adventure game with lots and lots of scenes. To make the app more interesting, you could add some images beside the existing text. To make it even more interesting you could use a table view on the home scene to present a set of different adventures, instead of just this one.
 
 Until next time!
