@@ -25,7 +25,7 @@ As a quick __vi__ refresher, to insert text use the __i__ key, and when you are 
 #!/usr/bin/swift
 {% endhighlight %}
 
-Next we importing _WebKit_ and set up the application. We could have just imported _Cocoa_ because that is all we need to run a graphical _Cocoa_ application, but we also need _WebKit_ later, and it turns out _WebKit_ already imports _Cocoa_ so we can save one redundant import this way. Every _Cocoa_ app needs exactly one instance of _NSApplication_ instantiated. Then we set the activation policy of this app to __regular__ which means this app will appear in the _Dock_:
+Next we import _WebKit_ and set up the application. We could have just imported _Cocoa_ because that is all we need to run a graphical _Cocoa_ application, but we also need _WebKit_ later, and it turns out _WebKit_ already imports _Cocoa_ so we can save one redundant import this way. Every _Cocoa_ app needs exactly one instance of _NSApplication_ instantiated. Then we set the activation policy of this app to __regular__ which means this app will appear in the _Dock_:
 
 {% highlight swift %}
 import WebKit
