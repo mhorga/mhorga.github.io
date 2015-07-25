@@ -83,6 +83,6 @@ $ chmod 755 browser.swift
 $ ./browser.swift
 {% endhighlight %}
 
-There's our beautiful web browser :-)
+There is our beautiful web browser :-)
 
 Until next time!
