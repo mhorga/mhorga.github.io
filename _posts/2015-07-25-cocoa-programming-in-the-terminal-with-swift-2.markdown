@@ -83,6 +83,6 @@ $ chmod 755 browser.swift
 $ ./browser.swift
 {% endhighlight %}
 
-There is our beautiful web browser =]
+There is our beautiful web browser. Thanks, [PracticalSwift](http://practicalswift.com/2014/06/27/a-minimal-webkit-browser-in-30-lines-of-swift/), for the nice introduction to writing a minimal web browser.
 
 Until next time!
