@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Cocoa programming in the terminal with Swift 2
 layout: post
 ---
