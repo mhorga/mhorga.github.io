@@ -19,7 +19,7 @@ Now create a new Swift file in the terminal:
 $ vi browser.swift
 {% endhighlight %}
 
-As a quick __vi__ refresher, to insert text use the __i__ key, and when you are done press the __Esc__ key to exit the from the _edit mode_ and then type __:wq__ to save and quit _vi_. Make sure the first line contains the __shebang__ symbol __(#!)__ followed by the path we found above. This line tells the Swift compiler to run the file without compiling it:
+As a quick __vi__ refresher, to insert text use the __i__ key, and when you are done press the __Esc__ key to exit the _edit mode_, and then type __:wq__ to save and quit _vi_. Make sure the first line contains the __shebang__ symbol __(#!)__ followed by the path we found above. This line tells the Swift compiler to run the file without compiling it:
 
 {% highlight swift %}
 #!/usr/bin/swift
