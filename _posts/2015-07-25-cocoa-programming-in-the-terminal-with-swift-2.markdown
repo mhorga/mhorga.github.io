@@ -44,7 +44,39 @@ window.title = "Minimal Swift WebKit Browser"
 window.makeKeyAndOrderFront(window)
 {% endhighlight %}
 
-Finally, change the permissions on our file to make it an executable, and then run it. 
+Next we create and connect a window delegate that will terminate the application when the close window button is clicked:
+
+{% highlight swift %}
+class WindowDelegate: NSObject, NSWindowDelegate {
+    func windowWillClose(notification: NSNotification) {
+        NSApplication.sharedApplication().terminate(0)
+    }
+}
+let windowDelegate = WindowDelegate()
+window.delegate = windowDelegate
+{% endhighlight %}
+
+Finally, we create an application delegate that we need in order to create the WebView object. Then we connect the application delegate, and set the app up so we can run it:
+
+{% highlight swift %}
+class ApplicationDelegate: NSObject, NSApplicationDelegate {
+    var _window: NSWindow
+    init(window: NSWindow) {
+        self._window = window
+    }
+    func applicationDidFinishLaunching(notification: NSNotification) {
+        let webView = WebView(frame: self._window.contentView.frame)
+        self._window.contentView.addSubview(webView)
+        webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "https://www.google.com/ncr")!))
+    }
+}
+let applicationDelegate = ApplicationDelegate(window: window)
+application.delegate = applicationDelegate
+application.activateIgnoringOtherApps(true)
+application.run()
+{% endhighlight %}
+
+Exit the _edit mode_, save and quit _vi_. Finally, change the permissions for our file to make it executable, and then run it. 
 
 {% highlight swift %}
 $ chmod 755 browser.swift
