@@ -5,7 +5,7 @@ layout: post
 ---
 In this short introduction to _networking_ in iOS, we will access images from _Flickr_. To start, go to the [Flickr API](flickr.com/services/api) web page and create an _API Key_ for your app. Once you have your key created, let's start by creating a new _Single View Application_ in _Xcode_. In the storyboard add an image view, a label and a button. Put the necessary constraints, and now let's connect the UI elements to our view controller. Create two _outlets_ for the image view and the label, and an _action_ for the button. The action will only serve one purpose: call the method that gets the images from Flickr.
 
-On to the view controller, make sure to assign the API Key you created earlier to the __key__ variable. The __gallery_id__ represents just a sample gallery I chose but you could use yours if you have one. The skeleton code looks like this:
+In the view controller class, make sure to assign the API Key you created earlier to the __key__ variable. The __gallery_id__ represents just a sample gallery I chose but you could use yours if you have one. The skeleton code looks like this:
 
 {% highlight swift %}     
 class ViewController: UIViewController {
