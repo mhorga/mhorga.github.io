@@ -59,15 +59,7 @@ In the completion handler, we parse the JSON response data and turn it into usab
 
 {% highlight swift %}     
 /* 3 - Parse the data */
-let parsedResult: AnyObject!
-do {
-    parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-} catch let error as NSError {
-    print("\(error)")
-    parsedResult = nil
-} catch {
-    fatalError()
-}
+let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
 if let photosDictionary = parsedResult.valueForKey("photos") as? NSDictionary {
     if let photoArray = photosDictionary.valueForKey("photo") as? [[String: AnyObject]] {        
         /* steps 4 - 6 */
