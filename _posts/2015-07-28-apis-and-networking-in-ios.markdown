@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: APIs and networking in iOS
 layout: post
 ---
