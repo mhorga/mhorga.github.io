@@ -48,7 +48,7 @@ In the next step, using the session and request, we instantiate the task for gra
 /* 2 - Initialize task for getting data */
 let task = session.dataTaskWithRequest(request) {data, response, downloadError in
     if let error = downloadError {
-        print("Could not complete the request \(error)", appendNewline: false)
+        print("Could not complete the request \(error)")
     } else {
         /* steps 3 - 6 */
     }
@@ -63,7 +63,7 @@ let parsedResult: AnyObject!
 do {
     parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
 } catch let error as NSError {
-    print("\(error)", appendNewline: false)
+    print("\(error)")
     parsedResult = nil
 } catch {
     fatalError()
@@ -72,10 +72,10 @@ if let photosDictionary = parsedResult.valueForKey("photos") as? NSDictionary {
     if let photoArray = photosDictionary.valueForKey("photo") as? [[String: AnyObject]] {        
         /* steps 4 - 6 */
     } else {
-        print("Cant find key 'photo' in \(photosDictionary)", appendNewline: false)
+        print("Cant find key 'photo' in \(photosDictionary)")
     }
 } else {
-    print("Cant find key 'photos' in \(parsedResult)", appendNewline: false)
+    print("Cant find key 'photos' in \(parsedResult)")
 }
 {% endhighlight %}
 
@@ -106,7 +106,7 @@ if let imageData = NSData(contentsOfURL: imageURL!) {
         self.photoTitle.text = photoTitle
     })
 } else {
-    print("Image does not exist at \(imageURL)", appendNewline: false)
+    print("Image does not exist at \(imageURL)")
 }
 {% endhighlight %}
 
