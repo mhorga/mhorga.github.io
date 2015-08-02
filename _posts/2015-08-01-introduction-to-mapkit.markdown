@@ -75,7 +75,7 @@ Now if you run the app again you can finally see the two annotation pins, and yo
 class ViewController: UIViewController, MKMapViewDelegate {
 {% endhighlight %}
 
-Next we will implement two of the delegate methods. First method configures the annotation with a small _info_ button on the right side of each pin:
+Next will implement two of the delegate methods. First method configures the annotation with a small __info__ button on the right side of each pin:
 
 {% highlight swift %}
 func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
