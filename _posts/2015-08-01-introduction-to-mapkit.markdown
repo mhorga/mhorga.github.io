@@ -30,7 +30,7 @@ Next, we will create a _MKPointAnnotation_ object for each dictionary in the __l
 var annotations = [MKPointAnnotation]()
 {% endhighlight %}
 
-Now let's iterate through our locations, populate the annotations with data, and store them in the array:
+Now let's iterate through our locations, populate the annotations with data, and store them in the __annotations__ array:
 
 {% highlight swift %}
 for dictionary in locations {
