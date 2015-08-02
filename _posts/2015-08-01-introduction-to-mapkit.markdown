@@ -108,6 +108,6 @@ Now if you run the app and tap on the _info_ button in any annotation, the URL s
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/simulator3.png "MapKit")
 
-There are a few interesting features that could be implemented further on. Notice that the locations we hardcoded in the array are similar to the _JSON_ data that you can download from _Parse_. It would be great if we can get them from the cloud instead of hardcoding them. Another useful feature would be to implement geocoding both ways, forward and reverse, so you can either input the latitude and longitude to find an address, or the opposite, input an address to find the latitude and longitude. You could also implement searching and displaying of nearby points of interest. The possibilities are unlimited.
+There are a few interesting features that could be implemented further on. Notice that the locations we hardcoded in the array are similar to the _JSON_ data that you can download from _Parse_. It would be great if we can get them from the cloud instead of hardcoding them. Another useful feature would be to implement _geocoding_ both forward and reverse, so you can either input the latitude and longitude to find an address, or the opposite, input an address to find the latitude and longitude. You could also implement searching and displaying of nearby __POI__ (points of interest). The possibilities are unlimited.
 
 Until next time!
