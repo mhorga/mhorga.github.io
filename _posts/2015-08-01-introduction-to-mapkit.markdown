@@ -34,9 +34,9 @@ Now let's iterate through our locations, populate the annotations with data, and
 
 {% highlight swift %}
 for dictionary in locations {
-    let lat = CLLocationDegrees(dictionary["latitude"] as! Double)
-    let long = CLLocationDegrees(dictionary["longitude"] as! Double)
-    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+    let latitude = CLLocationDegrees(dictionary["latitude"] as! Double)
+    let longitude = CLLocationDegrees(dictionary["longitude"] as! Double)
+    let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     let name = dictionary["name"] as! String
     let mediaURL = dictionary["mediaURL"] as! String
     let annotation = MKPointAnnotation()
