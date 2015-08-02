@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Introduction to MapKit
 layout: post
 ---
