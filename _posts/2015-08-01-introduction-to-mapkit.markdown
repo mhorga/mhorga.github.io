@@ -3,9 +3,9 @@ published: true
 title: Introduction to MapKit
 layout: post
 ---
-This time, we will look into how maps, locations and annotations work in iOS. Start by creating a new _Single View Application_ project in _Xcode_. Go to the storyboard and drag a _Map Kit View_ from the _Object Library_ on top of the view controller. Make it fit the entire view and set necessary constraints. There is one more thing we need to do in the storyboard, that is, create an outlet named __mapView__ for our _MKMapView_ object.
+This time, we will look into how maps, locations and annotations work in iOS. Start by creating a new _Single View Application_ project in _Xcode_. Go to the storyboard and drag a _Map Kit View_ from the _Object Library_ on top of the view controller. Make it fit the entire view and set necessary constraints. There is one more thing we need to do in the storyboard, create an outlet named __mapView__ for our _MKMapView_ object.
 
-In __viewDidLoad()__ let's create an array of dictionaries, and hardcode a couple of locations into it:
+In __viewDidLoad()__ let's create an array of dictionaries and hardcode a couple of locations into it:
 
 {% highlight swift %}
 let locations = [
@@ -20,7 +20,7 @@ let locations = [
 ]
 {% endhighlight %}
 
-Next, we will create an _MKPointAnnotation_ object for each dictionary in __locations__ array, and store the point annotation in an array:
+Next, we will create a _MKPointAnnotation_ object for each dictionary in the __locations__ array, and later we will store the object in an array:
 
 {% highlight swift %}
 var annotations = [MKPointAnnotation]()
@@ -65,7 +65,13 @@ This method takes in as arguments a location (annotation) and a radius in meters
 centerMapOnLocation(annotations[0], regionRadius: 1000.0)
 {% endhighlight %}
 
-Now if you run the app again you can finally see the two annotation pins, and you can click them to see the name and URL we set for each. There is one problem with the annotations, however. Probably you noticed you cannot load the URL in a browser. In order for this to work we need to conform to the __MKMapViewDelegate__ protocol, and implement two of its methods:
+Now if you run the app again you can finally see the two annotation pins, and you can click them to see the name and URL we set for each. There is one problem with the annotations, however. Probably you noticed you cannot load the URL in a browser. In order for this to work we need to conform to the __MKMapViewDelegate__ protocol:
+
+{% highlight swift %}
+class ViewController: UIViewController, MKMapViewDelegate {
+{% endhighlight %}
+
+Next we will implement two of the delegate methods. The first method configures the annotation with a small _info_ button on the right side of each pin:
 
 {% highlight swift %}
 func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -83,7 +89,7 @@ func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> 
 }
 {% endhighlight %}
 
-The first method configures the annotation with a small _info_ button on the right side of each pin. Notice the similarities between this method and the _cellForRowAtIndexPath_ method in a table view. The second method responds when the _info_ button is tapped:
+Notice the similarities between this method and the _cellForRowAtIndexPath_ method in a table view. The second method responds when the _info_ button is tapped:
 
 {% highlight swift %}
 func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
