@@ -18,10 +18,16 @@ Let's first create a _Single View Application_ project in _Xcode_. In the storyb
         } else if passwordTextField.text!.isEmpty {
             debugTextLabel.text = "Password Empty."
         } else {
-            // implement the authentication here
+            // create a session here
         }
     }
 {% endhighlight %}
+
+The next step would be for us to create a session after logging in was successful. The [API Sessions](https://www.themoviedb.org/documentation/api/sessions) documentation tells us what the steps are:
+
+- Step 1: Create a new request token
+- Step 2: Ask the user for permission via the API ("Login")
+- Step 3: Create a session ID
 
 {% highlight swift %}
 
