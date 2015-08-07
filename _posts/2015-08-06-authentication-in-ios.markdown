@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Authentication in iOS
 layout: post
 ---
@@ -194,12 +194,46 @@ If you log in again with your credentials, you should see the session ID printed
     }
 {% endhighlight %}
 
-Run the app again and if everything went right, you should see the user id displayed. Now that we got everything we need, we can go to a next screen and display personalized information about the user.
+Run the app again and if everything went right, you should see the user id displayed. Now that we got everything we need, we can display personalized information about the user. Replace the successful block in the code above with a call (_self.completeLogin()_) to a new method that we will create next:
 
 {% highlight swift %}
-    
+    func completeLogin() {
+        let getFavoritesMethod = "account/\(userID)/favorite/movies"
+        let urlString = baseURLSecureString + getFavoritesMethod + "?api_key=" + apiKey + "&session_id=" + sessionID!
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.debugTextLabel.text = "Cannot retrieve information about user \(self.userID)."
+                }
+                print("Could not complete the request \(error)")
+            } else {
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                if let results = parsedResult["results"] as? NSArray {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let firstFavorite = results.firstObject as? NSDictionary
+                        let title = firstFavorite?.valueForKey("title")
+                        self.debugTextLabel.text = "Title: \(title!)"
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "Cannot retrieve information about user \(self.userID)."
+                    }
+                    print("Could not find 'results' in \(parsedResult)")
+                }
+            }
+        }
+        task.resume()
+    }    
 {% endhighlight %}
 
+Run the application again and you should see the first movie from your favorites list printed on the label:
+
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/simulator4.png "Login")
+
+All the network calls we made so far are GET requests which means we have not written anything to our user account using the API. In order to be able to modify personalized information, such as adding or removing movies from the list of favorites, we need to make POST request using the same API. 
 
 Until next time!
