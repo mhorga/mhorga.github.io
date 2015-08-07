@@ -33,8 +33,8 @@ For the first step, let's write a method named __getRequestToken__ which constru
 
 {% highlight swift %}
     let apiKey = "YOUR_API_KEY"
-    let getTokenMethod = "/authentication/token/new"
-    let baseURLSecureString = "https://api.themoviedb.org/3"
+    let getTokenMethod = "authentication/token/new"
+    let baseURLSecureString = "https://api.themoviedb.org/3/"
     var requestToken: String?
 
     func getRequestToken() {
@@ -72,6 +72,7 @@ For the first step, let's write a method named __getRequestToken__ which constru
 Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token in order to get a _Session ID_. Replace the successful block in the code above with a call (_loginWithToken(self.requestToken)_) to a new method that we will create next:
 
 {% highlight swift %}
+    let getSessionIdMethod = "authentication/token/validate_with_login"
     var sessionID: String?
     
     func loginWithToken(requestToken: String) {
