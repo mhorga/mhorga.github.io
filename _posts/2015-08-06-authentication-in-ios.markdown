@@ -53,6 +53,7 @@ For the first step, let's write a method named __getRequestToken__ which constru
                 let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 if let requestToken = parsedResult["request_token"] as? String {
                     self.requestToken = requestToken
+                    // we will soon replace this successful block with a method call
                     dispatch_async(dispatch_get_main_queue()) {
                         self.debugTextLabel.text = "got request token: \(requestToken)"
                     }
@@ -68,7 +69,13 @@ For the first step, let's write a method named __getRequestToken__ which constru
     }
 {% endhighlight %}
 
-Try logging in using dummy credentials and you should see a successful message printed on the label.
+Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token. Replace the successful block in the code above with a call (_loginWithToken(self.requestToken)_) to a new method that we will create next:
+
+{% highlight swift %}
+
+{% endhighlight %}
+
+Now 
 
 {% highlight swift %}
 
