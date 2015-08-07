@@ -26,10 +26,10 @@ Let's first create a _Single View Application_ project in _Xcode_. In the storyb
 The next step would be for us to create a session after logging in was successful. The [API Sessions](https://www.themoviedb.org/documentation/api/sessions) documentation tells us what the steps are:
 
 - Step 1: Create a new request token
-- Step 2: Ask the user for permission via the API ("Login")
+- Step 2: Ask the user for permission via the API
 - Step 3: Create a session ID
 
-For the first step, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment (_// create a session here_). We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
+For _Step 1_, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment (_// create a session here_). We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
 
 {% highlight swift %}
     let apiKey = "YOUR_API_KEY"
@@ -69,7 +69,9 @@ For the first step, let's write a method named __getRequestToken__ which constru
     }
 {% endhighlight %}
 
-Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token. Replace the successful block in the code above with a call (_self.loginWithToken(self.requestToken!)_) to a new method that we will create next:
+Try logging in using dummy credentials and you should see a successful message printed on the label. 
+
+For _Step 2_, let's log in using the token we got in the first step. Replace the successful block in the code above with a call (_self.loginWithToken(self.requestToken!)_) to a new method that we will create next:
 
 {% highlight swift %}
     let getSessionIdMethod = "authentication/token/validate_with_login"
@@ -113,6 +115,8 @@ Try logging in using dummy credentials and you should see a successful message p
 {% endhighlight %}
 
 This time you will have to use your real credentials to log in. If everything went right you should see a successful message telling you that you are now logged in. 
+
+For _Step 3_, we need to get a Session ID.
 
 {% highlight swift %}
 
