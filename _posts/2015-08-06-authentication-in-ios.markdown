@@ -29,6 +29,47 @@ The next step would be for us to create a session after logging in was successfu
 - Step 2: Ask the user for permission via the API ("Login")
 - Step 3: Create a session ID
 
+For the first step, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment (_// create a session here_). We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
+
+{% highlight swift %}
+    let apiKey = "YOUR_API_KEY"
+    let getTokenMethod = "/authentication/token/new"
+    let baseURLSecureString = "https://api.themoviedb.org/3"
+    var requestToken: String?
+
+    func getRequestToken() {
+        let urlString = baseURLSecureString + getTokenMethod + "?api_key=" + apiKey
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.debugTextLabel.text = "Login Failed. (Request token.)"
+                }
+                print("Could not complete the request \(error)")
+            } else {
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                if let requestToken = parsedResult["request_token"] as? String {
+                    self.requestToken = requestToken
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "got request token: \(requestToken)"
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "Login Failed. (Request token.)"
+                    }
+                    print("Could not find request_token in \(parsedResult)")
+                }
+            }
+        }
+        task.resume()
+    }
+{% endhighlight %}
+
+Try logging in using dummy credentials and you should see a successful message printed on the label.
+
 {% highlight swift %}
 
 {% endhighlight %}
