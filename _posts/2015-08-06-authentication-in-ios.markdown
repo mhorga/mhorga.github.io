@@ -116,7 +116,45 @@ For _Step 2_, let's log in using the token we got in the first step. Replace the
 
 This time you will have to use your real credentials to log in. If everything went right you should see a successful message telling you that you are now logged in. 
 
-For _Step 3_, we need to get a Session ID.
+For _Step 3_, we need to get a session ID. Replace the successful login block in the code above with a call (_self.getSessionID(self.requestToken!)_) to a new method that we will create next:
+
+{% highlight swift %}
+    let getSessionIdMethod = "authentication/session/new"
+    var sessionID: String?
+
+    func getSessionID(requestToken: String) {
+        let parameters = "?api_key=\(apiKey)&request_token=\(requestToken)"
+        let urlString = baseURLSecureString + getSessionIdMethod + parameters
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.debugTextLabel.text = "Login Failed. (Session ID.)"
+                }
+                print("Could not complete the request \(error)")
+            } else {
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                if let sessionID = parsedResult["session_id"] as? String {
+                    self.sessionID = sessionID
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "Session ID: \(sessionID)"
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "Login Failed. (Session ID.)"
+                    }
+                    print("Could not find request_token in \(parsedResult)")
+                }
+            }
+        }
+        task.resume()
+    }
+{% endhighlight %}
+
+If you log in again with your credentials, you should see the session ID printed on the label. 
 
 {% highlight swift %}
 
