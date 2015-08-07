@@ -69,10 +69,14 @@ For the first step, let's write a method named __getRequestToken__ which constru
     }
 {% endhighlight %}
 
-Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token. Replace the successful block in the code above with a call (_loginWithToken(self.requestToken)_) to a new method that we will create next:
+Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token in order to get a _Session ID_. Replace the successful block in the code above with a call (_loginWithToken(self.requestToken)_) to a new method that we will create next:
 
 {% highlight swift %}
-
+    var sessionID: String?
+    
+    func loginWithToken(requestToken: String) {
+        
+    }
 {% endhighlight %}
 
 Now 
