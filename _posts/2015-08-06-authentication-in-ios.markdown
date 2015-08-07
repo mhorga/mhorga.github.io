@@ -105,7 +105,7 @@ For _Step 2_, let's log in using the token we got in the first step. Replace the
                         dispatch_async(dispatch_get_main_queue()) {
                             self.debugTextLabel.text = "Login Failed. (Login Step.)"
                         }
-                        print("Could not find request_token in \(parsedResult)")
+                        print("Could not find success in \(parsedResult)")
                     }
                 }
             }
@@ -146,7 +146,7 @@ For _Step 3_, we need to get a session ID. Replace the successful login block in
                     dispatch_async(dispatch_get_main_queue()) {
                         self.debugTextLabel.text = "Login Failed. (Session ID.)"
                     }
-                    print("Could not find request_token in \(parsedResult)")
+                    print("Could not find session_id in \(parsedResult)")
                 }
             }
         }
