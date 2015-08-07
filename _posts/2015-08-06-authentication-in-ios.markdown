@@ -73,7 +73,7 @@ func getRequestToken() {
 
 Try logging in using dummy credentials and you should see a successful message printed on the label. 
 
-For _Step 2_, let's log in using the token we got in the first step. Replace the successful block in the code above with a call (_self.loginWithToken(self.requestToken!)_) to a new method that we will create next:
+For _Step 2_, let's log in using the token we got in the first step. Replace the successful block above with a call (_self.loginWithToken(self.requestToken!)_) to a new method that we will create next:
 
 {% highlight swift %}
 let loginMethod = "authentication/token/validate_with_login"
