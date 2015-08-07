@@ -34,6 +34,7 @@ The next step would be for us to create a session after logging in was successfu
 For _Step 1_, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment line:
  
 `// create a session here`
+`self.getRequestToken()`
  
 We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
 
@@ -78,7 +79,9 @@ func getRequestToken() {
 Try logging in using dummy credentials and you should see a successful message printed on the label. 
 
 For _Step 2_, let's log in using the token we got in the first step. Replace the successful block above with a call:
+
 `self.loginWithToken(self.requestToken!)`
+
 to a new method that we will create next:
 
 {% highlight swift %}
@@ -126,7 +129,9 @@ func loginWithToken(requestToken: String) {
 This time you will have to use your real credentials to log in. If everything went right you should see a successful message telling you that you are now logged in. 
 
 For _Step 3_, we need to get a session ID. Replace the successful login block in the code above with a call:
+
 `self.getSessionID(self.requestToken!)`
+
 to a new method that we will create next:
 
 {% highlight swift %}
@@ -167,7 +172,9 @@ func getSessionID(requestToken: String) {
 {% endhighlight %}
 
 If you log in again with your credentials, you should see the session ID printed on the label. A next logical step would be to get the user ID using the session ID we just got. Replace the successful block in the code above with a call:
+
 `self.getUserID(self.sessionID!)`
+
 to a new method that we will create next:
 
 {% highlight swift %}
@@ -207,7 +214,9 @@ func getUserID(sessionID: String) {
 {% endhighlight %}
 
 Run the app again and if everything went right, you should see the user id displayed. Now that we got everything we need, we can display personalized information about the user. Replace the successful block in the code above with a call:
+
 `self.completeLogin()`
+
 to a new method that we will create next:
 
 {% highlight swift %}
