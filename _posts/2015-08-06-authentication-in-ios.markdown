@@ -34,6 +34,7 @@ The next step would be for us to create a session after logging in was successfu
 For _Step 1_, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment line:
  
 `// create a session here`
+
 `self.getRequestToken()`
  
 We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
