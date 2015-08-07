@@ -154,10 +154,18 @@ For _Step 3_, we need to get a session ID. Replace the successful login block in
     }
 {% endhighlight %}
 
-If you log in again with your credentials, you should see the session ID printed on the label. 
+If you log in again with your credentials, you should see the session ID printed on the label. A next logical step would be to get the user ID using the session ID we just got. Replace the block that displays the session ID in the code above with a call (_self.getUserID(self.sessionID!)_) to a new method that we will create next:
 
 {% highlight swift %}
+    let getUserIdMethod = "account"
+    var userID: Int?
 
+{% endhighlight %}
+
+Now that we got everything we need, we can go to a next screen.
+
+{% highlight swift %}
+    
 {% endhighlight %}
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/simulator4.png "Login")
