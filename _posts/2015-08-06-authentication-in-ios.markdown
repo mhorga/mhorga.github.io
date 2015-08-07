@@ -92,6 +92,7 @@ For _Step 2_, let's log in using the token we got in the first step. Replace the
             } else {
                 let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 if let success = parsedResult["success"] as? Bool {
+                    // we will soon replace this successful block with a method call
                     dispatch_async(dispatch_get_main_queue()) {
                         self.debugTextLabel.text = "Login status: \(success)"
                     }
@@ -139,6 +140,7 @@ For _Step 3_, we need to get a session ID. Replace the successful login block in
                 let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 if let sessionID = parsedResult["session_id"] as? String {
                     self.sessionID = sessionID
+                    // we will soon replace this successful block with a method call
                     dispatch_async(dispatch_get_main_queue()) {
                         self.debugTextLabel.text = "Session ID: \(sessionID)"
                     }
@@ -154,15 +156,44 @@ For _Step 3_, we need to get a session ID. Replace the successful login block in
     }
 {% endhighlight %}
 
-If you log in again with your credentials, you should see the session ID printed on the label. A next logical step would be to get the user ID using the session ID we just got. Replace the block that displays the session ID in the code above with a call (_self.getUserID(self.sessionID!)_) to a new method that we will create next:
+If you log in again with your credentials, you should see the session ID printed on the label. A next logical step would be to get the user ID using the session ID we just got. Replace the successful block in the code above with a call (_self.getUserID(self.sessionID!)_) to a new method that we will create next:
 
 {% highlight swift %}
     let getUserIdMethod = "account"
     var userID: Int?
 
+    func getUserID(sessionID: String) {
+        let urlString = baseURLSecureString + getUserIdMethod + "?api_key=" + apiKey + "&session_id=" + sessionID
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.debugTextLabel.text = "Login Failed. (Get userID.)"
+                }
+                print("Could not complete the request \(error)")
+            } else {
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                if let userID = parsedResult["id"] as? Int {
+                    self.userID = userID
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "your user id: \(userID)"
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "Login Failed. (Get userID.)"
+                    }
+                    print("Could not find user id in \(parsedResult)")
+                }
+            }
+        }
+        task.resume()
+    }
 {% endhighlight %}
 
-Now that we got everything we need, we can go to a next screen.
+Run the app again and if everything went right, you should see the user id displayed. Now that we got everything we need, we can go to a next screen and display personalized information about the user.
 
 {% highlight swift %}
     
