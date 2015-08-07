@@ -74,11 +74,11 @@ Try logging in using dummy credentials and you should see a successful message p
 For _Step 2_, let's log in using the token we got in the first step. Replace the successful block in the code above with a call (_self.loginWithToken(self.requestToken!)_) to a new method that we will create next:
 
 {% highlight swift %}
-    let getSessionIdMethod = "authentication/token/validate_with_login"
+    let loginMethod = "authentication/token/validate_with_login"
     
     func loginWithToken(requestToken: String) {
         let parameters = "?api_key=\(apiKey)&request_token=\(requestToken)&username=\(self.usernameTextField.text!)&password=\(self.passwordTextField.text!)"
-        let urlString = baseURLSecureString + getSessionIdMethod + parameters
+        let urlString = baseURLSecureString + loginMethod + parameters
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
