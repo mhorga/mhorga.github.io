@@ -69,18 +69,50 @@ For the first step, let's write a method named __getRequestToken__ which constru
     }
 {% endhighlight %}
 
-Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token in order to get a _Session ID_. Replace the successful block in the code above with a call (_loginWithToken(self.requestToken)_) to a new method that we will create next:
+Try logging in using dummy credentials and you should see a successful message printed on the label. Ok, now that we have a token let's log in using this token. Replace the successful block in the code above with a call (_self.loginWithToken(self.requestToken!)_) to a new method that we will create next:
 
 {% highlight swift %}
     let getSessionIdMethod = "authentication/token/validate_with_login"
-    var sessionID: String?
     
     func loginWithToken(requestToken: String) {
-        
+        let parameters = "?api_key=\(apiKey)&request_token=\(requestToken)&username=\(self.usernameTextField.text!)&password=\(self.passwordTextField.text!)"
+        let urlString = baseURLSecureString + getSessionIdMethod + parameters
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.debugTextLabel.text = "Login Failed. (Login Step.)"
+                }
+                print("Could not complete the request \(error)")
+            } else {
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                if let success = parsedResult["success"] as? Bool {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.debugTextLabel.text = "Login status: \(success)"
+                    }
+                } else {
+                    if let status_code = parsedResult["status_code"] as? Int {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let message = parsedResult["status_message"]
+                            self.debugTextLabel.text = "\(status_code): \(message!)"
+                        }
+                    } else {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.debugTextLabel.text = "Login Failed. (Login Step.)"
+                        }
+                        print("Could not find request_token in \(parsedResult)")
+                    }
+                }
+            }
+        }
+        task.resume()
     }
 {% endhighlight %}
 
-Now 
+This time you will have to use your real credentials to log in. If everything went right you should see a successful message telling you that you are now logged in. 
 
 {% highlight swift %}
 
