@@ -31,7 +31,7 @@ The next step would be for us to create a session after logging in was successfu
 - Step 4 (optional): Get the user id
 - Step 5 (optional): Display user information
 
-For _Step 1_, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment (_// create a session here_). We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
+For _Step 1_, let's write a method named __getRequestToken__ which constructs the necessary URL to get a token. We would then call this method inside the _loginButton_ action method, right after the comment `// create a session here`. We learned in the [APIs and networking in iOS](http://mhorga.org/2015/07/28/apis-and-networking-in-ios.html) post how to make a network call using _NSURLSession_ so let's just repeat those steps. Let's also add a few constants and variables we need:
 
 {% highlight swift %}
 let apiKey = "YOUR_API_KEY"
