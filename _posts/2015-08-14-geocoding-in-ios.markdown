@@ -31,7 +31,7 @@ func getLatLngForZip(zipCode: String) {
 }
 {% endhighlight %}
 
-This method looks pretty straightforward. First it constructs a URL using the base URL, a zip code, and the API key, then it serializes the data it finds at this URL into _JSON_ feed, and finally it parses the JSON response to obtain the latitude and longitude we were looking for. Now let's call this method in the __viewDidLoad()__ method:
+This method looks pretty straightforward. First it constructs a URL using the base URL, a zip code (provided as input argument), and the API key, then it serializes the data it finds at this URL into _JSON_ feed, and finally it parses the JSON response to obtain the latitude and longitude we were looking for. Now let's call this method in the __viewDidLoad()__ method:
 
 {% highlight swift %}
 getLatLngForZip("95014")
