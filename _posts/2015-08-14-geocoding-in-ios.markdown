@@ -63,7 +63,7 @@ func getAddressForLatLng(latitude: String, longitude: String) {
 }
 {% endhighlight %}
 
-This method is pretty similar with the first one. The only thing we changed is we provided the latitude and longitude as inputs to get the address information. Let's also call this method in __viewDidLoad()__:
+This method is pretty similar to the first one. The only thing we changed is we provided the latitude and longitude as inputs to get the address information. Let's also call this method in __viewDidLoad()__:
 
 {% highlight swift %}
 getAddressForLatLng("37.331", longitude: "-122.031")
