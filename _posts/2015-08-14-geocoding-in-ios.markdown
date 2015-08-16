@@ -69,7 +69,7 @@ This method is pretty similar to the first one. The only thing we changed is we 
 getAddressForLatLng("37.331", longitude: "-122.031")
 {% endhighlight %}
 
-Run the project again, and you should see the following output at the console:
+Run the project and you should see the following output at the console:
 
 {% highlight swift %}
 1 Infinite Loop, Cupertino, CA 95014
