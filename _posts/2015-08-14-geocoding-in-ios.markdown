@@ -43,7 +43,7 @@ If you run the project now, you will see the following output in the console:
 37.3132, -122.072
 {% endhighlight %}
 
-So it works! Now let's write a method for the _reverse geocoding_ using Google Maps:
+So it works! Next, let's write a method for _reverse geocoding_ using Google Maps:
 
 {% highlight swift %}
 func getAddressForLatLng(latitude: String, longitude: String) {
