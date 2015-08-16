@@ -160,6 +160,6 @@ United States
 Apple Inc.
 {% endhighlight %}
 
-You can read more about [Apple Geocoding](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/UsingGeocoders/UsingGeocoders.html) as well as [Google Geocoding](https://developers.google.com/maps/documentation/geocoding/intro). As a next step, you could take this information and place pins on a map view, for example, and show areas of interest. You can also implement a search feature for finding addresses based on your input. You could also implement an autocompletion feature for typing. There are many other opportunities you could think of.
+You can read more about [Apple Geocoding](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/UsingGeocoders/UsingGeocoders.html) as well as [Google Geocoding](https://developers.google.com/maps/documentation/geocoding/intro). As a next step, you could take this information and place pins on a map view, for example, and show areas of interest. You could also implement a search feature for finding addresses while you're typing. You could also implement an autocompletion feature while at it. There are many opportunities you could think of.
 
 Until next time!
