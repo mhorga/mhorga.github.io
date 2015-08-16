@@ -31,7 +31,7 @@ func getLatLngForZip(zipCode: String) {
 }
 {% endhighlight %}
 
-This method looks pretty straightforward. First it constructs a URL using the base URL, a zip code (provided as input argument), and the API key, then it serializes the data it finds at this URL into _JSON_ feed, and finally it parses the JSON response to obtain the latitude and longitude we were looking for. Now let's call this method in the __viewDidLoad()__ method:
+This method looks pretty straightforward. First it constructs a URL using the base URL, a zip code (provided as input argument), and the API key, then it serializes the data it finds at this URL into _JSON_ feed, and finally it parses the JSON response to obtain the latitude and longitude we were looking for. Now let's call this method in __viewDidLoad()__:
 
 {% highlight swift %}
 getLatLngForZip("95014")
@@ -63,7 +63,7 @@ func getAddressForLatLng(latitude: String, longitude: String) {
 }
 {% endhighlight %}
 
-This method is pretty similar to the first one. The only thing we changed is we provided the latitude and longitude as inputs to get the address information. Let's also call this method in __viewDidLoad()__:
+This method is pretty similar to the first one. The only thing we changed is we provided the latitude and longitude as inputs to get the address information. Let's call this method in __viewDidLoad()__:
 
 {% highlight swift %}
 getAddressForLatLng("37.331", longitude: "-122.031")
@@ -107,7 +107,7 @@ func forwardGeocoding(address: String) {
 }
 {% endhighlight %}
 
-Let's look at what this method does. First, it uses the __CLGeocoder__ class from the _CoreLocation_ framework to geocode an address we provide as input. In the method's _completion handler_ we parse the response and see what __placemark__ objects we found. We are particularly interested in the first one found, if there are more than one. Then we get the location coordinates and any areas of interest - as properties of the placemark. Now let's call this method in __viewDidLoad()__ again:
+Let's look at what this method does. First, it uses the __CLGeocoder__ class from the _CoreLocation_ framework to geocode an address we provide as input. In the method's _completion handler_ we parse the response and see what __placemark__ objects we found. We are particularly interested in the first one found, if there are more than one. Then we get the location coordinates and any areas of interest - as properties of the placemark. Now let's call this method in __viewDidLoad()__:
 
 {% highlight swift %}
 forwardGeocoding("1 Infinite Loop")
@@ -145,7 +145,7 @@ func reverseGeocoding(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
 }
 {% endhighlight %}
 
-The only detail we need to pay attention to in this method is the __ABCreateStringWithAddressDictionary__ class from the _AddressBookUI_ framework and which does the address parsing for us. This is really convenient as we do not need to care for any of the location fields if we just want to see the entire address. Let's also call this method in __viewDidLoad()__ one last time:
+The only detail we need to pay attention to in this method is the __ABCreateStringWithAddressDictionary__ class from the _AddressBookUI_ framework. This class does the address parsing for us which is really convenient as we do not need to care for any of the location fields, if we just want to see the entire address. Let's also call this method in __viewDidLoad()__:
 
 {% highlight swift %}
 reverseGeocoding(37.3316851, longitude: -122.0300674)
