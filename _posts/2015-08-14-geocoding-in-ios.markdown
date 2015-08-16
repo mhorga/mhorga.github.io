@@ -145,7 +145,7 @@ func reverseGeocoding(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
 }
 {% endhighlight %}
 
-The only detail we need to pay attention in this method is  __ABCreateStringWithAddressDictionary__ which is a class from the _AddressBookUI_ framework and which does the address parsing for us. This is really convenient as we do not need to care for any of the location fields if we just want to see the entire address. Let's also call this method in __viewDidLoad()__ one last time:
+The only detail we need to pay attention to in this method is the __ABCreateStringWithAddressDictionary__ class from the _AddressBookUI_ framework and which does the address parsing for us. This is really convenient as we do not need to care for any of the location fields if we just want to see the entire address. Let's also call this method in __viewDidLoad()__ one last time:
 
 {% highlight swift %}
 reverseGeocoding(37.3316851, longitude: -122.0300674)
