@@ -5,7 +5,7 @@ layout: post
 ---
 Not so long ago I wrote an [Introduction to MapKit](http://mhorga.org/2015/08/01/introduction-to-mapkit.html) and at the end of that article I was suggesting, as an improvement, the ability to obtain real location data from the web instead of hard-cording locations. In this article I want to introduce you to __geocoding__ as a way to obtain information about geographical locations. Geocoding can be __forward__, when we obtain the geographical coordinates (_latitude_ and _longitude_) from other location data such as postal addresses, or __reverse__, when we obtain the address of a location by having the latitude and longitude as inputs. 
 
-In this article, I want to show how to do geocoding using both _Apple Maps_ and _Google Maps_. The major difference between the two is that for Apple Maps you do not need to access an external URL to get location data, while for Google Maps you do. I will start with Google Maps geocoding, so let's create a new project first. In _ViewController_ add two properties, one to hold the base URL for the Maps API, and a second one for your API key.
+In this article, I want to show how to do geocoding using both _Apple Maps_ and _Google Maps_. The major difference between the two is that for Apple Maps you do not need to access an external URL to get location data, while for Google Maps you do. I will start with Google Maps geocoding, so let's create a new Xcode project first. In _ViewController_ add two properties, one to hold the base URL for the Google Maps API, and a second one for your API key.
 
 {% highlight swift %}
 let baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?"
