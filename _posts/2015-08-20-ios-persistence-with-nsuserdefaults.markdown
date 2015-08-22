@@ -22,7 +22,7 @@ We are going to talk about the app lifecycle (the famous methods in the AppDeleg
 
 To test the code, run the app and notice that a 0 value is displayed in the console for the slider. Now move the slider to the left or to the right, then press the button to save the current value of the slider. The new value will be noted in the console. Next, close the app and run it again. As you expect, the start value will now be the last value we had before closing the app. This is the most basic form of persistence.
 
-Let's look at how we can write and read files from disk, as another form of persistence.
+Let's look at how we can write and read files from disk, as another form of persistence. Every time the user writes to disk, the Documents directory will be used.
 
 override func viewDidLoad() {
         super.viewDidLoad()
