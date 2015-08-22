@@ -57,4 +57,6 @@ If you run the app again, this time you will see in the console:
     The file demo.txt already exists!
 {% endhighlight %}
 
+You can read more about [NSUserDefaults](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/) and [NSFileManager](https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) if you're interested in exploring these topics more.
+
 Until next time!
