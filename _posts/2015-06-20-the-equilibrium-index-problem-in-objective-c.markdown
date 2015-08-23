@@ -1,6 +1,6 @@
 ---
 published: true
-title: The Equilibrium Index problem in Objective C
+title: The Equilibrium Index problem in Objective-C
 layout: post
 ---
 One of the demo challenges at __Codility.com__ is the [Equilibrium Index](https://codility.com/demo/take-sample-test/) problem. Since I noticed in the solution feedback that there were few complaints about the Objective-C online compiler not working I decided to give it a try myself. 
