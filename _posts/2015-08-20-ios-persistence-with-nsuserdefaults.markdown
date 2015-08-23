@@ -1,6 +1,6 @@
 ---
 published: true
-title: iOS persistence: NSUserDefaults and the Documents directory
+title: iOS persistence - NSUserDefaults and the Documents directory
 layout: post
 ---
 We are going to look into how persistence is useful in preserving data between closing and re-opening an app. In Storyboard add a button and a slider. Create a an action named __saveValue__ for the button and an outlet named __sliderView__ for the slider, and finally create a global variable named __SliderValueKey__ to hold the slider value.
