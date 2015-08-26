@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: iOS persistence with NSCoder and NSKeyedArchiver
 layout: post
 ---
@@ -31,24 +31,49 @@ if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [AnyObjec
 }
 {% endhighlight %}
 
-Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted. That was easy. But what about complex objects graphs such as arrays of custom objects? In this case we need to complement the use of `NSKeyedArchiver` and `NSKeyedUnarchiver` with the __NSCoding__ protocol they will need to implement. For that, let's change the class signature so that it conforms to this protocol:
+Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted. That was easy. But what about complex objects graphs such as arrays of custom objects? In this case we need to complement the use of `NSKeyedArchiver` and `NSKeyedUnarchiver` with the __NSCoding__ protocol they will need to implement. 
+
+Let's create a new __Person__ class:
 
 {% highlight swift %}
-class MasterViewController: UITableViewController, NSCoding {
-{% endhighlight %}
+class Person : NSObject, NSCoding {
+ 
+    struct Keys {
+        static let Name = "name"
+        static let Age = "age"
+    }
+    
+    var name = ""
+    var age = 0
+    
+    init(dictionary: [String : AnyObject]) {
+        name = dictionary[Keys.Name] as! String
+        age = dictionary[Keys.Age] as! Int
+    }
+    
+    func encodeWithCoder(archiver: NSCoder) {
+        archiver.encodeObject(name, forKey: Keys.Name)
+        archiver.encodeObject(age, forKey: Keys.Age)
+    }
 
-You will immediately notice the error message:
-
-{% highlight swift %}
-requirement 'init(coder:)' declared here
-{% endhighlight %}
-
-That means we need to implement the methods we promised to implement by conforming to the `NSCoding` protocol, so let's create the first one, the __init(coder:)__ method:
-
-{% highlight swift %}
-required init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+    required init(coder unarchiver: NSCoder) {
+        super.init()
+        name = unarchiver.decodeObjectForKey(Keys.Name) as! String
+        age = unarchiver.decodeObjectForKey(Keys.Age) as! Int
+    }
 }
+{% endhighlight %}
+
+You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __encodeWithCoder(archiver:)__ and __init(coder:)__. Having this class set up with an archiver for saving (persisting) data and an unarchiver for retrieving saved data makes our task now as easy as calling the archiver in the `viewWillAppear()` method:
+
+{% highlight swift %}
+NSKeyedArchiver.archiveRootObject(objects, toFile: filePath)
+{% endhighlight %}
+
+and the unarchiver in the `viewDidLoad()` method:
+
+{% highlight swift %}
+objects = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [Person] ?? [Person]()
 {% endhighlight %}
 
 Until next time!
