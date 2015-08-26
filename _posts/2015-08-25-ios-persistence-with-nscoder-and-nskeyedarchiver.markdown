@@ -31,7 +31,7 @@ if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [AnyObjec
 }
 {% endhighlight %}
 
-Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted. That was easy. But what about complex objects graphs such as arrays of custom objects? In this case we need to complement the use of `NSKeyedArchiver` and `NSKeyedUnarchiver` with the __NSCoding__ protocol they will need to implement. 
+Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted. That was easy. But what about complex objects graphs such as arrays of custom objects? In this case we need to complement `NSKeyedArchiver` and `NSKeyedUnarchiver` with the __NSCoding__ protocol they will need to implement. 
 
 Let's create a new __Person__ class:
 
