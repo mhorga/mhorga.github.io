@@ -31,6 +31,24 @@ if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [AnyObjec
 }
 {% endhighlight %}
 
-Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted. That was easy. But what about complex objects graphs such as arrays of custom objects? In this case we need to complement the use of `NSKeyedArchiver` and `NSKeyedUnarchiver` with the __NSCoding__ protocol they will need to implement.
+Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted. That was easy. But what about complex objects graphs such as arrays of custom objects? In this case we need to complement the use of `NSKeyedArchiver` and `NSKeyedUnarchiver` with the __NSCoding__ protocol they will need to implement. For that, let's change the class signature so that it conforms to this protocol:
+
+{% highlight swift %}
+class MasterViewController: UITableViewController, NSCoding {
+{% endhighlight %}
+
+You will immediately notice the error message:
+
+{% highlight swift %}
+requirement 'init(coder:)' declared here
+{% endhighlight %}
+
+That means we need to implement the methods we promised to implement by conforming to the `NSCoding` protocol, so let's create the first one, the __init(coder:)__ method:
+
+{% highlight swift %}
+required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+}
+{% endhighlight %}
 
 Until next time!
