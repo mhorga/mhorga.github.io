@@ -1,6 +1,6 @@
 ---
 published: true
-title: iOS persistence with NSCoder and NSKeyedArchiver
+title: iOS persistence with NSKeyedArchiver
 layout: post
 ---
 As you have seen in the last post, [NSUserDefaults](http://mhorga.org/2015/08/20/ios-persistence-with-nsuserdefaults.html) is not as sophisticated as we want it to be in more complex scenarios such as persisting an `object graph` like an array of arrays, for example. Often times we get into situations where we do not see app persistence even though we should. 
@@ -64,7 +64,7 @@ class Person : NSObject, NSCoding {
 }
 {% endhighlight %}
 
-You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __encodeWithCoder(archiver:)__ and __init(coder:)__. Having this class set up with an archiver for saving (persisting) data and an unarchiver for retrieving saved data makes our task now as easy as calling the archiver in the `viewWillAppear()` method:
+You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __init(coder:)__ and __encodeWithCoder(archiver:)__. Having this class set up with an archiver for saving (persisting) data and an unarchiver for retrieving saved data makes our task now as easy as calling the archiver in the `viewWillAppear()` method:
 
 {% highlight swift %}
 NSKeyedArchiver.archiveRootObject(objects, toFile: filePath)
