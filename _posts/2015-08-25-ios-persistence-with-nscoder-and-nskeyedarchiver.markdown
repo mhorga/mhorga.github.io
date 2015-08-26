@@ -17,4 +17,20 @@ var filePath : String {
 }
 {% endhighlight %}
 
+The root of the graph for this app is the __objects__ array. We can persist the array using a class method on the `NSKeyedArchiver` and add this line to the __insertNewObject()__ method:
+
+{% highlight swift %}
+NSKeyedArchiver.archiveRootObject(objects, toFile: filePath)
+{% endhighlight %}
+
+To unarchive the array from the file we use a conditional optional check in case our file does not exist, and add it to the __viewDidLoad()__ method:
+
+{% highlight swift %}
+if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [AnyObject] {
+    objects = array
+}
+{% endhighlight %}
+
+Now run the app, create a few date entries, close the app and run it again. You should now see that the array is being persisted.
+
 Until next time!
