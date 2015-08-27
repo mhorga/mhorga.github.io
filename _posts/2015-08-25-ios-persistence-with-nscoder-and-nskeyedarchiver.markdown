@@ -7,7 +7,7 @@ As you have seen in the last post, [NSUserDefaults](http://mhorga.org/2015/08/20
 
 Let's start with an example. When you create a `Master-Detail` project in `Xcode` you will notice that all the date entries you create will be lost if you run the app again. If we look at the code inside `MasterViewController` we notice that a mutable array named __objects__ is used to store objects of the type `NSDate` every time we click the __+__ button at the right end of the navigation bar. So `objects` will be a proper object graph candidate for us to persist.
 
-When the app starts for the first time there is no file to store the array, so we first need to construct the full path. We can add a calculated `Swift` property to `MasterViewController` that specifies the location of a file name we choose, and then place it inside the `Documents` directory:
+When the app starts for the first time there is no file to store the array, so we first need to construct the full path. Let's add a calculated `Swift` property to `MasterViewController` that specifies the location of a file name we choose, and then place it inside the `Documents` directory:
 
 {% highlight swift %}
 var filePath : String {
@@ -64,7 +64,7 @@ class Person : NSObject, NSCoding {
 }
 {% endhighlight %}
 
-You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __init(coder:)__ and __encodeWithCoder(archiver:)__. Assume that we have another array __persons__ in `MasterViewController` and another method that adds a `Person` objects to this array. Having the `Person` class set up with an archiver for saving (persisting) data and an unarchiver for retrieving saved data makes our task as easy as calling the archiver in the `viewWillAppear()` method:
+You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __init(coder:)__ and __encodeWithCoder(archiver:)__. Assume that we have another array __persons__ in `MasterViewController` and another method that adds `Person` objects to this array. Having the `Person` class set up with an archiver for saving (persisting) data and an unarchiver for retrieving saved data makes our task as easy as calling the archiver in the `viewWillAppear()` method:
 
 {% highlight swift %}
 NSKeyedArchiver.archiveRootObject(persons, toFile: filePath)
