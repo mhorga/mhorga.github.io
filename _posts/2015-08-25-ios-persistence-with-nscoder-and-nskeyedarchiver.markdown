@@ -1,6 +1,6 @@
 ---
 published: true
-title: iOS persistence with NSKeyedArchiver
+title: iOS persistence with NSCoder and NSKeyedArchiver
 layout: post
 ---
 As you have seen in the last post, [NSUserDefaults](http://mhorga.org/2015/08/20/ios-persistence-with-nsuserdefaults.html) is not as sophisticated as we want it to be in more complex scenarios such as persisting an `object graph` like an array of arrays, for example. Often times we get into situations where we do not see app persistence even though we should. 
