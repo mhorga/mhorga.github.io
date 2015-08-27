@@ -64,7 +64,7 @@ class Person : NSObject, NSCoding {
 }
 {% endhighlight %}
 
-You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __init(coder:)__ and __encodeWithCoder(archiver:)__. Assume that we have another array __persons__ in `MasterViewController` and another method that adds `Person` objects to this array. Having the `Person` class set up with an archiver for saving (persisting) data and an unarchiver for retrieving saved data makes our task as easy as calling the archiver in the `viewWillAppear()` method:
+You noticed we conformed this class to the `NSCoding` protocol so we needed to implement the two methods the protocol requires, __init(coder:)__ and __encodeWithCoder(archiver:)__. Assume that we have another array __persons__ in `MasterViewController` and another method that adds `Person` objects to this array. Having the `Person` class set up with an archiver for saving data and an unarchiver for retrieving saved data makes our task as easy as calling the archiver in the `viewWillAppear()` method:
 
 {% highlight swift %}
 NSKeyedArchiver.archiveRootObject(persons, toFile: filePath)
