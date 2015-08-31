@@ -36,7 +36,7 @@ class CoreDataStack {
 }
 {% endhighlight %}
 
-First we imported `CoreData`, then we declared the name of the file where our data will be stored on the disk, and finally we created the `singleton`. Next we add four lazy properties - which are properties that are only calculated the first time they are used. The first one we add is __applicationDocumentsDirectory__:
+First we imported `CoreData`, then we declared the name of the file where our data will be stored on the disk, and finally we created the `singleton`. Next we add four `lazy properties` - which are properties that are only calculated the first time they are used. The first one we add is __applicationDocumentsDirectory__:
 
 {% highlight swift %}
 lazy var applicationDocumentsDirectory: NSURL = {
@@ -46,7 +46,7 @@ lazy var applicationDocumentsDirectory: NSURL = {
 }()
 {% endhighlight %}
 
-In Core Data, the documents directory holds the .sqlite database file that stores our data. The next property is __ managedObjectContext__:
+In Core Data, the documents directory holds the .sqlite database file that stores our data. The next property is __managedObjectContext__:
 
 {% highlight swift %}
 lazy var managedObjectContext: NSManagedObjectContext? = {
