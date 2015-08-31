@@ -36,7 +36,7 @@ class CoreDataStack {
 }
 {% endhighlight %}
 
-First we imported `CoreData`, then we declared the name of the file where our data will be stored on the disk, and finally we created the `singleton`. Next we add four `lazy properties` - which are properties that are only calculated the first time they are used. The first one we add is __applicationDocumentsDirectory__:
+First we imported `CoreData`, then we declared the name of the file where our data will be stored on the disk, and finally we created the `singleton`. Next we add four `lazy properties` - which are only calculated the first time they are used. The first one we add is __applicationDocumentsDirectory__:
 
 {% highlight swift %}
 lazy var applicationDocumentsDirectory: NSURL = {
@@ -92,7 +92,9 @@ lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
 }()
 {% endhighlight %}
 
-2) Now that we are done with configuring the `Core Data` stack, we beed to proceed to the next step, add a `Core Data Model`. For this we will create an entity to hold information about our model. Let’s create the data model file in `Xcode`. From the `File` menu, choose `New File` and under `Core Data` choose `Data Model`. Leave its default name and click `Create`. You will notice a new file __Model.xcdatamodeld__ appears in our project now. Go to it so we can create our entity. Click the __Add Entity__ button to create the entity and name it __Event__. Under `Attributes` click the __+__ button to add an attribute named `timeStamp` of type `Date`. One more thing to do, select `Event` and open the `Utilities` panel. In the `Data Model Inspector` under `Class` change the name to `Event` instead of the default name `Xcode` gave it. If at this point (or any point in configuring Core Data) you get the message bellow, simply delete the app in the simulator and run it again:
+2) Now that we are done with configuring the `Core Data` stack, we beed to proceed to the next step, add a `Core Data Model`. For this we will create an entity to hold information about our model. Let’s create the data model file in `Xcode`. From the `File` menu, choose `New File` and under `Core Data` choose `Data Model`. Leave its default name and click `Create`. You will notice a new file __Model.xcdatamodeld__ appears in our project now. 
+
+Go to this new file so we can create our entity. Click the __Add Entity__ button to create the entity and name it __Event__. Under `Attributes` click the __+__ button to add an attribute named `timeStamp` of type `Date`. One more thing to do, select `Event` and open the `Utilities` panel. In the `Data Model Inspector` under `Class` change the name to `Event` instead of the default name `Xcode` gave it. If at this point (or any point in configuring Core Data) you get the message bellow, simply delete the app in the simulator and run it again:
 
 {% highlight swift %}
 The model used to open the store is incompatible with the one used to create the store
