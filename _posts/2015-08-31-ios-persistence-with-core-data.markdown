@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: iOS persistence with Core Data
 layout: post
 ---
