@@ -5,7 +5,7 @@ layout: post
 ---
 In the other two articles from the `iOS Persistence` series we looked at `NSUserDefaults` and then at the `NSKeyerArchiver` as ways to persist user data. This time we will use `Core Data` for persistence. Let’s create another `Master-Detail` project but this time make sure to enable __Use CoreData__ before clicking `Next` and `Create`. Now run the project, add a new row from the __+__ button, stop the app and run it again. You will notice the data persisted! End of lesson. 
 
-You didn’t hope we would just stop here, did you? What if we have an existing project that does not use Core Data yet, but we want to implement Core Data into it now. We will go step by step and show how we can transform an existing project into a Core Data-powered project. So let’s create the `Master-Detail` project again but do __not__ enable `Use CoreData` this time. We are going to make the conversion in stages:
+You didn’t hope we would just stop here, did you? What if we have an existing project that did not use Core Data before, but we want to implement Core Data into it now. We will go step by step and show how we can transform an existing project into a Core Data-powered project. So let’s create the `Master-Detail` project again but do __not__ enable `Use CoreData` this time. We are going to make the conversion in stages:
 
 1. Add the Core Data Stack
 2. Add a Core Data Model
@@ -36,7 +36,7 @@ class CoreDataStack {
 }
 {% endhighlight %}
 
-First we imported `CoreData`, then we declared the name of the file where our data will be stored on the disk, and finally we created the `singleton`. Next we add four lazy properties - which are properties that are only calculated the first time they are used. The first one we add is __ applicationDocumentsDirectory__:
+First we imported `CoreData`, then we declared the name of the file where our data will be stored on the disk, and finally we created the `singleton`. Next we add four lazy properties - which are properties that are only calculated the first time they are used. The first one we add is __applicationDocumentsDirectory__:
 
 {% highlight swift %}
 lazy var applicationDocumentsDirectory: NSURL = {
