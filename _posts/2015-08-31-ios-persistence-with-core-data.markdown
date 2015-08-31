@@ -16,7 +16,7 @@ You didn’t hope we would just stop here, did you? What if we have an existing 
 
 1) We start by adding a Core Data stack to the project. Let’s create a class intuitively named, __CoreDataStack__. A core data stack, as you can see in the diagram below, consists of a context, a model, a coordinator and a store.
 
-![alt text](https://developer.apple.com/library/ios/documentation/DataManagement/Devpedia-CoreData/Art/single_persistent_stack.jpg “Core Data stack”)
+![alt text](https://developer.apple.com/library/ios/documentation/DataManagement/Devpedia-CoreData/Art/single_persistent_stack.jpg "Core Data stack")
 
 In order to make sure we cannot access the core data stack in two separate instances, we create a `singleton` which guarantees that it will be the only handle we have over this core data stack. The class skeleton looks like this:
 
