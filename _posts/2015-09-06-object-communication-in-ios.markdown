@@ -56,7 +56,7 @@ We are now ready for __Step 2__: register an observer for our key path property.
 account.addObserver(self, forKeyPath: currentBalanceKeyPath, options: NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.New, context: nil)
 {% endhighlight %}
 
-In __Step 3__ we implement an observing method so that observer gets notification when changes occur:
+In __Step 3__ we write an observing method so that observer gets notification when changes occur:
 
 {% highlight swift %}
 override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
@@ -71,7 +71,7 @@ override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject
 }
 {% endhighlight %}
 
-All that matters inside this method is that we check whether the method's `keyPath` argument equals our own `currentBalanceKeyPath` and if it does, then we proceed with the work we need to do, which in our case is just use different colors for the label text, depending on when the amount is negative or positive. In the last step, __Step 4__, we remove the observer to make sure we don't see any unexpected behavior later on:
+All that matters inside this method is that we check whether the method's `keyPath` argument equals our own `currentBalanceKeyPath` and if it does, then we proceed with the work we need to do, which in our case is just using different colors for the label text, depending on when the amount is negative or positive. In the last step, __Step 4__, we remove the observer to make sure we don't see any unexpected behavior later on:
 
 {% highlight swift %}
 deinit {
