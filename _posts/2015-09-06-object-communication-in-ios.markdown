@@ -44,7 +44,7 @@ let currentBalanceKeyPath = "currentBalance"
 var account = Account()
 {% endhighlight %}
 
-In __viewDidLoad()__ update the current balance:
+In __viewDidLoad()__ update the label text with the current balance:
 
 {% highlight swift %}
 currentBalanceLabel.text = "Current balance: \(account.currentBalance)"
@@ -56,7 +56,7 @@ We are now ready for __Step 2__: register an observer for our key path property.
 account.addObserver(self, forKeyPath: currentBalanceKeyPath, options: NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.New, context: nil)
 {% endhighlight %}
 
-In __Step 3__ we implement an observing method so that the observer gets notification when changes occur:
+In __Step 3__ we implement an observing method so that observer gets notification when changes occur:
 
 {% highlight swift %}
 override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
