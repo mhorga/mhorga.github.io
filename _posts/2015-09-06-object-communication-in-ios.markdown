@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Object communication in iOS with KVO
 layout: post
 ---
