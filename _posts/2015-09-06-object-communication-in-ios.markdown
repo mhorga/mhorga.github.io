@@ -3,11 +3,11 @@ published: true
 title: Object communication in iOS with KVO
 layout: post
 ---
-There are three common ways objects and classes can communicate to each other in iOS: `Key-Value Observation`, `Notification Center` and `Delegation`. In this first part we will only look at the first pattern.
+There are three common ways objects and classes can communicate in iOS: `Key-Value Observation`, `Notification Center` and `Delegation`. In this first part we will only look at the first pattern.
 
 __Key-Value Observation (KVO)__ is an `Observer pattern` which provides a way for objects to know when properties are changed, and they can do so by subscribing to be notified of these changes when they occur. Any object that inherits from `NSObject` can use this resource at no extra cost. `KVO` is handy when at most a handful of objects need to be observed, because there is only a single method available for observation which could easily become stuffed with too many string-based key path condition matchings we need to make inside of this method.
 
-We will use a simple bank account example to illustrate the `KVO` concept. Let's start by creating a new `Single View Application` in `Xcode`. In the storyboard add a `UILabel`, a `UITextField` and a `UIButton`. In the `ViewController` class create an `IBOutlet` named __amountTextField__ and another one named __currentBalanceLabel__, and an `UIAction` named __submitAction()__ for the button. We are done with the storyboard so let's get to the coding part.
+We will use a simple bank account example to illustrate the `KVO` concept. Let's start by creating a new `Single View Application`. In the storyboard add a `UILabel`, a `UITextField` and a `UIButton`. In the `ViewController` class create an `IBOutlet` named __amountTextField__ and another one named __currentBalanceLabel__, and an `UIAction` named __submitAction()__ for the button. We are done with the storyboard so let's get to the coding part.
 
 First, create a new class named __Account__. We just create two properties, one a constant and another one a variable to keep track of our account balance. Then we create an __init()__ method where we initialize the current balance to be the starting balance. Finally, we create an __update()__ method that we can use to modify our current balance based on an amount the user would input:
 
