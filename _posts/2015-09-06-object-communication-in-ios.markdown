@@ -79,7 +79,7 @@ deinit {
 }
 {% endhighlight %}
 
-The only other thing we need to do before running the program is to configure the `IBAction` method we created in the beginning, so that the button can send a new amount to the `update()` method:
+The last thing we need to do before running the program is to configure the `IBAction` method we created in the beginning, so that the button can send a new amount to the `update()` method:
 
 {% highlight swift %}
 @IBAction func submitAction(sender: UIButton) {
