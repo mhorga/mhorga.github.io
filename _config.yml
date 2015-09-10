@@ -3,9 +3,9 @@ animated: true
 pygments: true
 markdown: kramdown
 url: http://mhorga.github.io
-title: iOS, watchOS and OS X development
+title: Development for Apple devices
 email: mhorga@gmail.com
 author: Marius Horga
-description: A blog about iOS, watchOS and OS X development in Objective-C and Swift. 
+description: A blog about iOS, watchOS, tvOS and OS X development in Objective-C and Swift. 
 paginate: 5
 google_analytics: "UA-64309195-1"
