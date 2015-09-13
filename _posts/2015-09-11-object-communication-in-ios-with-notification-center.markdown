@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Object communication in iOS with Notification Center
 layout: post
 ---
