@@ -76,4 +76,6 @@ and the unarchiver in the `viewDidLoad()` method:
 persons = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [Person] ?? [Person]()
 {% endhighlight %}
 
+Stay tuned for the last part of this series.
+
 Until next time!
