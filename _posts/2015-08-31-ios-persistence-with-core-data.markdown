@@ -92,7 +92,7 @@ lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
 }()
 {% endhighlight %}
 
-2) Now that we are done with configuring the `Core Data` stack, we beed to proceed to the next step, add a `Core Data Model`. For this we will create an entity to hold information about our model. Let’s create the data model file in `Xcode`. From the `File` menu, choose `New File` and under `Core Data` choose `Data Model`. Leave its default name and click `Create`. You will notice a new file __Model.xcdatamodeld__ appears in our project now. 
+2) Now that we are done with configuring the `Core Data` stack, we need to proceed to the next step, add a `Core Data Model`. For this we will create an entity to hold information about our model. Let’s create the data model file in `Xcode`. From the `File` menu, choose `New File` and under `Core Data` choose `Data Model`. Leave its default name and click `Create`. You will notice a new file __Model.xcdatamodeld__ appears in our project now. 
 
 Go to this new file so we can create our entity. Click the __Add Entity__ button to create the entity and name it __Event__. Under `Attributes` click the __+__ button to add an attribute named __timeStamp__ of type `Date`. One more thing to do, select `Event` and open the `Utilities` panel. In the `Data Model Inspector` under `Class` change the name to `Event` instead of the default name `Xcode` gave it. If at this point (or any point in configuring Core Data) you get the message bellow, simply delete the app in the simulator and run it again:
 
