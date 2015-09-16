@@ -61,6 +61,6 @@ If you run the app again, you will notice that the output changes to just:
 Delegate said:
 {% endhighlight %}
 
-This happened because the `Model` does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere.
+This happened because `Model` does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere.
 
 Until next time!
