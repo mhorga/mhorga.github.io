@@ -55,7 +55,7 @@ To prove that this does not work without being a `delegate` of the `Model` class
 //model.delegate = self
 {% endhighlight %}
 
-You will notice that the output changes to just:
+If you run the app again, you will notice that the output changes to just:
 
 {% highlight swift %}
 Delegate said:
