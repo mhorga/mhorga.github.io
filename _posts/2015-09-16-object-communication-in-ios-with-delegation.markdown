@@ -49,7 +49,7 @@ Run the app and you should see this output:
 Delegate said: Hello, Protocol!
 {% endhighlight %}
 
-To prove that this does not work without being a `delegate` of the `Model` class, comment out that line: 
+To prove that is not working without being a `delegate` of the `Model` class, comment out that line: 
 
 {% highlight swift %}
 //model.delegate = self
@@ -61,6 +61,6 @@ If you run the app again, you will notice that the output changes to just:
 Delegate said:
 {% endhighlight %}
 
-This happened because the __delegateResponded()__ method does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere.
+This happened because the __Model__ does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere.
 
 Until next time!
