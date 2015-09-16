@@ -9,7 +9,7 @@ The delegating object holds a reference to a delegate and when it needs to, the 
 
 In `KVO` and `Notification Center` (both observer patterns), an observer sees a particular event and then does something with it. With `delegation`, a delegate handles a particular event and takes ownership of the completion handler. When we want to have complete control over how and when communication between two objects should occur, delegation should be used. When architecting a project, the possibility of using `delegation` should be explored first before considering `KVO` and `Notification Center`.
 
-Let’s create a new `Single View Application` project and then create a new class named __Model__ that will implement a protocol and will have a __delegate__ property:
+Let’s create a new `Single View Application` project and then create a new class named __Model__ that will implement a `protocol` and will have a __delegate__ property:
 
 {% highlight swift %}
 protocol ModelDelegate {
@@ -26,7 +26,7 @@ class Model: NSObject {
 }
 {% endhighlight %}
 
-We also created a method that we will call from `ViewController` as a delegate and which calls the protocol method __respond()__ which as you can see it is not implemented here yet. Then in `ViewController`, we need to conform to the __ModelDelegate__ protocol, and tell it that this class will be its delegate. You will now have to implement the `protocol` required method:
+We also created a method that we will call from `ViewController` as a delegate and which calls the protocol method __respond()__ which as you can see it is not implemented here yet. Then in `ViewController`, we need to conform to the __ModelDelegate__ protocol, and tell it that this class will be its `delegate`. You will now have to implement the `protocol` required method:
 
 {% highlight swift %}
 class ViewController: UIViewController, ModelDelegate {
@@ -49,7 +49,7 @@ Run the app and you should see this output:
 Delegate said: Hello, Protocol!
 {% endhighlight %}
 
-To prove that this does not work without being a delegate of the Model class, comment out that line: 
+To prove that this does not work without being a `delegate` of the `Model` class, comment out that line: 
 
 {% highlight swift %}
 //model.delegate = self
@@ -61,6 +61,6 @@ You will notice that the output changes to just:
 Delegate said:
 {% endhighlight %}
 
-This happened because the __delegateResponded()__ method does not know who is its delegate so it cannot find a method named __respond()__ implemented anywhere, anymore.
+This happened because the __delegateResponded()__ method does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere.
 
 Until next time!
