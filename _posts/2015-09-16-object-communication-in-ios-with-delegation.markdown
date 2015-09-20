@@ -61,6 +61,6 @@ If you run the app again, you will notice that the output changes to just:
 Delegate said:
 {% endhighlight %}
 
-This happened because `Model` does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere. The [source code](https://github.com/mhorga/Delegation) is available on Github.
+This happened because `Model` does not know who its delegate is anymore, so it cannot find a method named __respond()__ implemented anywhere. The [source code](https://github.com/Swiftor/Delegation) is available on Github.
 
 Until next time!
