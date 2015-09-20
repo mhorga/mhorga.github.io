@@ -80,6 +80,6 @@ Now all we need to do is create a `Destination` object in `ViewController`, and 
 let destination = Destination()
 {% endhighlight %}
 
-Don't forget to remove the observers once they fired, so we don't see unexpected behaviors. Run the project and notice that firing the notification when the button is pressed will send the message to both classes. Stay tuned for the last part of these series, next week.
+Don't forget to remove the observers once they fired, so we don't see unexpected behaviors. Run the project and notice that firing the notification when the button is pressed will send the message to both classes. The [source code](https://github.com/mhorga/NotificationCenter) is available on Github. Stay tuned for the last part of these series, next week.
 
 Until next time!
