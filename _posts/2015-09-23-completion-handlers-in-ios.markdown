@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Completion handlers in iOS
 layout: post
 ---
@@ -61,6 +61,6 @@ Inside completion handler: (40.713054, -74.007228)
 After handler completes: (40.713054, -74.007228)
 {% endhighlight %}
 
-So first we print the coordinates before even calling the geocoding function and the result is `(0.0, 0.0)` as expected, because we have not yet changed our global variable. Then the fun begins! Once we called the function, the code that executed first the print statement outside the completion handler block, because the code inside the block was still running, so obviously the result is still `(0.0, 0.0)` as the block has not yet updated the global variable. However, we notice that inside the block, the result is correct. What we had to do then was to pass it to the caller line inside `viewDidLoad()` and we achieved that by calling the completion handler which only has a print statement, as an argument for the `geocoding()` call. To break this call, just comment out the `completion()` line inside the `geocoding()` function and see the difference.
+So first we print the coordinates before even calling the geocoding function and the result is `(0.0, 0.0)` as expected, because we have not yet changed our global variable. Then the fun begins! Once we called the function, the code that executed first the print statement outside the completion handler block, because the code inside the block was still running, so obviously the result is still `(0.0, 0.0)` as the block has not yet updated the global variable. However, we notice that inside the block, the result is correct. What we had to do then was to pass the result to the caller line inside `viewDidLoad()` and we achieved that by calling the completion handler which only has a print statement, as an argument for the `geocoding()` call. To break this call, just comment out the `completion()` line inside the `geocoding()` function and see the difference.
 
 Until next time!
