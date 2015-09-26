@@ -9,31 +9,33 @@ It is extremely important to understand how asynchronous networking works. We ar
 2. the `Notification Center`
 3. the `Closure`
 
-In previous posts we already looked at the `delegate` pattern as well as `NSNotificationCenter`, so we are going to take a look at `closures`, which can take many forms, most common being `blocks` or `completion handlers`. To start, let's write a function that geocodes our location, that is, returns the geographical coordinates (`latitude` and `longitude`) for a city we give it as string input.
+In previous posts we already looked at the `delegate` pattern as well as `NSNotificationCenter`, so we are going to take a look at `closures`, which can take many forms, most common being `blocks` or `completion handlers`. To start, create a new project and in `View Controller` let's write a function that geocodes a location, that is, returns the geographical coordinates (`latitude` and `longitude`) for a city we give it as input.
 
 {% highlight swift %}
-func geocoding(address: String, completion: (Double, Double) -> Void) {
-    CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+func geocoding(location: String, completion: () -> ()) {
+    CLGeocoder().geocodeAddressString(location, completionHandler: { (placemarks, error) in
         if placemarks?.count > 0 {
             let placemark = placemarks?[0]
             let location = placemark!.location
             let coordinate = location?.coordinate
             self.coordinates = (coordinate!.latitude, coordinate!.longitude)
-            print("Inside completion handler: \(self.coordinates)") // prints correctly
-            completion(self.coordinates.0, self.coordinates.1)
+            print("Inside completion handler: \(self.coordinates)")
+            completion()
         }
     })
-    print("Outside completion handler: \(self.coordinates)") // prints incorrectly here
+    print("Outside completion handler: \(self.coordinates)")
 }
 {% endhighlight %}
 
 Then
 
 {% highlight swift %}
+var coordinates = (0.0 , 0.0)
+
 override func viewDidLoad() {
     print("At load time: \(coordinates)")
-    geocoding("New York, NY") { (lat, long) in
-        print("After handler completes: (\(lat), \(long))") // or print(self.coordinates)
+    geocoding("New York, NY") {
+        print("After handler completes: \(self.coordinates)")
     }
 }
 {% endhighlight %}
