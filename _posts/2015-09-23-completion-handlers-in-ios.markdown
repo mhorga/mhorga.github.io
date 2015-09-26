@@ -7,7 +7,7 @@ It is extremely important to understand how asynchronous networking works. We ar
 
 1. the `Delegate` pattern
 2. the `Notification Center`
-3. the `Closure`
+3. the `Closure` type
 
 In previous posts we already looked at the `delegate` pattern as well as `NSNotificationCenter`, so we are going to take a look at `closures`, which can take many forms, most common being `blocks` or `completion handlers`. To start, create a new project and in `View Controller` let's write a function that geocodes a location, that is, returns the geographical coordinates (`latitude` and `longitude`) for a city we give it as input.
 
@@ -61,6 +61,6 @@ Inside completion handler: (40.713054, -74.007228)
 After handler completes: (40.713054, -74.007228)
 {% endhighlight %}
 
-So first we print the coordinates before even calling the geocoding function and the result is `(0.0, 0.0)` as expected, because we have not yet changed our global variable. Then the fun begins! Once we called the function, the code that executed first the print statement outside the completion handler block, because the code inside the block was still running, so obviously the result is still `(0.0, 0.0)` as the block has not yet updated the global variable. However, we notice that inside the block, the result is correct. What we had to do then was to pass the result to the caller line inside `viewDidLoad()` and we achieved that by calling the completion handler which only has a print statement, as an argument for the `geocoding()` call. To break this call, just comment out the `completion()` line inside the `geocoding()` function and see the difference.
+So first we print the coordinates before even calling the geocoding function and the result is `(0.0, 0.0)` as expected, because we have not yet changed our global variable. Then the fun begins! Once we called the function, the code that finished first the print statement outside the completion handler block, because the code inside the block was still running, so obviously the result is still `(0.0, 0.0)` as the block has not yet updated the global variable. However, we notice that inside the block, the result is correct. What we had to do then was to pass the result to the caller line inside `viewDidLoad()` and we achieved that by calling the completion handler which only has a print statement, as an argument for the `geocoding()` call. To break this call, just comment out the `completion()` line inside the `geocoding()` function and see the difference.
 
 Until next time!
