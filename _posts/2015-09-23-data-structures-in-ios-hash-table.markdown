@@ -1,5 +1,5 @@
 ---
 published: false
-title: Data Structures in iOS -- Hash Table
+title: Data structures in iOS # Hash table
 layout: post
 ---
