@@ -1,6 +1,6 @@
 ---
 published: false
-title: Data structures in iOS # Hash table
+title: Completion handlers in iOS
 layout: post
 ---
 .
