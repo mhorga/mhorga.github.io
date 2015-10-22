@@ -13,7 +13,7 @@ struct Pixel {
 }
 {% endhighlight %}
 
-Next we need to store the color and opacity information in this variable. The order bits are stored in the memory is right to left (`little endian`) in the Intel processor technology, so the `red` color would go at the end of the 32 bits memory location. In the example below, the `red` color will occupy locations 1 and 2.
+Next we need to store the color and opacity information in this variable. The order bits are stored in the memory is right to left (`little endian`) by the `Intel` processor technology, so the `red` color would go at the end of the 32 bits memory location. In the example below, the `red` color will occupy locations 1 and 2.
 
 {% highlight swift %}
 0x78563412
