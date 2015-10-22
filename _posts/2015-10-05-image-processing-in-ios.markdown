@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Image processing in iOS
 layout: post
 ---
@@ -33,16 +33,20 @@ var blue = UInt8((value >> 16) & 0xFF)
 var alpha = UInt8((value >> 24) & 0xFF)
 {% endhighlight %}
 
-By shifting to the right, the `green` value moves to the right side 8 bits and will now occupy locations 1 and 2, and so on. Now let's see the reverse process - how can we change the `red` value once we have it stored in the `value` variable:
+By shifting to the right, the `green` value moves to the right side 8 bits and will now occupy locations 1 and 2, and so on. Now let's see the reverse process - how can we change the `red` value once we have something stored in the `value` variable:
 
 {% highlight swift %}
 value = UInt32(red) | (value & 0xFFFFFF00)
 {% endhighlight %}
 
-So we first pad the value of `red` with `0s` so it fits a 32-bit memory location, then we bitwise AND the old `value` with a mask to clear the old value for `red` (while keeping the other colors and opacity intact), and we finally bitwise OR it with the new value for `red`. As you expected, the other values can be set in a similar manner, except this time we shift to the left because all colors and alpha only occupy 8 bits so they need to be arranged back into their place:
+So we first pad the value of `red` with `0s` so it fits a 32-bit memory location, then we bitwise AND the old `value` with a mask to clear the old value for `red` (while keeping the other colors and opacity intact), and we finally bitwise OR it with the new value for `red`. As you expected, the other values can be set in a similar manner, except this time we shift to the left because all colors and alpha only occupy 8 bits so they need to be arranged into their places:
 
 {% highlight swift %}
 value = (UInt32(green) << 8) | (value & 0xFFFF00FF)
 value = (UInt32(blue) << 16) | (value & 0xFF00FFFF)
 value = (UInt32(alpha) << 24) | (value & 0x00FFFFFF)
 {% endhighlight %}
+
+In the next part of this series we will look at how we can actually manipulate the pixel information to get desired effects.
+
+Until next time!
