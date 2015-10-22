@@ -5,7 +5,7 @@ layout: post
 ---
 Last time we looked at animations in iOS. This time we will look into `image processing` and how it works in iOS. An image, in the most basic definition, is a 2-D (two dimensional) array of pixels which gives the `width` and `height` of an image. Each pixel contains information about its `color` and `opacity`, so in a data structure we would need to reserve memory for each of the 3 color components (`red`, `green`, `blue`) as well as for opacity (`alpha` channel). Since we need to encode color values between 0 and 255 we need 8 bits of memory since that would fit a value up to 256 (= 2^8). For all the colors and the alpha we would thus need 32 bits to store everything about a pixel.
 
-Let's create a `struct` named __Pixel__ which has a 32-bit integer variable named __value__:
+Let's create a `struct` named __Pixel__ that has a 32-bit integer named __value__:
 
 {% highlight swift %}
 struct Pixel {
