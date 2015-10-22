@@ -3,4 +3,7 @@ published: false
 title: Image processing in iOS
 layout: post
 ---
-Last time we looked at animations in iOS. This time we will look into `image processing` and how it works in iOS. An image, in the most basic definition, is a 2-D (two dimensional) array of pixels which make the `width` and `height` of the image. Each pixel contains information about its `color` and `opacity`, so in a pixel data structure we would need to reserve memory for each of the 3 component colors (`red`, `green`, `blue`) as well as for the opacity (`alpha`) channel.
+Last time we looked at animations in iOS. This time we will look into `image processing` and how it works in iOS. An image, in the most basic definition, is a 2-D (two dimensional) array of pixels which gives the `width` and `height` of the image. Each pixel contains information about its `color` and `opacity`, so in a pixel data structure we would need to reserve memory for each of the 3 component colors (`red`, `green`, `blue`) as well as for the opacity (`alpha`) channel. Since we need to encode color values between 0 and 255 we need 8 bits of memory because that would fit a value up to 256 (= 2 ^ 8). For all the colors and alpha we would thus need 32 bits to store everything about a pixel.
+
+Then
+
