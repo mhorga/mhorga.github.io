@@ -19,7 +19,7 @@ Next we need to store the color and opacity information in this variable. The or
 0x78563412
 {% endhighlight %}
 
-In order to get the value for the `red` color we need to bitwise `AND` the `value` variable with a `0xFF` mask. That means - discard all the `0s` while AND-ing the value with eight `1s`, and this will save (mask) the last two locations which we need:
+In order to get the value for the `red` color we need to bitwise `AND` the `value` variable with a `0xFF` mask. That means - discard all the `0s` while AND-ing the value with eight `1s`, and this will save (mask) the last two locations that we need:
 
 {% highlight swift %}
 var red = UInt8(value & 0xFF)
