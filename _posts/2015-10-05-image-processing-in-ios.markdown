@@ -33,3 +33,10 @@ var blue = UInt8((value >> 16) & 0xFF)
 var alpha = UInt8((value >> 24) & 0xFF)
 {% endhighlight %}
 
+Now let's see the reverse process - how can we change the red value once we have it stored in the `value` variable:
+
+{% highlight swift %}
+value = UInt32(red) | (value & 0xFFFFFF00)
+{% endhighlight %}
+
+So we first pad the value of red with `0s` so it fits a 32-bit memory location, then we bitwise AND the old `value` with a mask to clear the old value for `red` (while keeping the other colors and opacity intact), and we finally bitwise OR it with the new value for `red`.
