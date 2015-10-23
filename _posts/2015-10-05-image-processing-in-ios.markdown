@@ -47,7 +47,7 @@ value = (UInt32(blue) << 16) | (value & 0xFF00FFFF)
 value = (UInt32(alpha) << 24) | (value & 0x00FFFFFF)
 {% endhighlight %}
 
-In the next part of this series we will look at how we can actually manipulate the pixel information to get desired effects. Here is one way your struct could look:
+Here is one way your `struct` could look:
 
 {% highlight swift %}
 struct Pixel {
@@ -70,5 +70,7 @@ struct Pixel {
     }
 }
 {% endhighlight %}
+
+In the next part of this series we will look at how an image is converted into pixels, and how we can manipulate pixel information to get desired image effects. 
 
 Until next time!
