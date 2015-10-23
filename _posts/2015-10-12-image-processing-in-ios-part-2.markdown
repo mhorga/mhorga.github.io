@@ -54,7 +54,7 @@ func toUIImage() -> UIImage? {
 }
 {% endhighlight %}
 
-Let's also break this method into pieces to explain what the code does, but you will notice it is very similar to the code in the `init()` method. First, for the 32-bit `RGBA` color space, we define parameters and calculate the `bytesPerRow` of the image. Second, we create an `RGB` color space, a CGBitmapContext, and pass in the pixels pointer as the buffer to store the pixel data this context holds. And third, we create and return a new `UIImage`.
+Let's also break this method into pieces to explain what the code does, but you will notice it is very similar to the code in the `init()` method. First, for the 32-bit `RGBA` color space, we define a few parameters and calculate the number of `bytesPerRow` of the image. Second, we create an `RGB` color space, then a CGBitmapContext, and pass in the pixels pointer as the buffer to store the pixel data this context holds. And third, we create and return a new `UIImage`.
 
 Now add an image to your project/playground which is named __image.png__ for example, and then add these lines:
 
