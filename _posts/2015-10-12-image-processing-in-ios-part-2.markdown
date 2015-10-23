@@ -15,7 +15,7 @@ struct RGBA {
 }
 {% endhighlight %}
 
-We need a Pixel struct to represent an image, and also its width and height.
+We need a `Pixel` struct to represent an image, and also its `width` and `height`.
 
 {% highlight swift %} 
 init?(image: UIImage) {
