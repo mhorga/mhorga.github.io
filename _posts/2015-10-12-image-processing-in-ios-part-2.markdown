@@ -35,7 +35,7 @@ init?(image: UIImage) {
 }
 {% endhighlight %}
 
-Let's break this method into pieces so we can better understand what it does. First, we convert the `UIImage` to a `CGImage` object, and get the image’s width and height. Second, for the 32-bit `RGBA` color space, we define a few parameters, calculate the number of `bytesPerRow` of the image, and we allocate an array pixels to store the pixel data. Third, we redraw image for correct pixel format by creating an `RGB` color space and a `CGBitmapContext`, passing in the pixels pointer as the buffer to store the pixel data this context holds. And fourth, we draw the input image into the context and this populates pixels with the pixel data of the image in the format we specified when we created the context.
+Let's break this method into pieces so we can better understand what it does. First, we convert the `UIImage` to a `CGImage` object, and get the image’s `width` and `height`. Second, for the 32-bit `RGBA` color space, we define a few parameters, calculate the number of `bytesPerRow` of the image, and we allocate an array pixels to store the pixel data. Third, we redraw image for correct pixel format by creating an `RGB` color space and a `CGBitmapContext`, passing in the pixels pointer as the buffer to store the pixel data this context holds. And fourth, we draw the input image into the context and this populates pixels with the pixel data of the image in the format we specified when we created the context.
 
 Finally, we need one more method to convert the `CGImage` back to a `UIImage`:
 
