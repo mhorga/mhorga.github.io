@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Image processing in iOS part 3
 layout: post
 ---
@@ -84,6 +84,6 @@ What we do inside this method is to calculate a difference between the current c
 let newImage = contrast(rgba).toUIImage()
 {% endhighlight %}
 
-You should be able to see now the image with a nice contrast applied to it. The source code is available on [Github](). A special `Thanks` for [@JackTripleU](https://twitter.com/JackTripleU) who inspired me to write this series.
+You should be able to see now the image with a nice contrast applied to it. The source code is available on [Github](https://github.com/Swiftor/Image-Processing). A special `Thanks` to [@JackTripleU](https://twitter.com/JackTripleU) who inspired me to write this series.
 
 Until next time!
