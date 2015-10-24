@@ -24,7 +24,7 @@ Now we are able to access the pixel at the desired index, like this:
 var pixel = rgba.pixels[index]
 {% endhighlight %}
 
-If you remember from last time, the `RGBA` struct has a pointer to a `Pixel` type which acts like an array. The next thing we would like is to see what `color` and `alpha` values the pixel stores, and eventually change some of these values, like for example set the pixel color to full `green`, store the new color and then look at the image to see the outstanding `green` pixel:
+If you remember from last time, the `RGBA` struct has a pointer to a `Pixel` type which acts like an array. The next thing we would like is to see what `color` and `alpha` values the pixel stores, and eventually change some of these values, like for example set the pixel color to full `green`, store the new color and then look at the image to see our glorious `green` pixel:
 
 {% highlight swift %} 
 pixel.red = 0
@@ -34,12 +34,56 @@ rgba.pixels[index] = pixel
 rgba = RGBA(image: image)!
 {% endhighlight %}
 
-
+Next, let's see what are the average color values for the entire image. For this we just add all the values for the same color and then divide it by the total number of pixels:
 
 {% highlight swift %} 
-let pixel = rgba.pixels[index]
+var totalRed = 0
+var totalGreen = 0
+var totalBlue = 0
+
+for y in 0..<rgba.height {
+    for x in 0..<rgba.width {
+        let index = y * rgba.width + x
+        let pixel = rgba.pixels[index]
+        totalRed += Int(pixel.red)
+        totalGreen += Int(pixel.green)
+        totalBlue += Int(pixel.blue)
+    }
+}
+
+let pixelCount = rgba.width * rgba.height
+let avgRed = totalRed / pixelCount
+let avgGreen = totalGreen / pixelCount
+let avgBlue = totalBlue / pixelCount
 {% endhighlight %}
 
-A special `Thanks` for [@JackTripleU](https://twitter.com/JackTripleU) who inspired me to write this series.
+Now that we have the averages, we can try to get some image effect, such as for example increasing `contrast` by enhancing the pixel color value: 
+
+{% highlight swift %} 
+func contrast(image: RGBA) -> RGBA {
+    for y in 0..<image.height {
+        for x in 0..<image.width {
+            let index = y * image.width + x
+            var pixel = image.pixels[index]
+            let redDelta = Int(pixel.red) - avgRed
+            let greenDelta = Int(pixel.green) - avgGreen
+            let blueDelta = Int(pixel.blue) - avgBlue
+            pixel.red = UInt8(max(min(255, avgRed + 3 * redDelta), 0))
+            pixel.green = UInt8(max(min(255, avgGreen + 3 * greenDelta), 0))
+            pixel.blue = UInt8(max(min(255, avgBlue + 3 * blueDelta), 0))
+            image.pixels[index] = pixel
+        }
+    }
+    return image
+}
+{% endhighlight %}
+
+What we do inside this method is to calculate a difference between the current color value and the color average, and then multiply it by `3` to enhance the color. The higher the multiplier value is, the more intense the contrast will be. In order to make sure we never get a negative value for the color, we use the `clamp` technique to always get a positive value and one that is always below `256`. Now apply the effect to the image:
+
+{% highlight swift %} 
+let newImage = contrast(rgba).toUIImage()
+{% endhighlight %}
+
+You should be able to see now the image with a nice contrast applied to it. The source code is available on [Github](). A special `Thanks` for [@JackTripleU](https://twitter.com/JackTripleU) who inspired me to write this series.
 
 Until next time!
