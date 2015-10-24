@@ -10,7 +10,7 @@ let image = UIImage(named: "image")!
 let rgba = RGBA(image: image)!
 {% endhighlight %}
 
-The origin point `0 x 0` in the UIKit framework is at the top left corner of the screen while in the Core Graphics and Core Image frameworks is at the bottom left corner. This comes handy when we need to debug issues such as when an `upside-down` image resulted unexpectedly. Now we have access to the 2D-array of pixels which we can easily access by creating an index:
+The origin point `0 x 0` in the `UIKit` framework is at the top left corner of the screen while in the `Core Graphics` and `Core Image` frameworks is at the bottom left corner. This comes handy when we need to debug issues such as when an `upside-down` image resulted unexpectedly. Now we have access to the 2D-array of pixels which we can easily access by creating an index:
 
 {% highlight swift %} 
 let index = y * rgba.width + x
