@@ -3,7 +3,7 @@ published: true
 title: Image processing in iOS part 3
 layout: post
 ---
-In the last part of this series, we will look at how to manipulate pixel information to get great image effects. Let's take up where we left off in the previous part by creating a `RGBA` image from our `UIImage`:
+In the last part of this series, we look at how to manipulate pixel information to get great image effects. Let's take up where we left off in the previous part by creating a `RGBA` image from our `UIImage`:
 
 {% highlight swift %} 
 let image = UIImage(named: "image")!
