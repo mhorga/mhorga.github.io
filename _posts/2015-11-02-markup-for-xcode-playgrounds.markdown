@@ -61,9 +61,7 @@ You will immediately recognize what the first line does, it goes back the previo
 
 Next, we have two ways of presenting lists, `ordered` and `unordered`. One thing worth mentioning is the section delimiter line we can get by using the __>__ symbol. Also, by using different levels of indentation we can have different symbols for presenting the lower level lists. Let's see how our page looks so far:
 
-{% highlight swift %}
-![alt text](https://github.com/Swiftor/Markup/blob/master/images/page2.png?raw=true "Page 2")
-{% endhighlight %}
+![alt text](https://github.com/Swiftor/Markup/raw/master/images/page2.png "Page 2")
 
 It's time to create another new page and name it __page3__ for example, and then click `Next` so we can write on it the following content:
 
@@ -95,9 +93,7 @@ For more information, see [The Swift Programming Language].
 
 The next new syntax element we notice is another way of having section delimiters, or horizontal rules, by using __---__ (3 hyphen) symbols. Next, we see how to reference `URLs` as clickable links. Also, once you defined a link you can reuse it later on in your page by simply referencing its name as you see on the next line above. The next syntax element is the `back tick` (reversed apostrophe) which allows us to type keywords with an emphasised font. We can also use the `\` backslash to escape elements that we mean to have different result, such as a `*` not making one of our lines a bullet point. Let's see how our page looks so far:
 
-{% highlight swift %}
-![alt text](https://github.com/Swiftor/Markup/blob/master/images/page3.png?raw=true "Page 3")
-{% endhighlight %}
+![alt text](https://github.com/Swiftor/Markup/raw/master/images/page3.png "Page 3")
 
 Finally, let's create a last page named __page4__ or so, and write this code on it:
 
@@ -111,9 +107,7 @@ Finally, let's create a last page named __page4__ or so, and write this code on 
 
 Similar to the way we referenced links, we can also reference `images`. The only difference is that we use the exclamation point `!` in front of the image name, and that we can give it an `Alt` name for accessibility reasons. To wrap up this markup syntax overview, we only look at one more element, how to jump all the way to the starting page of the playground, using the same navigation syntax, of course. You need to give it the exact name of the page in parentheses, or the navigation will not work. Let's see how our page looks so far:
 
-{% highlight swift %}
-![alt text](https://github.com/Swiftor/Markup/blob/master/images/page4.png?raw=true "Page 4")
-{% endhighlight %}
+![alt text](https://github.com/Swiftor/Markup/raw/master/images/page4.png "Page 4")
 
 The playground is available on [Github](https://github.com/Swiftor/Markup/).
 
