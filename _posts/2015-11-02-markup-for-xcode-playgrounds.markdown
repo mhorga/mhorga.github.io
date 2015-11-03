@@ -21,11 +21,11 @@ I know! What's with all this non sense? Well, let's take it easy and digest the 
 
 Inside the block we have a __#__ symbol that gives us a __level 1 heading__ (largest possible). Next, we have the word `simple` surrounded by __\*__ symbols. This will give our word the `italic` formatting. Then we have the __\___ symbol as another way of having `italic` formatting. Going further, we see two ways to have `bold` formatting, either by using __\**__ or __\____ symbols to surround our text.
 
-Finally, we notice on the last line that the word __Next__ is first surrounded by square brackets and then preceded by the __@__ symbol and surrounded by parentheses. This is a composed syntax expression. You will later learn that this syntax is used for `URLs`, `images` and page `navigation`. In this case we have navigation to the next page available in the playground. Let's see how our page looks so far:
+Finally, we notice on the last line that the word __Next__ is first surrounded by square brackets and then preceded by the __@__ symbol and surrounded by parentheses. This is a composed syntax expression. You will later learn that this syntax is used for `URLs`, `images` and page `navigation`. In this case we have navigation to the next page available in the playground. Let's see how our page looks so far. For this, let's activate the `markup` validator. On the `Xcode` menu, go to `Editor` --> `Show Rendered Markup`:
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page1.png "Page 1")
 
-As of now, there is no other page in our playground (even though the image shows there are :-D) so let's create one first. At the bottom left side of the playground there is a __+__ button. Click it to add a __New Page__ to the playground. Name it __page2__ or whatever name you wish. Now let's activate the markup. On the `Xcode` menu, go to `Editor` --> `Show Rendered Markup`. If you go back to the first page you will see all the nice formatting we have been working on. Click `Next` and it will go to your (empty) second page. Everything looks great so far!
+As of now, there is no other page in our playground (even though the image shows there are :-D) so let's create one first. At the bottom left side of the playground there is a __+__ button. Click it to add a __New Page__ to the playground. Name it __page2__ or whatever name you wish. If you go back to the first page and click `Next` it will go to your (empty) second page. Everything looks great so far!
 
 Next, let's go back to the `Editor` menu and choose `Show Raw Markup` so we can write code again. On the second page let's write the following markup code:
 
