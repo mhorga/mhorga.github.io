@@ -25,7 +25,7 @@ Then, import the __Social__ framework so we can use its Twitter and Facebook com
 import Social
 {% endhighlight %}
 
-Next, we will add a `Twitter` action to our alert controller:
+Next, back inside the __shareAction()__ method, we will add a `Twitter` action to our alert controller:
 
 {% highlight swift %}
 let tweetAction = UIAlertAction(title: "Tweet", style: UIAlertActionStyle.Default) { _ in
