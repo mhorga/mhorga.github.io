@@ -57,7 +57,7 @@ As of now, there is no other page in our playground (even though the image shows
 
 You will immediately recognize what the first line does, it goes back the previous page, as you guessed. The next couple of lines are interesting. Everything you accompany on the next line with __=__ symbols will be formatted as __level 1 heading__, so this is just another way to do it, besides using the __#__ symbol in front of the line. Likewise, you can have smaller level headings by using  __##__ or __###__.
 
-Next, we have two ways of presenting lists, `ordered` and `unordered`. One thing worth mentioning is the section delimiter line we can get by using the __>__ symbol. Also, by using different levels of indentation we can have different symbols for presenting the lower level lists. Let's see how our page looks so far:
+Next, we have two ways of presenting lists, `ordered` and `unordered`. One thing worth mentioning is the section delimiter line we can get by using the __>__ symbol. Also, by using different levels of indentation we can have different symbols for presenting the lower level lists. Let's see how our page looks:
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page2.png "Page 2")
 
