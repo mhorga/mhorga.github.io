@@ -5,7 +5,7 @@ layout: post
 ---
 In this post, we will look into integrating the `Social Framework` for `iOS`, so we can post to `Twitter` and `Facebook` from other applications we want to integrate with the `Social Framework`. To start, let's create a `Single View Application` in `Xcode`. In the storyboard let's add a `UITextView` connected to an `IBOutlet` named __socialTextView__ and a `UIButton` on top of the text view, and connected to an `IBAction` named __shareAction__.
 
-Next, let's write some code. In the view controller file, inside the __shareAction()__ method let's create a `UIAlertController`:
+Next, let's write some code. In the view controller, inside the __shareAction()__ method let's create a `UIAlertController`:
 
 {% highlight swift %}
 let actionController = UIAlertController(title: "Share", message: "", preferredStyle: UIAlertControllerStyle.Alert)
