@@ -3,7 +3,7 @@ published: true
 title: Markup for Xcode playgrounds
 layout: post
 ---
-Today we will look into authoring features offered by Xcode to make our playgrounds richer in content. To start, let's create a new playground. Inside, type the following code:
+Today we will look into authoring features offered by `Xcode` to make our playgrounds richer in content. To start, let's create a new playground. Inside, type the following code:
 
 {% highlight swift %}
 /*:
@@ -19,7 +19,7 @@ A *simple* demo with _markup_ examples.
 
 I know! What's with all this non sense? Well, let's take it easy and digest the syntax. First, we have a comment block marked by a starting __/\*__ symbol and an ending __\*/__ symbol. Nothing new here. What's special though is when we  added an extra __:__ symbol at the beginning of the block. This will make it special later on when we turn on the `markup` validator.
 
-Inside the block we have a __#__ symbol which gives us a __level 1 heading__ (largest possible). Next, we have the word `simple` surrounded by __\*__ symbols. This will give our word the `italic` formatting. Then we have the __\___ symbol as another way of having `italic` formatting. Going further, we see two ways to have `bold` formatting, either by using __\**__ symbols or __\____ symbols to surround our text.
+Inside the block we have a __#__ symbol that gives us a __level 1 heading__ (largest possible). Next, we have the word `simple` surrounded by __\*__ symbols. This will give our word the `italic` formatting. Then we have the __\___ symbol as another way of having `italic` formatting. Going further, we see two ways to have `bold` formatting, either by using __\**__ symbols or __\____ symbols to surround our text.
 
 Finally, we notice on the last line that the word __Next__ is first surrounded by square brackets and then preceded by the __@__ symbol and surrounded by parentheses. This is a composed syntax expression. You will later learn that this syntax is used for `URLs`, `images` and page `navigation`. In this case we have navigation to the next page available. Let's see how our page looks so far:
 
