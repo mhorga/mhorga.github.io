@@ -61,7 +61,7 @@ Next, we have two ways of presenting lists, `ordered` and `unordered`. One thing
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page2.png "Page 2")
 
-It's time to create another new page and name it __page3__, for example. On the second page click `Next` so we can write the following content on our new page:
+It's time to create another page and name it __page3__, for example. On the second page click `Next` so we can write the following content on our new page:
 
 {% highlight swift %}
 //: [Previous](@previous)
