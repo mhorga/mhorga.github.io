@@ -25,9 +25,7 @@ Finally, we notice on the last line that the word __Next__ is first surrounded b
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page1.png "Page 1")
 
-As of now, there is no other page in our playground (even though the image shows there are :-D) so let's create one first. At the bottom left side of the playground there is a __+__ button. Click it to add a __New Page__ to the playground. Name it __page2__ or whatever name you wish. If you go back to the first page and click `Next` it will go to your (empty) second page. Everything looks great so far!
-
-Next, let's go back to the `Editor` menu and choose `Show Raw Markup` so we can write code again. On the second page let's write the following markup code:
+As of now, there is no other page in our playground (even though the image shows there are :-D) so let's create one first. At the bottom left side of the playground there is a __+__ button. Click it to add a __New Page__ to the playground. Name it __page2__ or whatever name you wish. If you go back to the first page and click `Next` it will go to your (empty) second page. Everything looks great so far! Next, let's go back to the `Editor` menu and choose `Show Raw Markup` so we can write code again. On the second page let's write the following markup code:
 
 {% highlight swift %}
 //: [Previous](@previous)
