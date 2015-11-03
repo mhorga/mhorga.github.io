@@ -89,7 +89,7 @@ For more information, see [The Swift Programming Language].
 //: [Next](@next)
 {% endhighlight %}
 
-The next new syntax element we notice is another way of having section delimiters, or horizontal rules, by using __---__ (3 hyphen) symbols. Next, we see how to reference `URLs` as clickable links. Also, once you defined a link you can reuse it later on in your page by simply referencing its name as you see on the next line above. The next syntax element is the `back tick` (reversed apostrophe) which allows us to type keywords with an emphasised font. We can also use the `\` backslash to escape elements that we mean to have different result, such as a `*` not making one of our lines a bullet point. Let's see how our page looks so far:
+The next new syntax element we notice is another way of having section delimiters, or horizontal rules, by using __---__ (3 hyphen) symbols. Next, we see how to reference `URLs` as clickable links. Also, once you defined a link you can reuse it later on in your page by simply referencing its name as you see on the next line above. The next syntax element is the `back tick` (reversed apostrophe) which allows us to type keywords with an emphasised font. We can also use `\` backslash to escape elements that we want to have a different result, such as a `*` not making one of our lines a bullet point. Let's see how our page looks so far:
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page3.png "Page 3")
 
