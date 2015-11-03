@@ -103,7 +103,7 @@ Finally, let's create a last page named __page4__ or so, and write this code on 
 //: [go back to first page](page1)
 {% endhighlight %}
 
-Similar to the way we referenced links, we can also reference `images`. The only difference is that we use the exclamation point `!` in front of the image name, and that we can give it an `Alt` name for accessibility reasons. To wrap up this markup syntax overview, we only look at one more element, how to jump all the way to the starting page of the playground, using the same navigation syntax, of course. You need to give it the exact name of the page in parentheses, or the navigation will not work. Let's see how our page looks so far:
+Similar to the way we referenced links, we can also reference `images`. The only difference is that we use the exclamation point `!` in front of the image name, and that we can give it an `Alt` name for accessibility reasons. To wrap up this markup syntax overview, we only look at one more element, how to jump all the way to the starting page of the playground, using the same navigation syntax, of course. You need to give it the exact name of the page in parentheses, or the navigation will not work. Let's see how our page looks:
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page4.png "Page 4")
 
