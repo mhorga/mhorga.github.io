@@ -12,7 +12,7 @@ let actionController = UIAlertController(title: "Share", message: "", preferredS
 presentViewController(actionController, animated: true, completion: nil)
 {% endhighlight %}
 
-This will create a small pop-up window showing us an alert titled __Share__ when we press the button. As you can see there is no way of getting rid of this alert, so let's also add a button named __Cancel__ which is actually a `UIAlertAction`. Now we can dismiss the alert when we want to return back to the previous screen:
+This will create a small pop-up window showing us an alert titled __Share__ when we press the button. As you can see there is no way of getting rid of this alert, so let's also add a button named __Cancel__ which is a `UIAlertAction` actually. Now we can dismiss the alert when we want to return back to the previous screen:
 
 {% highlight swift %}
 let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
