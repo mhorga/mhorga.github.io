@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Space Explorer is now in the App Store
 layout: post
 ---
