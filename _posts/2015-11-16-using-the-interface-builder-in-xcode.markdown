@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using the Interface Builder in Xcode
 layout: post
 ---
