@@ -13,13 +13,13 @@ Create three constraints for each the view and the button, all with value __0__ 
 
 ![alt text](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib1.png "IB1")
 
-Run the project on various simulator sizes and orientations, and notice how the uiview and button are both filling the screen, while the button is maintaining its height. This is basic Auto Layout in action. You can also see various screen sizes and orientations, without having to run the app, by using the `Preview` mode of the storyboard which can be chosen by switching to the `Show the Assistant editor` mode:
+Run the project on various simulator sizes and orientations, and notice how the uiview and button are both filling the screen, while the button is maintaining its height. This is basic `Auto Layout` in action. You can also see various screen sizes and orientations, without having to run the app, by using the `Preview` mode of the storyboard which can be chosen by switching to the `Show the Assistant editor` mode:
 
 ![alt text](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib2.png "IB2")
 
 ## 2. Stack Views ##
 
-Let’s add two more buttons aligned horizontally with the initial button. First, remove all the button constraints except the one for `height`, as we will not need them anymore. Then drag the right margin of the button to shorten its width to about a quarter of its size. To clone this button easily, simply press and hold the `Option` key while dragging the button next to itself, thus creating another one with the same size. Repeat once more for the third button:
+Let’s add two more buttons aligned horizontally with the initial button. First, remove all the button constraints except the one for `height`, as we will not need them anymore. Then drag the right margin of the button to shorten its width to about a quarter of its size. To clone this button, simply press and hold the `Option` key while dragging the button next to itself, thus creating another one with the same size. Repeat once more for the third button:
 
 ![alt text](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib3.png "IB3")
 
