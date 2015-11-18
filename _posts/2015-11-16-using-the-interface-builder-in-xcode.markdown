@@ -5,9 +5,9 @@ layout: post
 ---
 In this article I am going to talk about the `Interface Builder` and its main features that `iOS` developers use to design the user interface in their apps. A user interface file has either a __.storyboard__ or __.xib__ file extension. A `xib` file usually specifies one view controller or menu bar. A `storyboard` can have more view controllers and segues between those view controllers. By selecting the user interface file in the project navigator, the file’s contents open in `Interface Builder` in the editor area of the workspace window. 
 
-#1. Auto Layout#
+1. Auto Layout
 
-[](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib1.png)
+![alt text](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib1.png "IB1")
 
 - create a uiview that extends between the left and right margins of the screen and also edges the top of the screen, and give it a blue background
 - below, create a button that has height 44 and also extends between the left and right margins of the screen but this time it edges the bottom of the screen
