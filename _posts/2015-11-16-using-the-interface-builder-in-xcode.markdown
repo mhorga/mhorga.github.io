@@ -29,12 +29,12 @@ You will notice the buttons are neither equally spaced in the new stack, nor are
 
 ![alt text](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib4.png "IB4")
 
-All we are left to do now is set constraints for the two stack views. Instead of creating all the constraints manually, we can easily let the `Interface Builder` do it for us by selecting the rightmost icon this time, named __Resolve Auto Layout Issues__, and by choosing __Add Missing Constraints__ under `All Views in View Controller`. Now we are all set with a stacked view that has `Auto Layout` working for any simulator sizes and orientations:
+All we are left to do now is set constraints for the two stack views. Instead of creating all the constraints manually, we can easily let the `Interface Builder` do it for us by selecting the rightmost icon this time, named __Resolve Auto Layout Issues__, and by choosing __Add Missing Constraints__ under `All Views in View Controller`. Now we are all set with a stacked view that has `Auto Layout` working for all simulator sizes and orientations:
 
 ![alt text](https://github.com/Swiftor/InterfaceBuilder/raw/master/images/ib5.png "IB5")
 
 ## 3. IBDesignable and IBInspectable ##
 
-What if we were able to see in real time all the little changes we're making in the storyboard and in code? Good news, this is possible by using `IBDesignable` and `IBInspectable`. I will talk about them in a part two of this article.
+What if we were able to see in real time the effect of the changes we're making in storyboard and in code? Good news, this is possible by using `IBDesignable` and `IBInspectable`. I will talk about them in a part two of this article.
 
 Until next time!
