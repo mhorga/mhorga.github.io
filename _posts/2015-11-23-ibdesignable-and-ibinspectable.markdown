@@ -97,6 +97,6 @@ Lastly, write `iPhone 6s Plus` (or anything else you want) and it will show on t
 
 ![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib3.png "IB3")
 
-These are two powerful attributes that are very useful when designing your apps, without having to actually build and run your app. There are unlimited opportunities for using these attributes. Imagine playing with numbers that show a spinning wheel completion in real time, or color that change as you are watching them live.
+These are two powerful attributes that are very useful when designing your apps, without having to actually build and run your app. There are unlimited opportunities for using these attributes. Imagine playing with numbers that show a completion wheel spinning in real time, or colors that change as you are watching them live.
 
 Until next time!
