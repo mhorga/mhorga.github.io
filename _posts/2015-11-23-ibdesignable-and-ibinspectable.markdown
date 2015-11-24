@@ -89,7 +89,7 @@ Next, let's make use of the other attribute we mentioned in the beginning, __@IB
 }
 {% endhighlight %}
 
-What this does is to allow us to set values for variables in `Attributes Inspector` so if you go there now, you will notice a new section appears for our `UIView`, named `CustomView`, under `Attributes Inspector`, and it has two fields: __Text__ and __Image__. If you want, you could download that `iPhone` image from the `URL` we used above (or any other image you want) and add it to the project. Next, if you click the `Image` drop down menu, you should be able to choose it, and it will be displayed in real time, like this:
+This allows us to set values for variables in `Attributes Inspector` so if you go there now, you will notice a new section appears for our `UIView`, named `CustomView`, under `Attributes Inspector`, and it has two fields: __Text__ and __Image__. If you want, you could download that `iPhone` image from the `URL` we used above (or any other image you want) and add it to the project. Next, if you click the `Image` drop down menu, you should be able to choose it, and it will be displayed in real time, like this:
 
 ![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib2.png "IB2")
 
