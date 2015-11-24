@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: IBDesignable and IBInspectable
 layout: post
 ---
@@ -68,10 +68,37 @@ Both the imageview and the label are displayed now, but they are both empty! So 
 
 Now go to the storyboard and, voila! There is an image and text underneath. And all this was accomplished by using the `IBDesignable` attribute. There is a catch about the __prepareForInterfaceBuilder()__ method though. Although it’s compiled for runtime, code called from `prepareForInterfaceBuilder` never gets called except by the `Interface Builder` at design time, so if you run the app nothing will displayed at this time. Go ahead and see for yourself.
 
-
+So let's comment out that method:
 
 {% highlight swift %}
-
+//    override func prepareForInterfaceBuilder() {
+//        super.prepareForInterfaceBuilder()
+//        label.text = " iPhone 6s Plus"
+//        let url = "http://i.telegraph.co.uk/multimedia/archive/03058/iphone_6_3058505b.jpg"
+//        imageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: url)!)!)
+//    }
 {% endhighlight %}
+
+Next, let's make use of the other attribute we mentioned in the beginning, __@IBInspectable__. So let's add this last piece of code we need: 
+
+{% highlight swift %}
+@IBInspectable var text: String? {
+    didSet { label.text = text }
+}
+
+@IBInspectable var image: UIImage? {
+    didSet { imageView.image = image }
+}
+{% endhighlight %}
+
+What this does is to allow us to set values for variables in `Attributes Inspector` so if you go there now, you will notice a new section appears for our `UIView`, named `CustomView`, under `Attributes Inspector`, and it has two fields: __Text__ and __Image__. If you want, you could download that `iPhone` image from the `URL` we used above (or any other image you want) and add it to the project. Next, if you click the `Image` drop down menu, you should be able to choose it, and it will be displayed in real time, like this:
+
+![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib2.png "IB2")
+
+Lastly, write `iPhone 6s Plus` (or anything else you want) and it will show on the label on top of the image, in real time as well:
+
+![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib3.png "IB3")
+
+These are two powerful attributes that are very useful when designing your apps, without having to actually build and run your app. There are unlimited opportunities for using these attributes. Imagine playing with numbers that show a spinning wheel completion in real time, or color that change as you are watching them live.
 
 Until next time!
