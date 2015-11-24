@@ -52,7 +52,7 @@ In the storyboard let's add a `UIView` and in `Identity Inspector` change its _c
 
 ![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib1.png "IB1")
 
-The imageview and the label are displayed now, but they're both empty! Here comes the magic. Modify the class signature to include the __@IBDesignable__ attribute and add the following method:
+The imageview and label are displayed now, but they are both empty! Here comes the magic. Modify the class signature to include the __@IBDesignable__ attribute and add the following method:
 
 {% highlight swift %}
 @IBDesignable class CustomView : UIView {
