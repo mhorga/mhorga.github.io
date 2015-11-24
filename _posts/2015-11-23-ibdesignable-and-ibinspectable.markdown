@@ -66,9 +66,7 @@ The imageview and label are displayed now, but they are both empty! Here comes t
 ...
 {% endhighlight %}
 
-Now go to the storyboard and, voila! There is an image and text underneath. And all this was accomplished by using the `IBDesignable` attribute. There is a catch about the __prepareForInterfaceBuilder()__ method though. Although it’s compiled for runtime, code called from `prepareForInterfaceBuilder` never gets called except by the `Interface Builder` at design time, so if you run the app nothing will displayed at this time. Go ahead and see for yourself.
-
-So let's comment out that method:
+Now go to the storyboard and, voila! There is an image and text underneath. And all this was accomplished by using the `IBDesignable` attribute. There is a catch about the __prepareForInterfaceBuilder()__ method though. Although it’s compiled for runtime, code called from `prepareForInterfaceBuilder` never gets called except by the `Interface Builder` at design time, so if you run the app nothing will displayed this time. Go ahead and see for yourself. So let's comment out that method:
 
 {% highlight swift %}
 //    override func prepareForInterfaceBuilder() {
