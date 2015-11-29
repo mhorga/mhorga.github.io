@@ -2,7 +2,7 @@ excerpt_separator: ""
 animated: true
 pygments: true
 markdown: kramdown
-url: http://mhorga.github.io
+url: http://mhorga.org
 title: Swift development blog
 email: mhorga@gmail.com
 author: Marius Horga
