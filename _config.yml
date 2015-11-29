@@ -4,7 +4,6 @@ pygments: true
 markdown: kramdown
 url: http://mhorga.org
 title: Swift development blog
-email: mhorga@gmail.com
 author: Marius Horga
 description: A blog about iOS, watchOS, tvOS and OS X development. 
 paginate: 5
