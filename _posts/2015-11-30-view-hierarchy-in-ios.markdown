@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: View hierarchy in iOS
 layout: post
 ---
