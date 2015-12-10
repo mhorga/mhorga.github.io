@@ -11,7 +11,7 @@ You notice that the view was added outside of the main scene. It is still a part
 
 ![alt text](https://github.com/Swiftor/ViewHierarchy/raw/master/images/2.png "2")
 
-Next, let’s add an `IBOutlet` named __secondView__ for the view and an `IBAction` named __buttonPressed__ for the central button. Inside this method let’s add the subview to our view:
+Let’s add an `IBOutlet` named __secondView__ for the view and an `IBAction` named __buttonPressed__ for the central button. Inside this method let’s add the subview to our view:
 
 {% highlight swift %}
 @IBAction func buttonPressed(sender: UIButton) {
@@ -19,7 +19,7 @@ Next, let’s add an `IBOutlet` named __secondView__ for the view and an `IBActi
 }
 {% endhighlight %}
 
-Run the app and notice that the two buttons from the second view are showing, but most likely that is not the place where we want them:
+Run the app and notice that the two buttons from the second view are showing, but most likely that is not the place where we want them displayed:
 
 ![alt text](https://github.com/Swiftor/ViewHierarchy/raw/master/images/3.png "3")
 
