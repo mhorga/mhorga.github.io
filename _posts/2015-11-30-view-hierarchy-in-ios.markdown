@@ -7,7 +7,7 @@ This week we will look into how view hierarchy works in `iOS`. Specifically, we 
 
 ![alt text](https://github.com/Swiftor/ViewHierarchy/raw/master/images/1.png "1")
 
-You will notice that the view was added outside of the main scene. It is still a part of the scene, just not a part of the view controller. Let’s add a Horizontal Stack View to the view we just created. Set all constraints to `0` and also set it to `Fill equally`. From `Resolve Auto Layout Issues` choose `Update Frames` so our stack view fills the view. Next, drop two buttons in the stack view and name them __Yes__ and __No__, respectively. Add one more button in the view controller, right in the middle of it, add the missing constraints and name it __Are you ready?__ or anything else you wish. Your storyboard should now look like this:
+You notice that the view was added outside of the main scene. It is still a part of the scene, just not a part of the view controller. Let’s add a Horizontal Stack View to the view we just created. Set all constraints to `0` and also set it to `Fill equally`. From `Resolve Auto Layout Issues` choose `Update Frames` so our stack view fills the view. Next, drop two buttons in the stack view and name them __Yes__ and __No__, respectively. Add one more button in the view controller, right in the middle of it, add the missing constraints and name it __Are you ready?__ or anything else you wish. Your storyboard should now look like this:
 
 ![alt text](https://github.com/Swiftor/ViewHierarchy/raw/master/images/2.png "2")
 
