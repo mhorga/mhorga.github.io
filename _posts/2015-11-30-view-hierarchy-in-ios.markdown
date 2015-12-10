@@ -19,7 +19,7 @@ Let’s add an `IBOutlet` named __secondView__ for the view and an `IBAction` na
 }
 {% endhighlight %}
 
-Run the app and notice that the two buttons from the second view are showing, but most likely that is not the place where we want them displayed:
+Run the app and notice that the two buttons from the second view are now showing, but most likely that is not the place we want them displayed:
 
 ![alt text](https://github.com/Swiftor/ViewHierarchy/raw/master/images/3.png "3")
 
