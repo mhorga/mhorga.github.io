@@ -47,4 +47,6 @@ We check if the state of the central button is selected or not and if it’s not
 
 ![alt text](https://github.com/Swiftor/ViewHierarchy/raw/master/images/4.png "4")
 
+The project [source code](https://github.com/Swiftor/ViewHierarchy) is posted on Github, as usual.
+
 Until next time!
