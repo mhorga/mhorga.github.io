@@ -13,10 +13,11 @@ So what have we got? First, a new [website](https://swift.org/) as the Swift hom
 * [Swift package manager](https://github.com/apple/swift-package-manager) which contains the source code for Package Manager - a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies. 
 
 I will conclude this article with a friendly call to contributing. There are several ways you could get involved:
-- the easiest entry way to contributing is to document source code - there are plenty of places that need it
-- another easy way is to add unit testing where the code does not have enough/full coverage
-- going further to more advanced ways, you can search for `//FIXME` marks inside the code that you could attempt to fix
-- also, there are many __NSUnimplemented()__ marks in the `Foundation` code base that you could attempt to implement
-- finally, and this is the hardest part, try to resolve bugs from the [Swift issues](https://bugs.swift.org/issues/) list.
+
+* the easiest entry way to contributing is to document source code - there are plenty of places that need it
+* another easy way is to add unit testing where the code does not have enough/full coverage
+* going further to more advanced ways, you can search for `//FIXME` marks inside the code that you could attempt to fix
+* also, there are many __NSUnimplemented()__ marks in the `Foundation` code base that you could attempt to implement
+* finally, and this is the hardest part, try to resolve bugs from the [Swift issues](https://bugs.swift.org/issues/) list.
 
 Until next time!
