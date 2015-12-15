@@ -15,7 +15,7 @@ So what have we got? First, a new website as the [Swift](https://swift.org/) hom
 I will conclude this article with an invitation to `contributing` to open source code. There are several ways you could get involved:
 
 * the easiest entry way to contributing is to `document` source code - there are plenty of places that need comments and descriptions.
-* another easy way is to add more `unit testing` where the code does not have enough/full coverage
+* another easy way is to add more `unit testing` where the code does not have enough coverage.
 * going further to more advanced ways, you can search for __FIXME__ marks inside the code and attempt to fix them.
 * also, there are many __NSUnimplemented()__ marks in the `Foundation` code base that you could attempt to implement.
 * finally, and this is the hardest part, try to resolve `bugs` from the [Swift issues](https://bugs.swift.org/issues/) list.
