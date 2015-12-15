@@ -12,7 +12,7 @@ So what have we got? First, a new website as the [Swift](https://swift.org/) hom
 * [Swift corelibs](https://github.com/apple/swift-corelibs-foundation) - there are __3__ `corelibs` repositories but the most important one is `Foundation`, which contains the source code for `Foundation`, which provides common functionality for all applications.
 * [Swift package manager](https://github.com/apple/swift-package-manager) which contains the source code for `Package Manager` - a tool for managing the distribution of `Swift` code. It’s integrated with the `Swift` build system to automate the process of downloading, compiling, and linking dependencies. 
 
-I will conclude this article with a friendly call to `contributing` to open source code. There are several ways you could get involved:
+I will conclude this article with an invitation to `contributing` to open source code. There are several ways you could get involved:
 
 * the easiest entry way to contributing is to `document` source code - there are plenty of places that need comments and descriptions.
 * another easy way is to add more `unit testing` where the code does not have enough/full coverage
