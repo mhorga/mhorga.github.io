@@ -105,6 +105,6 @@ As expected, instead of seeing duplicates, we only have the __3__ locations weâ€
 (0, 1)
 {% endhighlight %}
 
-This is only a basic example of the power that `protocol extensions` have in `Swift` programming. You noticed how value types can have behaviors added to them by default, or when needed. The project [source code]((https://github.com/Swiftor/ProtocolOrientedProgramming)) is posted on `Github`, as usual.
+This is only a basic example of the power that `protocol extensions` have in `Swift` programming. You noticed how value types can have behaviors added to them by default, or when needed. The project [source code](https://github.com/Swiftor/ProtocolOrientedProgramming) is posted on `Github`, as usual.
 
 Until next time!
