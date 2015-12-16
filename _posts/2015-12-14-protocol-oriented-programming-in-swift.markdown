@@ -67,7 +67,7 @@ var hashValue: Int {
 }
 {% endhighlight %}
 
-We get yet another error message. If you `Option + click` on `Hashable`, you will notice it conforms to another protocol, `Equatable`, and if you click on `Equatable` you will see that when adopting `Equatable`, the __==__ operator is required to be implemented. The standard library provides implementation for _!=_ however, so we don’t need to deal with that. Let’s create the `equality` operator:
+We get yet another error message. If you `Option + click` on `Hashable`, you will notice it conforms to another protocol, `Equatable`, and if you click on `Equatable` you will see that when adopting `Equatable`, the __==__ operator is required to be implemented. The standard library provides implementation for __!=__, so we don’t need to deal with that. Let’s create the `equality` operator:
 
 {% highlight swift %}
 func ==(lhs: Location, rhs: Location) -> Bool {
