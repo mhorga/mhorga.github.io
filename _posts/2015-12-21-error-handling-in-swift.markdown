@@ -3,7 +3,7 @@ published: true
 title: Error handling in Swift
 layout: post
 ---
-In this article we will look at how errors are handled in `Swift 2` in such a way that your programs will exit gracefully instead of crashing. If we want to __throw__ an error, the object thrown must conform to the __ErrorType__ protocol. `Enums` are appropriate for classifying errors, so let's create one that provides a way of keep track of all possible errors we could get. Let's assume this time we can only have two errors: 
+In this article we will look at how errors are handled in `Swift 2` in such a way that your programs will exit gracefully instead of crashing. If we want to __throw__ an error, the object thrown must conform to the __ErrorType__ protocol. `Enums` are appropriate for classifying errors, so let's create one that provides a way of keeping track of all possible errors we could get. Let's assume this time we can only have two types of errors: 
 
 {% highlight swift %}
 enum Error: ErrorType {
