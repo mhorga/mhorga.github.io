@@ -116,6 +116,6 @@ There is an least one error in the chain!
 Testing should be successful, but sometimes errors could be thrown.
 {% endhighlight %}
 
-As you expect, the first call returns success while the second reports an error and halts the execution of the entire chain of throwing function calls. This is a powerful feature that we can use whenever we want our program to stop running when there is at least one problem in a long decisional chain.
+As you expect, the first call returns success while the second reports an error and halts the execution of the entire chain of throwing function calls. This is a powerful feature that we can use whenever we want our program to stop running when there is at least one problem in a long decisional chain. The [source code](https://github.com/Swiftor/ErrorHandling) is posted on `Github`, as usual.
 
 Until next time!
