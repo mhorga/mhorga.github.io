@@ -65,7 +65,7 @@ print(testParsing(["lastname": "Doe"]))
 
 In the second call, we omitted the `firstname` in purpose to see how output looks like:
 
-{% highlight swift %}
+{% highlight text %}
 Jane Doe
 Invalid data.
 {% endhighlight %}
@@ -109,7 +109,7 @@ testThrowing(["firstname": "Jane", "lastname": "Doe"], code: 404)
 
 We first provide correct input for both arguments, and then we provide a bad `http return code` that should lead to a failure, even though the first argument is still correct:
 
-{% highlight swift %}
+{% highlight text %}
 All functions completed successfully.
 Testing should be successful, but sometimes errors could be thrown.
 There is an least one error in the chain!
