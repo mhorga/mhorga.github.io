@@ -39,7 +39,7 @@ func parseData(from input: [String : String]) throws -> User {
 }
 {% endhighlight %}
 
-When calling an error-throwing function, we must embed it in a __do__ block. Within the block, we need to __try__ the function and if it fails, we need to __catch__ it and return an error. When we get to the function that's catching and handling the errors, we don't need to include __throws__ in the declaration. Let's create another function named __testParsing(:)__ that calls our error-throwing `parseData(:)` function: 
+When calling an error-throwing function, we must embed it in a __do__ block. Within the block, we need to __try__ the function and if it fails, we need to __catch__ it and likely report an error. When we get to the function that's catching and handling the errors, we don't need to include __throws__ in the declaration. Let's create another function named __testParsing(:)__ that calls our error-throwing `parseData(:)` function: 
 
 {% highlight swift %}
 func testParsing(dict: [String : String]) -> String {
