@@ -70,7 +70,7 @@ Jane Doe
 Invalid data.
 {% endhighlight %}
 
-As expected, the output for the first call is correct, while the output for the second call reports the error type we told it to in the `testParsing(:)` function.
+As expected, the output for the first call is correct, while the output for the second call reports the error we handled in the `testParsing(:)` function.
 
 We can also chain multiple throwing function calls together knowing that if any link in the chain fails, the rest of the calls won't execute. First let's create a new method named __testConnection(:)__ to handle the second error we defined in the beginning, the __NoConnection__ type:
 
