@@ -107,7 +107,7 @@ testThrowing(["firstname": "Jane", "lastname": "Doe"], code: 200)
 testThrowing(["firstname": "Jane", "lastname": "Doe"], code: 404)
 {% endhighlight %}
 
-We first provide correct input for both arguments, and then we provide a bad `http return code` that should lead to a failure, even though the first argument is still correct:
+We first provide correct input for both arguments, and then we provide a bad `return code` that should lead to a failure, even though the first argument is still correct:
 
 {% highlight text %}
 All functions completed successfully.
