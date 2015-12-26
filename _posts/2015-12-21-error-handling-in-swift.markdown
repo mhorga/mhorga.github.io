@@ -28,7 +28,7 @@ struct User {
 
 Inside the __init(:)__ method we use a __guard__ statement to make sure both the __firstname__ and __lastname__ exist so that the initialization is either successful, or otherwise it fails gracefully. 
 
-A function that can throw an error, or calls a function that can throw an error has to be marked with __throws__. After your program throws an error, you will need to handle that error. Let's create a function __parseData(:)__ that returns a __User__ struct if the provided argument is valid, or otherwise `throws` the first of defined errors, the __InvalidData__ type: 
+A function that can throw an error, or calls a function that can throw an error has to be marked with __throws__. After your program throws an error, you will need to handle that error. Let's create a function __parseData(:)__ that returns a __User__ struct if the provided argument is valid, or otherwise `throws` the first of our defined errors, the __InvalidData__ type: 
 
 {% highlight swift %}
 func parseData(from input: [String : String]) throws -> User {
