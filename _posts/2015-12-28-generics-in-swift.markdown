@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Generics in Swift
 layout: post
 ---
