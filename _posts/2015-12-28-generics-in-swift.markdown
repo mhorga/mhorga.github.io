@@ -11,7 +11,7 @@ struct Car {
 }
 {% endhighlight %}
 
-On the other hand, the struct `Owner` is a __generic type__ and `T` is its __type parameter__:
+On the other hand, we create the struct `Owner` as a __generic type__ and `T` is its __type parameter__:
 
 {% highlight swift %}
 struct Owner<T> {}
