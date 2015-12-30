@@ -75,7 +75,7 @@ enum Optional<T> {
 }
 {% endhighlight %}
 
-So in this case we have the __Optional<T>__ type that can either be of __Some<T>__ type, or __nil__. Then we can test which of the two cases we need to deal with, and react accordingly:
+So in this case we have the __Optional__ type that can either be of __Some__ type, or __nil__. Then we can test which of the two cases we need to deal with, and react accordingly:
 
 {% highlight swift %}
 let employed = Optional<String>.Some("programmer")
