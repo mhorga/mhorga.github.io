@@ -26,9 +26,9 @@ let driver = Owner<Car>()
 Having generics allows us to declare array in various ways:
 
 {% highlight swift %}
-let array1 = []             // NSArray
-let array2 = [Int]()        // Array of type Int
-let array3 = Array<Int>()   // Array of type Int, equivalent syntax with array2
+let array1 = []
+let array2 = [Int]()
+let array3 = Array<Int>()
 {% endhighlight %}
 
 While `array1` is a `NSArray`, both `array2` and `array3` are representing an `Array` of type `Int`, so their syntax is equivalent. 
