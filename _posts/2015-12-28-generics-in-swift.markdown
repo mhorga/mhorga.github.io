@@ -57,7 +57,7 @@ let array4 = Array(arrayLiteral: 1, 2, 3)
 
 In this case `array4` becomes an `Array<Int>` by type inference. 
 
-For dictionaries there is more information offered. A dictionary is a struct defined like this `Dictionary<Key : Hashable, Value>`. What follows after __:__ is either a `supertype` or a `protocol` the key conforms to, and it is named __type constraint__. Dictionaries also have type inferral:
+For dictionaries there is more information offered. A dictionary is a struct defined as `Dictionary<Key : Hashable, Value>`. What follows after __:__ is either a `supertype` or a `protocol` the key conforms to, and it is named __type constraint__. Dictionaries also have type inferral:
 
 {% highlight swift %}
 let ints: [Int: String] = [10: "ten"]
