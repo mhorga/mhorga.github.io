@@ -64,6 +64,8 @@ let ints: [Int: String] = [10: "ten"]
 let ages = ["John": 39]
 {% endhighlight %}
 
+In this case, the `ages` dictionary is inferred to be of `<String, Int>` type.
+
 As you might have expected, `generics` work well on `optionals` too:
 
 {% highlight swift %}
