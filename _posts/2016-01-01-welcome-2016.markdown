@@ -1,5 +1,10 @@
 ---
-published: false
+published: true
 title: Welcome, 2016!
 layout: post
 ---
+Happy New Year, dear readers!
+
+I just wanted to write this short post today, instead of our usual Mondays, so I can give you a couple of good news. First, now there is a __Subscribe__ form on the home page in case you wanted to get blog updates by email too, instead of `RSS`. Second, since I have covered most of the important Swift topics already, starting next week I will begin writing about few of the important Apple frameworks, the __Metal framework__ and how to develop for it using `Swift`.
+
+Until next time!
