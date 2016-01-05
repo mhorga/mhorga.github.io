@@ -33,7 +33,9 @@ class ViewController: NSViewController {
 }
 {% endhighlight %}
 
-Let's explain the lines of code above. First we need to `import Metal` because we are calling the __MTLCreateSystemDefaultDevice()__ function which belongs to the `Metal` framework. However, since `Cocoa` already imports `Metal` itself, and since we need `Cocoa` in order to use `AppKit` elements such as `NSViewController`, we don't need another import line just for `Metal`. Then, inside __viewDidLoad()__ is where all the magic happens. We create a `Metal` device by calling `MTLCreateSystemDefaultDevice()` and then we simply query for its name so we can display it as the label text. A `device` is an abstraction of the `GPU` and provides us a few methods and properties, such as __name__ which we used above.
+Let's explain the lines of code above. First we need to `import Metal` because we are calling the __MTLCreateSystemDefaultDevice()__ function which belongs to the `Metal` framework. However, since `Cocoa` already imports `Metal` itself, and since we need `Cocoa` in order to use `AppKit` elements such as `NSViewController`, we don't need another import line just for `Metal`. 
+
+Then, inside __viewDidLoad()__ is where all the magic happens. We create a `Metal` device by calling `MTLCreateSystemDefaultDevice()` and then we simply query for its name so we can display it as the label text. A `device` is an abstraction of the `GPU` and provides us a few methods and properties, such as __name__ which we used above.
 
 If you run the project, you should be able to see the following output:
 
