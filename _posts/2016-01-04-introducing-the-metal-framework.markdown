@@ -39,6 +39,6 @@ If you run the project, you should be able to see the following output:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter01_2.png "2")
 
-Yeah, I know, my GPU is a bit old but hey, it runs Metal! There is not much to see, but for now you learned how to "talk" to the `GPU` at the lowest possible level. In the next episode we will learn how we can send data to the `GPU` and get results back from it. I wanted to say a special `Thank You` to my good friend [@warrenm](https://twitter.com/warrenm) without whose guidance and inspiration this seris would not have existed. The project [source code](https://github.com/Swiftor/Metal/tree/master/ch01) is posted on Github, as usual.
+Yeah, I know, my GPU is a bit old but hey, it runs Metal! There is not much to see, but for now you learned how to "talk" to the `GPU` at the lowest possible level. In the next episode we will learn how we can send data to the `GPU` and get results back from it. I wanted to say a special `Thank You` to my good friend [@warrenm](https://twitter.com/warrenm) without whose guidance and inspiration this series would not have existed. The project [source code](https://github.com/Swiftor/Metal/tree/master/ch01) is posted on Github, as usual.
 
 Until next time!
