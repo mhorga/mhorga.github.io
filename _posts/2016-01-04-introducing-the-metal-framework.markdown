@@ -3,7 +3,7 @@ published: true
 title: Introducing the Metal framework
 layout: post
 ---
-As I promised last time, I am starting today a new series about the [__Metal framework__](https://developer.apple.com/metal/) that was announced at the [__WWDC 2014__](https://developer.apple.com/videos/play/wwdc2014-603/) initially only for `iOS`, but later on also for `OS X` and `tvOS`. `Metal` is an interface for accessing the `GPU (Graphics Processing Unit)` inside your machine. The main advantages of using `Metal` are:
+As I promised last time, I am starting today a new series about the [__Metal framework__](https://developer.apple.com/metal/) that was announced at the [__WWDC 2014__](https://developer.apple.com/videos/play/wwdc2014-603/) initially only for `iOS`, but later on also for `OS X` and `tvOS`. `Metal` is an interface for accessing the `GPU (Graphics Processing Unit)` of your machine. The main advantages of using `Metal` are:
 
 - provides the lowest overhead access to the `GPU`, hence it reduces all bottlenecks usually caused by data transferring between the `CPU` and `GPU` in other frameworks. 
 - provides up to __10__ times the number of draw calls compared to `OpenGL`. `Metal`, however, is not cross-platform as `OpenGL` is, so it is not meant to be a replacement for `OpenGL`.
