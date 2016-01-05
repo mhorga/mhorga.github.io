@@ -27,8 +27,11 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let device = MTLCreateSystemDefaultDevice()
-        label.stringValue = "Your GPU name is:\n\(device!.name!)"
+        if let device = MTLCreateSystemDefaultDevice() {
+            label.stringValue = "Your GPU name is:\n\(device.name!)"
+        } else {
+            label.stringValue = "Your GPU does not support Metal!"
+        }
     }
 }
 {% endhighlight %}
