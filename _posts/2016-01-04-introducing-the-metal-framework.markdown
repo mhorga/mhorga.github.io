@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Introducing the Metal framework
 layout: post
 ---
@@ -18,7 +18,7 @@ Since `Metal` does not run on the `Xcode` simulator, and since we cannot assume 
 Next, go to __ViewController.swift__ and create an `IBOutlet` for the label we just created. You can name it simply __label__ or anything else you wish. Finally, let's write some code. Your class should look like this:
 
 {% highlight swift %} 
-import Cocoa // contains Metal
+import Cocoa
 
 class ViewController: NSViewController {
 
@@ -33,12 +33,12 @@ class ViewController: NSViewController {
 }
 {% endhighlight %}
 
-Let's explain the lines of code above.
+Let's explain the lines of code above. First we need to `import Metal` because we are calling the __MTLCreateSystemDefaultDevice()__ function which belongs to the `Metal` framework. However, since `Cocoa` already imports `Metal` itself, and since we need `Cocoa` in order to use `AppKit` elements such as `NSViewController`, we don't need another import line just for `Metal`. Then, inside __viewDidLoad()__ is where all the magic happens. We create a `Metal` device by calling `MTLCreateSystemDefaultDevice()` and then we simply query for its name so we can display it as the label text. A `device` is an abstraction of the `GPU` and provides us a few methods and properties, such as __name__ which we used above.
 
 If you run the project, you should be able to see the following output:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter01_2.png "2")
 
-There is not much to see, but for now you learned how to "talk" to the `GPU` at the lowest possible level. In the next episode we will learn how we can send data to the `GPU` and get results back from it. The project [source code](https://github.com/Swiftor/Metal/tree/master/ch01) is posted on Github, as usual.
+Yeah, I know, my GPU is a bit old but hey, it runs Metal! There is not much to see, but for now you learned how to "talk" to the `GPU` at the lowest possible level. In the next episode we will learn how we can send data to the `GPU` and get results back from it. The project [source code](https://github.com/Swiftor/Metal/tree/master/ch01) is posted on Github, as usual.
 
 Until next time!
