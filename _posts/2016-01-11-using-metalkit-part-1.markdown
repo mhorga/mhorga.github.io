@@ -7,7 +7,7 @@ The Metal framework was announced the [WWDC 2014](https://developer.apple.com/vi
 
 Let’s create a new `Cocoa Application` (since `iOS` simulators do not support `Metal`). Make sure only the `Swift` and `Use Storyboards` fields are selected. Next, let’s create a new class named __MetalView.swift__ of type `NSView` (for now). Once created, go to the storyboard and select the `View` under the `View Controller` as set its class to a `MetalView` type under `Identity Inspector` as seen in the image below. 
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter02_1.png "1")
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter02-1.png "1")
 
 Do the same for the `View Controller` and in `Identity Inspector` under `Class` delete `View Controller` because we’re not going to use it. Also delete `ViewController.swift` since we don’t need it anymore. Now go back to `MetalView.swift` and type __import MetalKit__. There are two ways we can prepare our class for drawing: either conform to the `MTKViewDelegate` protocol and implement its `drawInView(:)` method, or subclass `MTKView` and override its `drawRect(:)` method. We choose the latter, so go ahead and change the class type from `NSView` to `MTKView`, and create a new method named __render()__ that has the following content:
 
@@ -54,7 +54,7 @@ override func drawRect(dirtyRect: NSRect) {
 
 If you run the app, you will see a nice, nothing out of ordinary, `bleen-ish` screen like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter02_2.png "2")
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter02-2.png "2")
 
 In the next episode we will finally get to introducing `shaders`, talk about loading `textures` and about managing `model data`. The [source code](https://github.com/Swiftor/Metal/tree/master/ch02) is posted on `Github` as usual.
 
