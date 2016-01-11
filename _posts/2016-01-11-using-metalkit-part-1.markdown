@@ -9,7 +9,7 @@ Let’s create a new `Cocoa Application` (since `iOS` simulators do not support 
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter02-1.png "1")
 
-Do the same for the `View Controller` and in `Identity Inspector` under `Class` delete `View Controller` because we’re not going to use it. Also delete `ViewController.swift` since we don’t need it anymore. Now go back to `MetalView.swift` and type __import MetalKit__. There are two ways we can prepare our class for drawing: either conform to the `MTKViewDelegate` protocol and implement its `drawInView(:)` method, or subclass `MTKView` and override its `drawRect(:)` method. We choose the latter, so go ahead and change the class type from `NSView` to `MTKView`, and create a new method named __render()__ that has the following content:
+Do the same for the `View Controller` and in `Identity Inspector` under `Class` delete `View Controller` because we’re not going to use it. Also delete `ViewController.swift` since we don’t need it anymore. Now go back to `MetalView.swift` and type __import MetalKit__. There are two ways we can prepare our class for drawing: either conform to the `MTKViewDelegate` protocol and implement its `drawInView(:)` method, or subclass `MTKView` and override its `drawRect(:)` method. We choose the latter, so go ahead and change the class type from `NSView` to __MTKView__, and create a new method named __render()__ that has the following content:
 
 {% highlight swift %} 
 func render() {
