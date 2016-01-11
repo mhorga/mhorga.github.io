@@ -3,7 +3,7 @@ published: true
 title: Using MetalKit part 1
 layout: post
 ---
-The Metal framework was announced the [WWDC 2014](https://developer.apple.com/videos/wwdc2014/) as we mentioned last week. A year later, at the [WWDC 2015](https://developer.apple.com/videos/wwdc2015/), the new [MetalKit](https://developer.apple.com/library/ios/documentation/MetalKit/Reference/MTKFrameworkReference/index.html) framework was announced which brings a great deal of improvements and new features for `Metal`. Meet __MTKView__, a subclass of `NSView/UIView`. It comes with an embedded `Metal` Layer, and it also manages the framebuffer and its render target attachments, as well as takes care of the draw loop.
+The Metal framework was announced the [WWDC 2014](https://developer.apple.com/videos/wwdc2014/) as we mentioned last week. A year later, at the [WWDC 2015](https://developer.apple.com/videos/wwdc2015/), the new [MetalKit](https://developer.apple.com/library/ios/documentation/MetalKit/Reference/MTKFrameworkReference/index.html) framework was announced which brings a great deal of improvements and new features for `Metal`. Meet __MTKView__, a subclass of `NSView/UIView`. It comes with an embedded `Metal` layer, and it also manages the framebuffer and its render target attachments, as well as takes care of the draw loop.
 
 Let’s create a new `Cocoa Application` (since `iOS` simulators do not support `Metal`). Make sure only the `Swift` and `Use Storyboards` fields are selected. Next, let’s create a new class named __MetalView.swift__ of type `NSView` (for now). Once created, go to the storyboard and select the `View` under the `View Controller` as set its class to a `MetalView` type under `Identity Inspector` as seen in the image below. 
 
