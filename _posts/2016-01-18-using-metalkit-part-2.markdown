@@ -67,7 +67,7 @@ The vertices above are located in order: bottom left, bottom right and top cente
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter03_1.png "1")
 
-We have completed the first stage so far, storing the vertexes. You notice that the next stages require that we have a new construct named __shader__. A `shader` is the where programmers are allowed to interfere in the graphics pipeline with their custom functions. We have a few types of shaders, however, today we only look at two of them: the __vertex shader__ which is responsible for the __location__ of our point, and the __fragment shader__ which is responsible for the __color__ of our point.
+We have completed the first stage so far, storing the vertexes. You notice that the next stages require that we have a new construct named __shader__. A `shader` is the where programmers are allowed to interfere in the graphics pipeline with their custom functions. `Metal` provides a few types of shaders, however, today we only look at two of them: the __vertex shader__ which is responsible for the __location__ of our point, and the __fragment shader__ which is responsible for the __color__ of our point.
 
 The `Metal` framework provides a function that we can call on the `device` to create a __Library__ of functions (`shaders`), so let's create them:
 
