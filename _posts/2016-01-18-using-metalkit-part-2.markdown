@@ -86,7 +86,7 @@ rpld.fragmentFunction = frag_func
 rpld.colorAttachments[0].pixelFormat = .BGRA8Unorm
 {% endhighlight %}
 
-You might be wondering what __.BGRA8Unorm__ means. This setting configures the pixel format so that everything that goes through the render pipeline conforms to the same order (in this case `Blue`, `Green`, `Red`, `Alpha`) of color components as well as size (in this case an `8-bit` color value goes from `0` to `255`). The last stage is to create a __Render Pipeline State__ based on the above `descriptor`:
+You might wonder what __.BGRA8Unorm__ means. This setting configures the pixel format so that everything that goes through the render pipeline conforms to the same order (in this case `Blue`, `Green`, `Red`, `Alpha`) of color components as well as size (in this case an `8-bit` color value goes from `0` to `255`). The last stage is to create a __Render Pipeline State__ based on the above `descriptor`:
 
 {% highlight swift %} 
 var rps: MTLRenderPipelineState! = nil
