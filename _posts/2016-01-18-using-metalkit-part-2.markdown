@@ -29,7 +29,7 @@ Let's improve the code above a bit. First, since our class already subclasses __
 device = MTLCreateSystemDefaultDevice()
 {% endhighlight %}
 
-Second, last week we said we should make sure __currentRenderPassDescriptor__ and __currentDrawable__ are not nil or the app will crash. For the sake of simplicity, we have not done that in part one, so let's do that now. This will also help us get rid of a couple more lines of code. The final version of the function will look like this:
+Second, last week we said that we should make sure __currentDrawable__ and __currentRenderPassDescriptor__ are not nil or the app will crash. For the sake of simplicity, we have not done that in part one, so let's do that now. This will also help us get rid of a couple more lines of code. The final version of the function will look like this:
 
 {% highlight swift %} 
 func render() {
