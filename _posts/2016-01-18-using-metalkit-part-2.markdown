@@ -86,15 +86,10 @@ rpld.fragmentFunction = frag_func
 rpld.colorAttachments[0].pixelFormat = .BGRA8Unorm
 {% endhighlight %}
 
-You might wonder what __.BGRA8Unorm__ means. This setting configures the pixel format so that everything that goes through the render pipeline conforms to the same order (in this case `Blue`, `Green`, `Red`, `Alpha`) of color components as well as size (in this case an `8-bit` color value goes from `0` to `255`). The last stage is to create a __Render Pipeline State__ based on the above `descriptor`:
+You might wonder what __.BGRA8Unorm__ means. This setting configures the pixel format so that everything that goes through the render pipeline conforms to the same order (in this case `Blue`, `Green`, `Red`, `Alpha`) of color components as well as size (in this case an `8-bit` color value goes from `0` to `255`). The last step is to create a __Render Pipeline State__ based on the above `descriptor`:
 
 {% highlight swift %} 
-var rps: MTLRenderPipelineState! = nil
-do {
-    try rps = device!.newRenderPipelineStateWithDescriptor(rpld)
-} catch let error {
-    self.print("\(error)")
-}
+let rps = try! device!.newRenderPipelineStateWithDescriptor(rpld)
 {% endhighlight %}
 
 Now let's get back to the two `shaders` we promised to create when we created the `Library`. For this, we need to create a new file in `Xcode`. Choose the __Metal File__ type, name it __Shaders.metal__ or something similar and click `Create`. You will immediately notice that the code does not resemble `Swift` much, and that is because the `Metal shading language` is based on `C++`. Let's add the code below:
