@@ -23,7 +23,7 @@ func render() {
 }
 {% endhighlight %}
 
-Let's improve the code above a bit. First, since our class subclasses __MTKView__, it already has its own `device` so there is no need to declare another one. This lets us reduce the first two lines to just one:
+Let's improve this code a bit. First, since our class subclasses __MTKView__, it already has its own `device` so there is no need to declare another one. This lets us reduce the first two lines to just one:
 
 {% highlight swift %} 
 device = MTLCreateSystemDefaultDevice()
