@@ -122,6 +122,6 @@ If you run the app, you should see a triangle like this:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter03_2.png "2")
 
-In the next part we will learn more about the `Metal shading language` as well as how `3D graphics` is rendered on the `GPUs`.
+In the next part we will learn more about the `Metal shading language` as well as how `3D graphics` is rendered on the `GPUs`. The [source code](https://github.com/Swiftor/Metal/tree/master/ch03) is posted on Github as usual.
 
 Until next time!
