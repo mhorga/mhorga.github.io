@@ -45,7 +45,7 @@ func render() {
 }
 {% endhighlight %}
 
-You might be wondering what __colorAttachments[0]__ means. To set the rendering pipeline state, the `Metal` framework provides __3__ types of attachments that we can write to:
+You might be asking what __colorAttachments[0]__ means. To set the rendering pipeline state, the `Metal` framework provides __3__ types of attachments that we can write to:
 
 - colorAttachments	
 - depthAttachmentPixelFormat
