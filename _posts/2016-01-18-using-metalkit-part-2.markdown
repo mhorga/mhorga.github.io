@@ -92,6 +92,14 @@ You might wonder what __.BGRA8Unorm__ means. This setting configures the pixel f
 let rps = try! device!.newRenderPipelineStateWithDescriptor(rpld)
 {% endhighlight %}
 
+Finally, we only need to let the command `encoder` know about our triangle, so add the following lines right after creating the `encoder`:
+
+{% highlight swift %} 
+command_encoder.setRenderPipelineState(rps)
+command_encoder.setVertexBuffer(vertex_buffer, offset: 0, atIndex: 0)
+command_encoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1) 
+{% endhighlight %}
+
 Now let's get back to the two `shaders` we promised to create when we created the `Library`. For this, we need to create a new file in `Xcode`. Choose the __Metal File__ type, name it __Shaders.metal__ or something similar and click `Create`. You will immediately notice that the code does not resemble `Swift` much, and that is because the `Metal shading language` is based on `C++`. Let's add the code below:
 
 {% highlight swift %} 
