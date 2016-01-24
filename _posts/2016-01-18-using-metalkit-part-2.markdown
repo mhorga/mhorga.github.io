@@ -119,7 +119,7 @@ fragment float4 fragment_func(Vertex vert [[stage_in]]) {
 }
 {% endhighlight %}
 
-The code is pretty straightforward. We first create a `struct` named __Vertex__ that has only one member - an array of position arrays. We notice that the array is __float4__ which in the shading language is the same as the vertexes we created earlier with __4__ floats each. Then we have the __vertex_func__ shader which returns the __location__ of the current vertex, and the __fragment_func__ shader which returns the __color__ of the current vertex. We hardcoded a particular color value, but we could have added a `color` struct member to `Vertex` and set the color separately for each vertex.
+The code is pretty straightforward. We first create a `struct` named __Vertex__ that has only one member - an array of position arrays. We notice that the array is __float4__ which in the shading language is the same as the vertexes we created earlier with __4__ floats each. We leave the explanation for the __[[...]]__ syntax for next time. Then we have the __vertex_func__ shader which returns the __location__ of the current vertex, and the __fragment_func__ shader which returns the __color__ of the current vertex. We hardcoded a particular color value, but we could have added a `color` struct member to `Vertex` and set the color separately for each vertex.
     
 If you run the app, you should see a triangle like this:
 
