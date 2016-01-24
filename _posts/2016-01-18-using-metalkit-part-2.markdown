@@ -53,7 +53,7 @@ You might wonder what __colorAttachments[0]__ means. To set the `rendering pipel
 
 We are only interested in storing color data for now and `colorAttachments` is an array of textures that hold drawings results and display them on the screen. We currently only have one such texture - the first element (at index `0`) of the array. Ok, now is a good time to run the app and make sure you are still seeing the same colored background we saw last time. So much better! With only __9__ lines of code we can get safe `Metal` code running on our GPU. Not too shabby.
 
-So far so good! Next, let's dive into a new `Metal` concept - drawing geometry on the screen. All graphics tutorials such as those about `OpenGL` start with a `Hello, Triangle` type of program because a triangle is the simplest form of geometry that can be drawn on screen. It is a __2D graphics__ basic element and all the other objects in the world of graphics are composed of triangles, so this makes it a great place to start. Imagine the screen coordinate system having its axes running through the center of the screen which would have the coordinates __(0, 0)__. The edges of the screen would have values of __-1__ and __1__ respectively. Let's create an array of floats and a buffer to hold the vertex values for our triangle. Insert these lines right after initializing the `device`:
+So far so good! Next, let's dive into a new `Metal` topic - drawing geometry on the screen. All graphics tutorials such as those about `OpenGL` start with a `Hello, Triangle` type of program because a triangle is the simplest form of geometry that can be drawn on screen. It is a __2D graphics__ basic element and all the other objects in the world of graphics are composed of triangles, so this makes it a great place to start. Imagine the screen coordinate system having its axes running through the center of the screen which would have the coordinates __(0, 0)__. The edges of the screen would have values of __-1__ and __1__ respectively. Let's create an array of floats and a buffer to hold the vertex values for our triangle. Insert these lines right after initializing the `device`:
 
 {% highlight swift %} 
 let vertex_data:[Float] = [-1.0, -1.0, 0.0, 1.0,
@@ -67,7 +67,7 @@ The vertices above are located in order: bottom left, bottom right and top cente
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter03_1.png "1")
 
-We have completed the first stage so far, storing the vertexes. You notice that the next stages require that we have a new construct named __shader__. A `shader` is the where programmers are allowed to interfere in the graphics pipeline with their custom functions. `Metal` provides a few types of shaders, however, today we only look at two of them: the __vertex shader__ which is responsible for the __location__ of our point, and the __fragment shader__ which is responsible for the __color__ of our point.
+We have completed the first stage so far, storing the vertexes. You notice that the next stages require that we have a new construct named __shader__. A `shader` is where programmers are allowed to interfere in the graphics pipeline with their custom functions. `Metal` provides a few types of shaders, however, today we only look at two of them: the __vertex shader__ which is responsible for the __location__ of our point, and the __fragment shader__ which is responsible for the __color__ of our point.
 
 The `Metal` framework provides a function that we can call on the `device` to create a __Library__ of functions (`shaders`), so let's create it:
 
