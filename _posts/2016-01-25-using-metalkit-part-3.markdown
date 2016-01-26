@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 3
 layout: post
 ---
@@ -128,12 +128,11 @@ vertex Vertex vertex_func(constant Vertex *vertices [[buffer(0)]], uint vid [[ve
 
 The first keyword is the function __qualifier__ and can only have the value __vertex__, __fragment__ or __kernel__. The next keyword is the __return type__. Next is the function __name__ followed by the function __arguments__ inside the parentheses. The `Metal` shading language restricts the use of pointers unless the arguments are declared with the __device__, __threadgroup__, or __constant__ address space qualifier which specifies the region of memory where a function variable or argument is allocated. The __[[ ... ]]__ syntax is used to declare attributes such as resource locations, shader inputs, and built-in variables that are passed back and forth between shaders and CPU.
 
-The Metal framework API uses this attribute to identify the location for these argument types:
-device and constant buffers __[[ buffer(index) ]]__. Built-in input and output variables are used to communicate values between the graphics (vertex and fragment) functions and the fixed-function graphics pipeline stages. In our case __[[ vertex_id ]]__ is the per-vertex identifier that facilitates the communication. Per-vertex inputs can also be passed as an argument to a vertex function by declaring them with the __[[ stage_in ]]__ attribute qualifier. 
+`Metal` uses the __[[ buffer(index) ]]__ attribute to identify the location for the `device` and `constant buffer` argument types. Built-in input and output variables are used to communicate values between the graphics (vertex and fragment) functions and the fixed-function graphics pipeline stages. In our case __[[ vertex_id ]]__ is the per-vertex identifier that facilitates the communication. Per-vertex inputs can also be passed as an argument to a vertex function by declaring them with the __[[ stage_in ]]__ attribute qualifier. 
 
 The `vertex shader` takes a pointer to the list of vertices as the 1st parameter. We will be able to index into __vertices__ using the 2nd parameter __vid__ which is attributed with __vertex_id__ that tells `Metal` to insert the vertex index currently being processed as this parameter. We then simply pass along each vertex (with its position and color) for the `fragment shader` to consume. All the `fragment shader` does is to take the vertex passed from the `vertex shader` and pass through the color for each and every pixel without changing anything to the input data. The vertex shader runs infrequently (only 3 times in this case - for each vertex), while the `fragment shader` runs thousands of times - for each pixel it needs to draw. 
 
-So you might still asking: "Ok, but what about the color gradients?" 
+So you might still asking: "Ok, but what about the color gradients"? Well, now that you understand what each shader does and how often they run, you can think about the color at any given pixel as the __average__ color value of its neighbors. For example, the color halfway between the the `red` and the `green` pixel will be `yellow` simply because the `fragment shader` interpolates the two colors by average: _0.5 * red + 0.5 * green__. The same happens with the color halfway between `red` and `blue` resulting `magenta`, as well as halfway between `blue` and `green` resulting `cyan`. From here on, the rest of the pixels are interpolated with unequal parts of the primary colors resulting the gradient range you see.
 
 The [source code](https://github.com/Swiftor/Metal/tree/master/ch04) is posted on Github as usual.
 
