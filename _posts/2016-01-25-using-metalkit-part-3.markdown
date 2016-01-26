@@ -34,7 +34,7 @@ struct Vertex {
 }
 {% endhighlight %}
 
-You are probably wondering what kind of a data type __vector_float4__ is. From `Apple`'s documentation we find that the vector types are clang-based types that are better suited than traditional `SIMD` types for arithmetic operations of type vector-vector and vector-scalar. It is possible to access vector components both via array-style subscripting, and by using the __.__ operator with component names (`x`, `y`, `z`, `w`, or combinations thereof). Besides the __.xyzw__ component names, the following sub-vectors can be easily accessed: __.lo__ / __.hi__ (first half and second half of a vector), as well as the __.even__ / __.odd__ sub-vectors:
+You might wonder what kind of a data type __vector_float4__ is. From `Apple`'s documentation we find that the vector types are clang-based types that are better suited than traditional `SIMD` types for arithmetic operations of type vector-vector and vector-scalar. It is possible to access vector components both via array-style subscripting, and by using the __.__ operator with component names (`x`, `y`, `z`, `w`, or combinations thereof). Besides the __.xyzw__ component names, the following sub-vectors can be easily accessed: __.lo__ / __.hi__ (first half and second half of a vector), as well as the __.even__ / __.odd__ sub-vectors:
 
 {% highlight swift %} 
 vector_float4 x = 1.0f;         // x = { 1, 1, 1, 1 }.
