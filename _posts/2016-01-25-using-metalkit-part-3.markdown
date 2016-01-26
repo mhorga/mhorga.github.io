@@ -100,7 +100,7 @@ struct Vertex {
 };
 {% endhighlight %}
 
-and second, we replace the hardcoded color we used last time in the __fragment__ shader:
+Second, we replace the hardcoded color we used last time in the __fragment__ shader:
 
 {% highlight swift %} 
 fragment float4 fragment_func(Vertex vert [[stage_in]]) {
