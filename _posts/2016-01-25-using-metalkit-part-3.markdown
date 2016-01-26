@@ -17,7 +17,7 @@ func render() {
 }
 {% endhighlight %}
 
-For the __createBuffer()__ function we need to first make some changes. Remember from last episode that _vertex data_ was an array of type `Float` like this:
+For the __createBuffer()__ function we need to first make some changes. Recall from last episode that _vertex data_ was an array of type `Float` like this:
 
 {% highlight swift %} 
 let vertex_data:[Float] = [-1.0, -1.0, 0.0, 1.0,
