@@ -21,8 +21,8 @@ For the __createBuffer()__ function we need to first make some changes. Recall f
 
 {% highlight swift %} 
 let vertex_data:[Float] = [-1.0, -1.0, 0.0, 1.0,
-                                    1.0, -1.0, 0.0, 1.0,
-                                    0.0,  1.0, 0.0, 1.0]
+                           1.0, -1.0, 0.0, 1.0,
+                           0.0,  1.0, 0.0, 1.0]
 {% endhighlight %}
 
 Let's transform it into a better suited format, a __struct__ with two members of `vector_float4` type, one for __position__ and the other for __color__:
