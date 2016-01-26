@@ -120,9 +120,15 @@ If you run the app, you should now see a more nicely colored triangle:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter04.png "1")
 
-You might be wondering why are the colors becoming gradients as we move away from the three vertexes we passed to the shaders? To understand this, it's important to first understand the difference between the two shaders and their role in the graphics pipeline. The `vertex shader` takes a pointer to the list of vertices as the 1st parameter. We will be able to index into __vertices__ using the 2nd parameter __vid__ which is attributed with __vertex_id__ that tells `Metal` to insert the vertex index currently being processed as this parameter. We then simply pass along each vertex (with its position and color) for the `fragment shader` to consume. The __[[ ... ]]__ syntax is used to declare attributes such as resource locations, shader inputs, and built-in variables that are passed back and forth between shaders and CPU.
+You might be wondering why are the colors becoming gradients as we move away from the three vertexes we passed to the shaders? To understand this, it's important to first understand the difference between the two shaders and their role in the graphics pipeline. Let's look at the syntax for writing any shader (we choose the vertex shader as example):
 
-All the fragment shader does is to take the OutVertex passed from the vertex shader and pass through the color for each and every pixel without changing anything to the input data. An important thing to realize is that the vertex shader gets run infrequently (maybe only 3 times for each vertex), while the fragment shader gets run a lot (maybe thousands of times for each pixel it needs to draw). A pipeline state synchronously creates the compiled code that runs on the GPU. 
+{% highlight swift %} 
+vertex Vertex vertex_func(constant Vertex *vertices [[buffer(0)]], uint vid [[vertex_id]])
+{% endhighlight %}
+
+The first keyword is the function __qualifier__ and can only have the value __vertex__, __fragment__ or __kernel__. The next keyword is the __return type__. Next is the function __name__ followed by the function __arguments__ inside the parentheses. The `Metal` shading language restricts the use of pointers unless the arguments are declared with the __device__, __threadgroup__, or __constant__ address space qualifier which specifies the region of memory where a function variable or argument is allocated. The __[[ ... ]]__ syntax is used to declare attributes such as resource locations, shader inputs, and built-in variables that are passed back and forth between shaders and CPU.
+
+The `vertex shader` takes a pointer to the list of vertices as the 1st parameter. We will be able to index into __vertices__ using the 2nd parameter __vid__ which is attributed with __vertex_id__ that tells `Metal` to insert the vertex index currently being processed as this parameter. We then simply pass along each vertex (with its position and color) for the `fragment shader` to consume. All the `fragment shader` does is to take the vertex passed from the `vertex shader` and pass through the color for each and every pixel without changing anything to the input data. The vertex shader runs infrequently (only 3 times in this case - for each vertex), while the `fragment shader` runs thousands of times - for each pixel it needs to draw. 
 
 The [source code](https://github.com/Swiftor/Metal/tree/master/ch04) is posted on Github as usual.
 
