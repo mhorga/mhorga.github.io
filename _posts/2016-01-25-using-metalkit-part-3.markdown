@@ -119,7 +119,6 @@ fragment float4 fragment_func(Vertex vert [[stage_in]]) {
 If you run the app, you should now see a more nicely colored triangle:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter04.png "1")
-
 You might be wondering why are the colors becoming gradients as we move away from the three vertexes we passed to the shaders? To understand this, it's important to first understand the difference between the two shaders and their role in the graphics pipeline. Let's look at the syntax for writing any shader (we choose the vertex shader as example):
 
 {% highlight swift %} 
