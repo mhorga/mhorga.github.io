@@ -108,7 +108,7 @@ fragment float4 fragment_func(Vertex vert [[stage_in]]) {
 }
 {% endhighlight %}
 
-with the actual color each vertex carries (sent to the `GPU` from the __vertex_buffer__):
+with the actual color each vertex carries (sent to `GPU` by the __vertex_buffer__):
 
 {% highlight swift %} 
 fragment float4 fragment_func(Vertex vert [[stage_in]]) {
