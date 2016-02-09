@@ -175,6 +175,6 @@ Run the app again and notice that the triangle is now also rotated:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter05_4.png "4")
 
-Next week we will finally get to drawing 3D objects (such as cubes or spheres) with `z-depth`. The [source code](https://github.com/Swiftor/Metal/tree/master/ch05) is posted on Github as usual.
+Next week we will finally get to drawing 3D objects (such as cubes or spheres). The [source code](https://github.com/Swiftor/Metal/tree/master/ch05) is posted on Github as usual.
 
 Until next time!
