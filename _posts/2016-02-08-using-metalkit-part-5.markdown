@@ -3,7 +3,7 @@ published: true
 title: Using MetalKit part 5
 layout: post
 ---
-Last time we described the `graphics pipeline` as well as the `Metal pipeline`. It is time we looked deeper inside the pipeline, and understand how vertices are really processed at a lower level. For this, we need to learn a few `3D math` concepts such as __transformations__. 
+Last time we described the `graphics pipeline` and the `Metal pipeline`. It is time we looked deeper inside the pipeline, and understand how vertices are really processed at a lower level. For this, we need to learn a few `3D math` concepts such as __transformations__. 
 
 In the world of `3D graphics` we often think in terms of __3__ or __4__ dimensions for our data. As you remember from our previous episodes, `location` and `color` were both of type __vector_float4__ (4-dimensional). In order to draw 3D geometry on the screen, vertices suffer a series of transformations - from `object space` to `world space`, then to `camera/eye space`, then to `clipping space`, then to `normalized device coordinates` space, and finally to `screen space`. We are only looking at the first stage in this episode.
 
@@ -46,7 +46,7 @@ The __rotation matrix__ is an __identity matrix__ where depending on which axis 
 | 0     0     0     1 |
 {% endhighlight %}
 
-Alright, we had enough math for a whole week, so let's put these matrices into code. It is appropriate that we create a `struct` named __Matrix__ that will include these `transformations`:
+Alright, we had enough math for a whole week, so let's put these matrices into code. We will continue with the code from where we left off after [part 3](https://github.com/Swiftor/Metal/tree/master/ch04). It comes in handy for us to create a `struct` named __Matrix__ that will include these `transformations`:
 
 {% highlight swift %} 
 struct Matrix {
