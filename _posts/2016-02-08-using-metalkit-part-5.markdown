@@ -155,7 +155,7 @@ Run the app again and notice that the triangle is way smaller now:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter05_2.png "2")
 
-Next, let's __translate__ the triangle up on the __y__ axis, and move it half the screen size:
+Next, let's __translate__ the triangle up on the __y__ axis by moving it half the screen size:
 
 {% highlight swift %} 
 matrix = translationMatrix(matrix, float3(0.0, 0.5, 0.0))
