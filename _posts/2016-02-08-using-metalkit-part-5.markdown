@@ -117,7 +117,7 @@ Inside the __sendToGPU()__ function, after setting the `vertex_buffer` in the `c
 command_encoder.setVertexBuffer(uniform_buffer, offset: 0, atIndex: 1)
 {% endhighlight %}
 
-Finally, let's move to the __Shaders.metal__ file for the last part of the configuration. Below the `Vertex` struct, create a new struct named __Uniforms__ that will hold our model matrix:
+Finally, let's move to __Shaders.metal__ for the last part of the configuration. Below the `Vertex` struct, create a new struct named __Uniforms__ that will hold our model matrix:
 
 {% highlight swift %} 
 struct Uniforms {
