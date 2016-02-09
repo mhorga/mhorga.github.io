@@ -9,7 +9,7 @@ In the world of `3D graphics` we often think in terms of __3__ or __4__ dimensio
 
 The vertices of our `triangle` are expressed in terms of an `object space` (local coordinates). They are currently specified about the triangle's origin which lies at the center of the screen. In order to position and move the triangle in a larger scene (world space), we need to apply `transformations` to these vertices. The `transformations` we will look at are: __scaling__, __translation__ and __rotation__.
 
-The __translation matrix__ is an __identity matrix__ (with values of __1__ on its main diagonal) where positions __[12]__, __[13]__ and __[14]__ (in `column-major order` they are the equivalent of the `[3]`, `[7]` and `[11]` positions) are populated with the values of a __D__ vector representing the __distance__ the vertex would be moved to, on the respective __x__, __y__, __z__ axes.
+The __translation matrix__ is similar to an __identity matrix__ (with values of __1__ on its main diagonal) and where positions __[12]__, __[13]__ and __[14]__ (in `column-major order` they are the equivalent of the `[3]`, `[7]` and `[11]` positions) are populated with the values of a __D__ vector representing the __distance__ the vertex would be moved to, on the respective __x__, __y__, __z__ axes.
 
 {% highlight swift %} 
 | 1     0     0    Dx |
@@ -18,7 +18,7 @@ The __translation matrix__ is an __identity matrix__ (with values of __1__ on it
 | 0     0     0     1 |
 {% endhighlight %}
 
-The __scaling matrix__ is an __identity matrix__ where positions __[0]__, __[5]__ and __[10]__ are populated with the values of a __S__ vector representing the __scale__ the vertex would be zoomed in/out to. The __x__, __y__, __z__ vector values are usually the same __float__ value since scaling is done proportionally on all axes.
+The __scaling matrix__ is also similar to an __identity matrix__ where positions __[0]__, __[5]__ and __[10]__ are populated with the values of a __S__ vector representing the __scale__ the vertex would be zoomed in/out to. The __x__, __y__, __z__ vector values are usually the same __float__ value since scaling is done proportionally on all axes.
 
 {% highlight swift %} 
 | Sx    0     0     0 |
@@ -27,7 +27,7 @@ The __scaling matrix__ is an __identity matrix__ where positions __[0]__, __[5]_
 | 0     0     0     1 |
 {% endhighlight %}
 
-The __rotation matrix__ is an __identity matrix__ where depending on which axis we are rotating about, different positions are being populated with either the __sinus__ or __cosinus__ of the __angle__ we are rotating with. If we are rotating about the __x__ axis, positions __[5]__, __[6]__, __[9]__ and __[10]__ are populated. If we are rotating about the __y__ axis, positions __[0]__, __[2]__, __[8]__ and __[10]__ are populated. Finally, if we are rotating about the __z__ axis, positions __[0]__, __[1]__, __[4]__ and __[5]__ are populated. Remember, these positions need to be transposed into `column-major order`.
+The __rotation matrix__ is also similar to an __identity matrix__ where depending on which axis we are rotating about, different positions are being populated with either the __sinus__ or __cosinus__ of the __angle__ we are rotating with. If we are rotating about the __x__ axis, positions __[5]__, __[6]__, __[9]__ and __[10]__ are populated. If we are rotating about the __y__ axis, positions __[0]__, __[2]__, __[8]__ and __[10]__ are populated. Finally, if we are rotating about the __z__ axis, positions __[0]__, __[1]__, __[4]__ and __[5]__ are populated. Remember, these positions need to be transposed into `column-major order`.
 
 {% highlight swift %} 
 | 1     0     0     0 |
