@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 6
 layout: post
 ---
@@ -72,7 +72,44 @@ let texture = drawable!.texture
 let rpd = MTLRenderPassDescriptor() 
 {% endhighlight %}
 
+Before ending this episode, let's look at the __MTKView__ class:
 
+{% highlight swift %} 
+@available(OSX 10.11, *)
+public class MTKView : NSView, NSCoding {
+    public init(frame frameRect: CGRect, device: MTLDevice?)
+    public init(coder: NSCoder)
+    weak public var delegate: MTKViewDelegate?
+    public var device: MTLDevice?
+    public var currentDrawable: CAMetalDrawable? { get }
+    public var framebufferOnly: Bool
+    public var presentsWithTransaction: Bool
+    public var colorPixelFormat: MTLPixelFormat
+    public var depthStencilPixelFormat: MTLPixelFormat
+    public var sampleCount: Int
+    public var clearColor: MTLClearColor
+    public var clearDepth: Double
+    public var clearStencil: UInt32
+    public var depthStencilTexture: MTLTexture? { get }
+    public var multisampleColorTexture: MTLTexture? { get }
+    public func releaseDrawables()
+    public var currentRenderPassDescriptor: MTLRenderPassDescriptor? { get }
+    public var preferredFramesPerSecond: Int
+    public var enableSetNeedsDisplay: Bool
+    public var autoResizeDrawable: Bool
+    public var drawableSize: CGSize
+    public var paused: Bool
+    public func draw()
+}
+
+@available(OSX 10.11, *)
+public protocol MTKViewDelegate : NSObjectProtocol {
+    public func mtkView(view: MTKView, drawableSizeWillChange size: CGSize)
+    public func drawInMTKView(view: MTKView)
+}
+{% endhighlight %}
+
+Among the plethora of properties, notice the ones we were interested in particular: the __device__, the __currentDrawable__ and the __currentRenderPassDescriptor__. Also worth mentioning, the class also provides a protocol for its __MTKViewDelegate__ property. To read more about each of these properties and functions, see the [MTKView](https://developer.apple.com/library/prerelease/ios/documentation/MetalKit/Reference/MTKView_ClassReference/index.html) reference documentation.
 
 The [source code](https://github.com/Swiftor/Metal/tree/master/ch06) is posted on Github as usual.
 
