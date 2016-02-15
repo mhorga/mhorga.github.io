@@ -72,7 +72,7 @@ let texture = drawable!.texture
 let rpd = MTLRenderPassDescriptor() 
 {% endhighlight %}
 
-Before ending this episode, let's look at the __MTKView__ class:
+Before ending this episode, let's look at the __MTKView__ class to see once again why this is the preferred way of using `Metal` for rendering content in our apps:
 
 {% highlight swift %} 
 @available(OSX 10.11, *)
@@ -109,7 +109,7 @@ public protocol MTKViewDelegate : NSObjectProtocol {
 }
 {% endhighlight %}
 
-Among the plethora of properties, notice the ones we were interested in particular: the __device__, the __currentDrawable__ and the __currentRenderPassDescriptor__. Also worth mentioning, the class also provides a protocol for its __MTKViewDelegate__ property. To read more about each of these properties and functions, see the [MTKView](https://developer.apple.com/library/prerelease/ios/documentation/MetalKit/Reference/MTKView_ClassReference/index.html) reference documentation.
+Among the plethora of properties, notice the ones we were interested in particular: __device__, __currentDrawable__ and __currentRenderPassDescriptor__. Also worth mentioning, the class also provides a protocol for its __MTKViewDelegate__ property. To read more about each of these properties and functions, see the [MTKView](https://developer.apple.com/library/prerelease/ios/documentation/MetalKit/Reference/MTKView_ClassReference/index.html) reference documentation.
 
 The [source code](https://github.com/Swiftor/Metal/tree/master/ch06) is posted on Github as usual.
 
