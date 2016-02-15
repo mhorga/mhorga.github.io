@@ -72,9 +72,8 @@ let texture = drawable!.texture
 let rpd = MTLRenderPassDescriptor() 
 {% endhighlight %}
 
-Next
 
-{% highlight swift %} 
-{% endhighlight %}
+
+The [source code](https://github.com/Swiftor/Metal/tree/master/ch06) is posted on Github as usual.
 
 Until next time!
