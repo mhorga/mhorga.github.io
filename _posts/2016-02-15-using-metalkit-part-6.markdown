@@ -109,7 +109,7 @@ public protocol MTKViewDelegate : NSObjectProtocol {
 }
 {% endhighlight %}
 
-Among the plethora of properties, notice the ones we were interested in particular: __device__, __currentDrawable__ and __currentRenderPassDescriptor__. Also worth mentioning, the class also provides a protocol for its __MTKViewDelegate__ property. To read more about each of these properties and functions, see the [MTKView](https://developer.apple.com/library/prerelease/ios/documentation/MetalKit/Reference/MTKView_ClassReference/index.html) reference documentation.
+Among the plethora of properties, notice the ones we were interested in particular: __device__, __currentDrawable__ and __currentRenderPassDescriptor__. Also worth mentioning, the class provides a protocol for its __MTKViewDelegate__ property. To read more about each of these properties and functions, see the [MTKView](https://developer.apple.com/library/prerelease/ios/documentation/MetalKit/Reference/MTKView_ClassReference/index.html) reference documentation.
 
 The [source code](https://github.com/Swiftor/Metal/tree/master/ch06) is posted on Github as usual.
 
