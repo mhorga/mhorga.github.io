@@ -72,7 +72,7 @@ let texture = drawable!.texture
 let rpd = MTLRenderPassDescriptor() 
 {% endhighlight %}
 
-Before ending this episode, let's look at the __MTKView__ class to see once again why this is the preferred way of using `Metal` for rendering content in our apps:
+Before the end of this episode, let's look at the __MTKView__ class to see once again why this is the preferred way of using `Metal` for rendering content in our apps:
 
 {% highlight swift %} 
 @available(OSX 10.11, *)
