@@ -49,19 +49,27 @@ You will immediately notice a few errors signaling that the following properties
 - a drawable
 - a render pass descriptor
 
-Let's fix that. First, since `NSView` is not `Metal-aware` we need to create a `CAMetalLayer` and tell `NSView` to use it as its backing store:
+Let's fix that. First, since `NSView` is not `Metal-aware` we need to create a `CAMetalLayer` and tell `NSView` to use it as its backing layer. `CAMetalLayer` is a `Core Animation` layer that manages a pool of textures for rendering its content. To use `Metal` for rendering, we need to use this class as the backing layer for our view by returning it from your view’s __layerClass()__ class method.:
 
 {% highlight swift %} 
+override class func layerClass() -> AnyClass {
+    return CAMetalLayer.self
+}
+
 var metalLayer: CAMetalLayer {
     return self.layer as! CAMetalLayer
 }
 {% endhighlight %}
 
-Next, inside the __render()__ function create a new `device` and tell __metalLayer__ that it owns it.
+Next, inside the __render()__ function create a new `device` and tell __metalLayer__ that it owns it, and also set the pixel format the layer will use. Then, create a `drawable`. Notice that we are not using a `currentDrawable` that was provided with the `MTKView`. Rather, `CAMetalLayer` provides a __nextDrawable__ for us to use. Finally, create a render pass descriptor. Again, notice that we are not provided with a `currentRenderPassDescriptor` either:
 
 {% highlight swift %}
-let device = MTLCreateSystemDefaultDevice()
-metalLayer.device = device 
+let device = MTLCreateSystemDefaultDevice()!
+metalLayer.device = device
+metalLayer.pixelFormat = .BGRA8Unorm
+let drawable = metalLayer.nextDrawable()
+let texture = drawable!.texture
+let rpd = MTLRenderPassDescriptor() 
 {% endhighlight %}
 
 Next
