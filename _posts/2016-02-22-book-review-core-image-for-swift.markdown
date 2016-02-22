@@ -3,7 +3,7 @@ published: true
 title: Book review: Core Image for Swift
 layout: post
 ---
-I am taking a break from the `MetalKit` series this week because there is an important event I couldn’t miss it for the world! My good pal, [@FlexMonkey](https://twitter.com/FlexMonkey), just published his book titled [Core Image for Swift](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980) and I had the privilege of being one of its early reviewers. `Core Image` is a really good “friend” of `Metal` so it makes sense writing about it.
+I am taking a break from the `MetalKit` series this week because there is an important event I couldn’t miss it for the world! My good pal, [@FlexMonkey](https://twitter.com/FlexMonkey), just published his book titled [Core Image for Swift](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980) and I had the privilege of being one of its early reviewers. `Core Image` is a really good “friend” of `Metal` so I definitely love writing about it.
 
 `Core Image for Swift` is a guide to `Apple’s Core Image` framework and it teaches you everything about image processing through `Swift` projects and playgrounds in `Xcode`. A great feature offered by the author is that the `Swift` code can be entirely copy-pasted from the book right into `Xcode` without having to download anything (except a playground in Chapter 2) or to even build any storyboards.
 
