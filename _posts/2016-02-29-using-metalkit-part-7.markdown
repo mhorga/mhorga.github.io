@@ -18,7 +18,7 @@ required init(coder: NSCoder) {
 }
 {% endhighlight %}
 
-Next, delete the __render()__ method as well as its call inside `drawRect(_:)` as we don't need it anymore. Then move all the code from __sendToGPU()__ to `drawRect(_:)` and delete `sendToGPU()` as we don't need this one either. 
+Next, delete the __render()__ method as well as its call inside `drawRect(_:)` as we don't need it anymore. Then move all the code from __sendToGPU()__ to `drawRect(_:)` and delete `sendToGPU()` as we don't need this one either. This way we moved all the non-transient objects away from `drawRect(_:)` and only kept the `command buffer` and `encoder` inside, which are the only two transient objects. 
 
 {% highlight swift %} 
 override func drawRect(dirtyRect: NSRect) {
