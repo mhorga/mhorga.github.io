@@ -79,7 +79,19 @@ func registerShaders() {
 
 Notice that we tell the playground to find a path where a resource named `Shaders` of type `metal` exists. Next, we convert that file into a large `String` and then we create the library from this source. 
 
-Finally, we go to the playground's main page and create a new `MetalView` with a given frame. Then we tell the playground to present us the live view. If you are showing the `Timeline` in the `Assistant editor` you should have a similar view:
+Finally, we go to the playground's main page and create a new `MetalView` with a given frame. Then we tell the playground to present us the live view: 
+
+{% highlight swift %} 
+import Cocoa
+import XCPlayground
+
+let device = MTLCreateSystemDefaultDevice()!
+let frame = NSRect(x: 0, y: 0, width: 300, height: 300)
+let view = MetalView(frame: frame, device: device)
+XCPlaygroundPage.currentPage.liveView = view
+{% endhighlight %}
+
+If you are showing the `Timeline` in the `Assistant editor` you should have a similar view:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter08_2.png "2")
 
