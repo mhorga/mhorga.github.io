@@ -9,7 +9,7 @@ Let's start by creating a new `Xcode` playground for `OS X`. Once created, click
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter08_1.png "1")
 
-First thing we do is create __Shaders.metal__ under the __Resources__ folder in the `Project navigator` with the same source code from the previous episode of this series. Next, we create __MathUtils.swift__ and __MetalView.swift__ under the __Sources__ folder. The only change we make in `MathUtils.swift` is we create a handy initializer:
+First thing we do is create __Shaders.metal__ under the __Resources__ folder in the `Project navigator` with the same source code from the previous episode of this series. Next, we create __MathUtils.swift__ and __MetalView.swift__ under the __Sources__ folder. The only change we make in `MathUtils.swift` is we create a handy initializer for the `Vertex` struct:
 
 {% highlight swift %} 
 struct Vertex {
