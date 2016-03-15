@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: A first look at the Swift Express web server
 layout: post
 ---
@@ -75,8 +75,13 @@ app.get("/hello") { request in
 
 Again, build and run your project from command line, and then point your browser to [localhost:9999/hello](http://localhost:9999/hello). You should see only the header message __Hello Express!!!__.
 
-Ok, you might say, but this is a web service and we want it to let us get data feeds from it. Easy task! Just create a new API call and make sure it generates a JSON feed:
+Ok, you might say, but this is a web service and we want it to let us get data feeds from it. Easy task! First, we need to register the JSON view in the system, so put this line next to the other registered view:
 
+{% highlight swift %} 
+app.views.register(JsonView()):
+{% endhighlight %}
+
+Second, create a new API call and make sure it generates JSON-friendly data, such as a dictionary.  
 
 {% highlight swift %} 
 app.get("/election") { request in
@@ -89,9 +94,12 @@ app.get("/election") { request in
 }
 {% endhighlight %}
 
-Build and run your project again, and point your browser to [localhost:9999/election](http://localhost:9999/election).
-
-Until next time!
+Build and run your project again, and point your browser to [localhost:9999/election](http://localhost:9999/election). The page should return the un-formatted feed:
 
 {% highlight swift %} 
+[{"name":"Bernie"},{"name":"Hillary"},{"name":"Donald"}]
 {% endhighlight %}
+
+In conclusion, I was really impressed by the ease and the practicality of using `Swift Express` to generate a web service in a matter of minutes! Not only we have the convenience of writing all our app code in Swift, but now we can also write our back-end structure in Swift as well. For more information about the open source project, see the [Swift Express](https://github.com/crossroadlabs/Express) documentation. You can look at the complete list of features and see the roadmap. You can (and should) also contribute to this project!
+
+Until next time!
