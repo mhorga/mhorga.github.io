@@ -29,19 +29,14 @@ As soon as `Xcode` opens your project, go to __main.swift__ and notice we alread
 import Express
 
 let app = express()
-
 app.views.register(StencilViewEngine())
-
 app.get("/assets/:file+", action: StaticAction(path: "public", param:"file"))
-
 app.get("/") { (request:Request<AnyContent>)->Action<AnyContent> in
     return Action<AnyContent>.render("index", context: ["hello": "Hello,", "swift": "Swift", "express": "Express!"])
 }
-
 app.listen(9999).onSuccess { server in
     print("Express was successfully launched on port", server.port)
 }
-
 app.run()
 {% endhighlight %}
 
@@ -54,6 +49,23 @@ Express was successfully launched on port 9999
 Now open your browser and point it to [localhost:9999](http://localhost:9999) and you should see this page:
 
 ![Swift Express](http://i.imgur.com/CDJEr3h.png "Swift Express")
+
+Let's do some more! Right above the __app.listen__ line add this new API call we are just creating now:
+
+{% highlight swift %} 
+app.get("/new") { request in
+    return Action.ok(request.query["message"]?.first)
+}
+{% endhighlight %}
+
+You can also update and start the server from the terminal, not just in Xcode:
+
+{% highlight text %}
+$ swift-express build
+$ swift-express run 
+{% endhighlight %}
+
+Now, test it in the browser at [localhost:9999/new?message=Hello](http://localhost:9999/new?message=Hello). You should see a white page with just __Hello__ written on it, or whatever string you choose to put after the __=__ character in the `URL`.
 
 Until next time!
 
