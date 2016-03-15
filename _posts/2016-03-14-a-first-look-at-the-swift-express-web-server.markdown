@@ -50,7 +50,7 @@ Now open your browser and point it to [localhost:9999](http://localhost:9999) an
 
 ![Swift Express](http://i.imgur.com/CDJEr3h.png "Swift Express")
 
-Let's do some more! Right above the __app.listen__ line add this new API method we are just creating now:
+Let's do some more! Right above the __app.listen__ line add this new API call we are just creating now:
 
 {% highlight swift %} 
 app.get("/new") { request in
@@ -65,13 +65,31 @@ $ swift-express build
 $ swift-express run 
 {% endhighlight %}
 
-Now, test it in the browser at [localhost:9999/new?message=Hello](http://localhost:9999/new?message=Hello). You should see a white page with just __Hello__ written on it, or whatever string you choose to put after the __=__ character in the `URL`. You can also create pages the good ol' way, so add this new API method to your class:
+Now, test it in the browser at [localhost:9999/new?message=Hello](http://localhost:9999/new?message=Hello). You should see a white page with just __Hello__ written on it, or whatever string you choose to put after the __=__ character in the `URL`. You can also create pages in the good ol' way, so add this new API call to your class:
 
+{% highlight swift %} 
 app.get("/hello") { request in
     return Action.ok(AnyContent(str: "<h1>Hello Express!!!</h1>", contentType: "text/html"))
 }
+{% endhighlight %}
 
 Again, build and run your project from command line, and then point your browser to [localhost:9999/hello](http://localhost:9999/hello). You should see only the header message __Hello Express!!!__.
+
+Ok, you might say, but this is a web service and we want it to let us get data feeds from it. Easy task! Just create a new API call and make sure it generates a JSON feed:
+
+
+{% highlight swift %} 
+app.get("/election") { request in
+    let candidates = [
+        [ "name": "Bernie" ],
+        [ "name": "Hillary" ],
+        [ "name": "Donald" ],
+    ]
+    return Action.render(JsonView.name, context: candidates)
+}
+{% endhighlight %}
+
+Build and run your project again, and point your browser to [localhost:9999/election](http://localhost:9999/election).
 
 Until next time!
 
