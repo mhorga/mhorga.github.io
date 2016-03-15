@@ -3,11 +3,11 @@ published: true
 title: A first look at the Swift Express web server
 layout: post
 ---
-This week we are going to look at a great `Swift` initiative -- the __Swift Express__ web server -- a project run by [Crossroad Labs](http://crossroadlabs.xyz). `Swift Express` inherits the power of the `Play Framework` and the simplicity of the `Express.js` framework which makes it great for `Swift`-based web applications. A powerful feature that sets `Swift Express` aside from other `Swift` backend solutions is the synchronous-vs-asynchronous functional approach. `OS X` and `iOS` developers also benefit from the familiar `Swift + Xcode` development environment they're already used to, and they will appreciate the fact that `Swift Express` provides an easy way to create `RESTful`,  `JSON` and `XML APIs` using `Swift`.
+This week we are going to look at a great `Swift` initiative -- the __Swift Express__ web server -- a project run by [Crossroad Labs](http://crossroadlabs.xyz). `Swift Express` inherits the power of the `Play Framework` and the simplicity of the `Express.js` framework which makes it great for Swift-based web applications. A powerful feature that sets `Swift Express` aside from other `Swift` backend solutions is the __synchronous-vs-asynchronous__ functional approach. `OS X` and `iOS` developers also benefit from the familiar `Swift + Xcode` development environment they're already used to, and they will appreciate the fact that `Swift Express` provides an easy way to create `RESTful`,  `JSON` and `XML APIs` using `Swift`.
 
 Alright, let's dive in and take a look at `Swift Express`. You need to have `Xcode 7.2` or newer. Next, run these commands in a terminal:
 
-{% highlight swift %} 
+{% highlight swift %}
 $ xcode-select --install
 $ brew update
 $ brew tap crossroadlabs/tap
@@ -42,7 +42,7 @@ app.run()
 
 All you need to do now is run the project. In the console you should see this message:
 
-{% highlight text %} 
+{% highlight text %}
 Express was successfully launched on port 9999
 {% endhighlight %} 
 
@@ -52,7 +52,7 @@ Now open your browser and point it to [localhost:9999](http://localhost:9999) an
 
 Let's do some more! Right above the __app.listen__ line add this new API call we are just creating now:
 
-{% highlight swift %} 
+{% highlight swift %}
 app.get("/new") { request in
     return Action.ok(request.query["message"]?.first)
 }
@@ -67,23 +67,23 @@ $ swift-express run
 
 Now, test it in the browser at [localhost:9999/new?message=Hello](http://localhost:9999/new?message=Hello). You should see a white page with just __Hello__ written on it, or whatever string you choose to put after the __=__ character in the `URL`. You can also create pages in the good ol' way, so add this new API call to your class:
 
-{% highlight swift %} 
+{% highlight swift %}
 app.get("/hello") { request in
     return Action.ok(AnyContent(str: "<h1>Hello Express!!!</h1>", contentType: "text/html"))
 }
 {% endhighlight %}
 
-Again, build and run your project from command line, and then point your browser to [localhost:9999/hello](http://localhost:9999/hello). You should see only the header message __Hello Express!!!__.
+Again, build and run your project from command line, and then point your browser to [localhost:9999/hello](http://localhost:9999/hello). You should see only the header message __Hello Express!!!__
 
 Ok, you might say, but this is a web service and we want it to let us get data feeds from it. Easy task! First, we need to register the JSON view in the system, so put this line next to the other registered view:
 
-{% highlight swift %} 
+{% highlight swift %}
 app.views.register(JsonView()):
 {% endhighlight %}
 
 Second, create a new API call and make sure it generates JSON-friendly data, such as a dictionary.  
 
-{% highlight swift %} 
+{% highlight swift %}
 app.get("/election") { request in
     let candidates = [
         [ "name": "Bernie" ],
@@ -96,7 +96,7 @@ app.get("/election") { request in
 
 Build and run your project again, and point your browser to [localhost:9999/election](http://localhost:9999/election). The page should return the un-formatted feed:
 
-{% highlight swift %} 
+{% highlight swift %}
 [{"name":"Bernie"},{"name":"Hillary"},{"name":"Donald"}]
 {% endhighlight %}
 
