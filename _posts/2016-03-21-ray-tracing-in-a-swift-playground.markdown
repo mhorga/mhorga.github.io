@@ -62,7 +62,7 @@ var image = imageFromPixels(pixelSet)
 image
 {% endhighlight %}
 
-In the main playground page you should see the following image:
+You should see the following image:
 
 ![alt text](https://github.com/Swiftor/Raytracing/raw/master/images/raytracing1.png "Raytracing 1")
 
