@@ -3,7 +3,7 @@ published: false
 title: Ray tracing in a Swift playground
 layout: post
 ---
-Today we are porting a `raytracer` from [Peter Shirley's mini book](http://www.amazon.com/Ray-Tracing-Weekend-Peter-Shirley-ebook/dp/B01B5AODD8), into a `Swift` playground.
+Today we are porting a `ray tracer` from [Peter Shirley's mini book](http://www.amazon.com/Ray-Tracing-Weekend-Peter-Shirley-ebook/dp/B01B5AODD8), into a `Swift` playground. Since I am not going to describe much about what __Ray Tracing__ is and how it works, I am inviting you to go ahead and read this book as it's free for Kindle subscribers. If you are not a subscriber, just buy the book like I did. Paying $2.99 is absolutely worth your every penny if you are interested in this topic.
 
 The first thing we would want to do is create a data structure to hold pixel information. In the playground, create a new file named __pixel.swift__ under the `Sources` folder. Next, let's write the __Pixel__ struct:
 
