@@ -170,6 +170,6 @@ In the main playground page, see the generated new image:
 
 ![alt text](https://github.com/Swiftor/Raytracing/raw/master/images/raytracing2.png "Raytracing 2")
 
-Stay tuned for a part 2 of this article, where we will implement normals and shadows for a more realistic image rendering. The [source code](https://github.com/Swiftor/Raytracing) is posted on Github as usual.
+Stay tuned for a part 2 of this article, where we will calculate lights and shades for a more realistic image rendering. The [source code](https://github.com/Swiftor/Raytracing) is posted on Github as usual.
 
 Until next time!
