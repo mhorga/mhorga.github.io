@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Ray tracing in a Swift playground part 2
 layout: post
 ---
@@ -120,9 +120,7 @@ class sphere: hitable  {
 }
 {% endhighlight %}
 
-As you might notice, the `hit` function is quite similar to the __hit_sphere__ function we deleted from the `ray.swift` file, except we are now looking at hits that only occur during the interval `tmax - tmin`.
-
-Finally, we need a way to add multiple objects to a list. An array of `hitables` seems to be the right choice:
+As you might notice, the `hit` function is quite similar to the __hit_sphere__ function we deleted from the `ray.swift` file, except we are now looking at hits that only occur during the interval `tmax - tmin`. Next, we need a way to add multiple objects to a list. An array of `hitables` seems to be the right choice:
 
 {% highlight swift %}
 class hitable_list: hitable  {
@@ -142,15 +140,134 @@ class hitable_list: hitable  {
 }
 {% endhighlight %}
 
+Back to `ray.swift`, we need to modify the `color` function to factor a `hit-record` variable into the color calculation:
+
+{% highlight swift %}
+func color(r: ray, world: hitable) -> float3 {
+    var rec = hit_record()
+    if world.hit(r, 0.0, Float.infinity, &rec) {
+        return 0.5 * float3(rec.normal.x + 1, rec.normal.y + 1, rec.normal.z + 1);
+    } else {
+        let unit_direction = normalize(r.direction)
+        let t = 0.5 * (unit_direction.y + 1)
+        return (1.0 - t) * float3(x: 1, y: 1, z: 1) + t * float3(x: 0.5, y: 0.7, z: 1.0)
+    }
+}
+{% endhighlight %}
+
+Finally, back to `pixel.swift` we need to change the `imageFromPixels` function to allow the including of more objects:
+
+{% highlight swift %}
+public func imageFromPixels(width: Int, _ height: Int) -> CIImage {
+    ...
+    let world = hitable_list()
+    var object = sphere(c: float3(x: 0, y: -100.5, z: -1), r: 100)
+    world.add(object)
+    object = sphere(c: float3(x: 0, y: 0, z: -1), r: 0.5)
+    world.add(object)
+    for i in 0..<width {
+        for j in 0..<height {
+            let u = Float(i) / Float(width)
+            let v = Float(j) / Float(height)
+            let r = ray(origin: origin, direction: lower_left_corner + u * horizontal + v * vertical)
+            let col = color(r, world: world)
+            pixel = Pixel(red: UInt8(col.x * 255), green: UInt8(col.y * 255), blue: UInt8(col.z * 255))
+            pixels[i + j * width] = pixel
+        }
+    }
+    ...
+}
+{% endhighlight %}
+
 In the main playground page, see the generated new image:
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing3.png "Raytracing 3")
-![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing4.png "Raytracing 4")
-![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing5.png "Raytracing 5")
+
+Nice! If you look closely you will notice the edges exhibit the `aliasing` effect, and this happens because we do not have any blending of colors for the pixels on the edge. To overcome this, we need to sample the color multiple times but randomly generating values that are within the range we want, so we can blend them together and achieve an `anti-aliasing` effect. 
+
+But first, let's also create a __camera__ class inside `ray.swift` as it will turn handy later. Practically, we just move the improvised camera we had inside the `imageFromPixels` function and put it in its right place:
 
 {% highlight swift %}
+struct camera {
+    let lower_left_corner: float3
+    let horizontal: float3
+    let vertical: float3
+    let origin: float3
+    init() {
+        lower_left_corner = float3(x: -2.0, y: 1.0, z: -1.0)
+        horizontal = float3(x: 4.0, y: 0, z: 0)
+        vertical = float3(x: 0, y: -2.0, z: 0)
+        origin = float3()
+    }
+    func get_ray(u: Float, _ v: Float) -> ray {
+        return ray(origin: origin, direction: lower_left_corner + u * horizontal + v * vertical - origin);
+    }
+}
 {% endhighlight %}
 
-Stay tuned for the next part of this series, where we will look into specular lights, transparency, refraction and reflection. The [source code](https://github.com/Swiftor/Raytracing) is posted on Github as usual.
+The `imageFromPixels` function now looks like this:
+
+{% highlight swift %}
+public func imageFromPixels(width: Int, _ height: Int) -> CIImage {
+    ...
+    let cam = camera()
+    for i in 0..<width {
+        for j in 0..<height {
+            let ns = 100
+            var col = float3()
+            for _ in 0..<ns {
+                let u = (Float(i) + Float(drand48())) / Float(width)
+                let v = (Float(j) + Float(drand48())) / Float(height)
+                let r = cam.get_ray(u, v)
+                col += color(r, world)
+            }
+            col /= float3(Float(ns));
+            pixel = Pixel(red: UInt8(col.x * 255), green: UInt8(col.y * 255), blue: UInt8(col.z * 255))
+            pixels[i + j * width] = pixel
+        }
+    }
+    ...
+}
+{% endhighlight %}
+
+Notice that we use a variable named __ns__ and assign a value of __100__ to it so we can sample the color multiple times using randomly generated values as we discussed above. In the main playground page, see the generated new image:
+
+![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing4.png "Raytracing 4")
+
+Much better looking! However, we notice our rendering took __7 seconds__ which can can reduce by using a smaller sample value, such as __10__. Alright, now that we have multiple rays per pixel, we can finally think of creating `matte` (diffuse) materials. This kind of materials do not emit any light and usually absorb all the light that is directed towards them and blend it with their own color. The light that reflects of a diffuse material has its direction randomized. We can compute this with the following function inside `objects.swift`:
+
+{% highlight swift %}
+func random_in_unit_sphere() -> float3 {
+    var p = float3()
+    repeat {
+        p = 2.0 * float3(x: Float(drand48()), y: Float(drand48()), z: Float(drand48())) - float3(x: 1, y: 1, z: 1)
+    } while dot(p, p) >= 1.0
+    return p
+}
+{% endhighlight %}
+
+Then, back to `ray.swift` we need to modify the `color` function to factor the new random function into the color calculation:
+
+{% highlight swift %}
+func color(r: ray, _ world: hitable) -> float3 {
+    var rec = hit_record()
+    if world.hit(r, 0.0, Float.infinity, &rec) {
+        let target = rec.p + rec.normal + random_in_unit_sphere()
+        return 0.5 * color(ray(origin: rec.p, direction: target - rec.p), world)
+    } else {
+        let unit_direction = normalize(r.direction)
+        let t = 0.5 * (unit_direction.y + 1)
+        return (1.0 - t) * float3(x: 1, y: 1, z: 1) + t * float3(x: 0.5, y: 0.7, z: 1.0)
+    }
+}
+{% endhighlight %}
+
+In the main playground page, see the generated new image:
+
+![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing5.png "Raytracing 5")
+
+This image looks gorgeous! If you forgot to decrease `ns` from `100` to `10` your running time was somewhere around __18 seconds__! However, if you decreased the value, the rendering time is down to only about __1.6 seconds__ which is not too shabby for a basic matte surface ray tracer.
+
+Stay tuned for the next part of this series, where we will look into specular lights, transparency, refraction and reflection. The [source code](https://github.com/Swiftor/Raytracing2) is posted on Github as usual.
 
 Until next time!
