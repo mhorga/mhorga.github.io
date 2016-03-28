@@ -20,7 +20,7 @@ t1-t0
 image
 {% endhighlight %}
 
-Notice it takes __5 seconds__ (at least that is my case). This happens because in `Swift` arrays are defined as structs actually, and structs are always passed `by value` in Swift which means a copy of the array will me made when passing it, and copying a huge array is a performance bottleneck. There are two ways to fix this. One, the most elegant, is to wrap everything inside a `class` and make the array a class `property`. This way, the array would not need to be passed anymore between the local functions. The second way, is easier to implement and we will go with this one to save time. All we need to do is combine the two functions into one like this:
+Notice it takes __5 seconds__ (at least that is my case). This happens because in `Swift` arrays are defined as structs actually, and structs are always passed `by value` in Swift which means a copy of the array will me made when passing it, and copying a huge array is a performance bottleneck. There are two ways to fix this. One, the most elegant, is to wrap everything inside a `class` and make the array a class `property`. This way, the array would not need to be passed anymore between the local functions. The second way, is easier to implement and we will go with this one to save space in this article. All we need to do is combine the two functions into one like this:
 
 {% highlight swift %}
 public func imageFromPixels(width: Int, _ height: Int) -> CIImage {
