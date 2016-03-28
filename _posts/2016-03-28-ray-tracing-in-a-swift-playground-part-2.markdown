@@ -5,7 +5,7 @@ layout: post
 ---
 Let's continue working on our `ray tracer` and pick up where we left off last week. I want to thank `Caroline`, `Jessy`, `Jeff` and `Mike` for providing valuable feedback and performance improvement suggestions while working on this project. 
 
-First, as usual, we will do some code cleanup. In the first part we used the __vec3.swift__ class because we wanted to understand the underlying data structures and operations between them, however, there is already a framework called __simd__ which helps us do all the `math` we need. So rename `vec3.swift` to __ray.swift__ since this class will only contain code related to the `ray` struct. Next, delete the `vec3` struct as well as all the operations at the end. You should only retain the __ray__ struct, as well as the __color__ and __hit_sphere__ functions. 
+First, as usual, we will do some code cleanup. In the first part we used the __vec3.swift__ class because we wanted to understand the underlying data structures and operations between them, however, there is already a framework called __simd__ which helps us do all the `math` we need. So rename `vec3.swift` to __ray.swift__ since this class will only contain code related to the `ray` struct. Next, delete the `vec3` struct as well as all the operations at the end. You should only retain the __ray__ struct, as well as the __color__ function. 
 
 Next, import the __simd__ framework and then replace `vec3` with __float3__ everywhere inside this file, and after that go to __pixel.swift__ and repeat this last step in there as well. We are now officially depending on __float3__ only! While still in the `pixel.swift` we need to address one more concern: passing the array between the two functions makes the rendering quite slow. Here is how to time your code in the playground:
 
@@ -64,7 +64,7 @@ image
 
 Much better! In my case the running time went from `5 seconds` down to only __0.1 seconds__. Ok, enough with the cleanup. Let's do some graphics instead! We would like to draw more than just one sphere, perhaps way many more spheres. One neat trick to simulate the horizon if to draw a really huge sphere. Then we can put our smaller sphere on top of it to achieve a `sitting-on-the-ground` effect. 
 
-For this, we need to abstract our current sphere code into a generic class. Let's name it __objects.swift__ since we will probably create other type of volumes in future beside spheres. Next, inside `ray.swift` delete the __hit_sphere__ function since we are going to create a new, similar function inside `objects.swift`. Then, we need to create a new struct which represents a `hit` event:
+For this, we need to abstract our current sphere code into a generic class. Let's name it __objects.swift__ since we will probably create other type of volumes in future beside spheres. Next, inside `objects.swift` we need to create a new struct which represents a `hit` event:
 
 {% highlight swift %}
 struct hit_record {
