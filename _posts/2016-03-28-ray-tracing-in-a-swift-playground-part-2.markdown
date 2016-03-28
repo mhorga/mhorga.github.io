@@ -234,7 +234,7 @@ Notice that we use a variable named __ns__ and assign a value of __100__ to it s
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing4.png "Raytracing 4")
 
-Much better looking! However, we notice our rendering took __7 seconds__ which can can reduce by using a smaller sample value, such as __10__. Alright, now that we have multiple rays per pixel, we can finally think of creating `matte` (diffuse) materials. This kind of materials do not emit any light and usually absorb all the light that is directed towards them and blend it with their own color. The light that reflects of a diffuse material has its direction randomized. We can compute this with the following function inside `objects.swift`:
+Much better looking! However, we notice our rendering took __7 seconds__ which can be reduced by using a smaller sample value, such as __10__. Alright, now that we have multiple rays per pixel, we can finally think of creating `matte` (diffuse) materials. This kind of materials do not emit any light and usually absorb all the light that is directed towards them and blend it with their own color. The light that reflects of a diffuse material has its direction randomized. We can compute this with the following function inside `objects.swift`:
 
 {% highlight swift %}
 func random_in_unit_sphere() -> float3 {
