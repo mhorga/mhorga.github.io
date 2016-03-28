@@ -120,7 +120,7 @@ class sphere: hitable  {
 }
 {% endhighlight %}
 
-As you might notice, the `hit` function is quite similar to the __hit_sphere__ function we deleted from the `ray.swift` file, except we are now looking at hits that only occur during the interval `tmax - tmin`. Next, we need a way to add multiple objects to a list. An array of `hitables` seems to be the right choice:
+As you might notice, the `hit` function is quite similar to the __hit_sphere__ function we deleted from `ray.swift`, except we are now looking at hits that only occur during the interval `tmax - tmin`. Next, we need a way to add multiple objects to a list. An array of `hitables` seems to be the right choice:
 
 {% highlight swift %}
 class hitable_list: hitable  {
@@ -183,7 +183,7 @@ In the main playground page, see the generated new image:
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing3.png "Raytracing 3")
 
-Nice! If you look closely you will notice the edges exhibit the `aliasing` effect, and this happens because we do not have any blending of colors for the pixels on the edge. To overcome this, we need to sample the color multiple times but randomly generating values that are within the range we want, so we can blend them together and achieve an `anti-aliasing` effect. 
+Nice! If you look closely you will notice the edges exhibit the `aliasing` effect, and this happens because we do not have any blending of colors for the pixels on the edge. To overcome this, we need to sample the color multiple times by randomly generating values that are within the range we want, so we can blend them together and achieve an `anti-aliasing` effect. 
 
 But first, let's also create a __camera__ class inside `ray.swift` as it will turn handy later. Practically, we just move the improvised camera we had inside the `imageFromPixels` function and put it in its right place:
 
