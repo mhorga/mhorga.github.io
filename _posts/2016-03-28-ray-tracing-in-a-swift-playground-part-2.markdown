@@ -268,10 +268,10 @@ In the main playground page, see the generated new image:
 
 If you forgot to decrease `ns` from `100` to `10` your rendering took somewhat around __18 seconds__! However, if you decreased the value, the rendering time is down to only about __1.9 seconds__ which is not too shabby for a basic matte surface ray tracer.
 
-This image looks great, however, we can also get rid of those small ripples easily. Notice that inside the `color` function we set `Tmin` to be __0.0__ and this seems to disturb some of the cases where the color needs to be computed correctly. If we set `Tmin` to be very small but still positive, something like __0.01__ you will notice that the difference is highly noticeable!
+This image looks great, however, we can also get rid of those small ripples easily. Notice that inside the `color` function we set `Tmin` to be __0.0__ and this seems to disturb some of the cases where the color needs to be computed correctly. If we set `Tmin` to be very small but still positive, something like __0.01__, you will notice that the difference is highly noticeable!
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing6.png "Raytracing 6")
 
-Now, this image looks gorgeous! Stay tuned for the next part of this series, where we will look into specular lights, transparency, refraction and reflection. The [source code](https://github.com/Swiftor/Raytracing2) is posted on Github as usual.
+Now, this image looks gorgeous! Stay tuned for the next part of this series, where we will look into topics such as specular lights, transparency, refraction and reflection. The [source code](https://github.com/Swiftor/Raytracing2) is posted on Github as usual.
 
 Until next time!
