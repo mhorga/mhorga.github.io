@@ -266,7 +266,7 @@ In the main playground page, see the generated new image:
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing5.png "Raytracing 5")
 
-If you forgot to decrease `ns` from `100` to `10` your running time was somewhere around __18 seconds__! However, if you decreased the value, the rendering time is down to only about __1.9 seconds__ which is not too shabby for a basic matte surface ray tracer.
+If you forgot to decrease `ns` from `100` to `10` your rendering took somewhat around __18 seconds__! However, if you decreased the value, the rendering time is down to only about __1.9 seconds__ which is not too shabby for a basic matte surface ray tracer.
 
 This image looks great, however, we can also get rid of those small ripples easily. Notice that inside the `color` function we set `Tmin` to be __0.0__ and this seems to disturb some of the cases where the color needs to be computed correctly. If we set `Tmin` to be very small but still positive, something like __0.01__ you will notice that the difference is highly noticeable!
 
