@@ -104,6 +104,12 @@ func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccess
 }
 {% endhighlight %}
 
+There is one more thing we need to do before we can call these two methods. Our view controller needs to be set as the `MapKit` delegate. Add this line at the top of `ViewDidLoad`:
+
+{% highlight swift %}
+mapView.delegate = self
+{% endhighlight %}
+
 Now if you run the app and tap on the _info_ button in any annotation, the URL should load in a browser.
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/simulator3.png "MapKit")
