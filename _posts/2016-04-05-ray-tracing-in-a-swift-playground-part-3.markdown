@@ -13,7 +13,7 @@ protocol material {
 }
 {% endhighlight %}
 
-Now that we have the `material` blueprint, we can render our diffuse (`Lambertian`) spheres by a new class that conforms to the `material` protocol. We give it an attenuation factor, an initializer and implement the `scatter` function from the protocol, of course:
+Now that we have the `material` blueprint, we can render our diffuse (`Lambertian`) spheres by using a new class that conforms to the `material` protocol. We give it an attenuation factor, an initializer and implement the `scatter` function from the protocol, of course:
 
 {% highlight swift %}
 class lambertian: material {
