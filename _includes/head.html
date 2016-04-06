@@ -8,7 +8,8 @@
     {% if page.categories %}<meta name="keywords" content="{{ page.categories | join: ', ' }}">{% endif %}
     <link rel="shortcut icon" href="https://developer.apple.com/assets/elements/icons/64x64/swift.png" />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-
+    <link href="http://mhorga.org/feed.xml" rel="alternate" type="application/rss+xml" title="Swift development blog" />
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ "/css/basscss.css" | prepend: site.baseurl }}" type="text/css">
     <link rel="stylesheet" href="{{ "/css/pixyll.css" | prepend: site.baseurl }}" type="text/css">
