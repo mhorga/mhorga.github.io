@@ -77,6 +77,6 @@ By using `Grand Central Dispatch` threading, the rendering finishes __3__ times 
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing.png "Raytracing")
 
-This image was generated using a value of __ns = 50__, a sphere generator range from __-7..<7__ and an image resolution of __800 x 400__. The rendering took __752__ seconds to run so if you want a quick, 5-second rendering I suggest using a value of __ns = 10__, a sphere generator range from __-2..<3__ and an image resolution of __400 x 200__. The [source code](https://github.com/Swiftor/Raytracing5) is posted on Github as usual.
+This image was generated using a value of __ns = 50__, a sphere generator range from __-7..<7__ and an image resolution of __800 x 400__. The rendering took __752__ seconds to run so if you want a quick, __5__-second rendering I suggest using a value of __ns = 10__, a sphere generator range from __-2..<3__ and an image resolution of __400 x 200__. The [source code](https://github.com/Swiftor/Raytracing5) is posted on Github as usual.
 
 Until next time!
