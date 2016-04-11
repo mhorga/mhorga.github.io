@@ -60,7 +60,7 @@ with a single line that creates the random world instead:
 let world = random_scene()
 {% endhighlight %}
 
-I would normally tell you to try rendering the scene but there is a great speed up hint I learned from [hyperjeff](https://twitter.com/hyperjeff) and which allows us to get images of greater quality, much faster. Still inside the __imageFromPixels()__ method, replace the outer loop first line:
+I would normally tell you to try rendering the scene __now__, but there is a great speed up hint I learned from [hyperjeff](https://twitter.com/hyperjeff) and which allows us to get images of greater quality, much faster. Still inside the __imageFromPixels()__ method, replace the outer loop first line:
 
 {% highlight swift %}
 for i in 0..<width {
