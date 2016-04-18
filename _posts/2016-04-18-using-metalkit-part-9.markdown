@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 9
 layout: post
 ---
@@ -26,7 +26,7 @@ let index_data: [UInt16] = [
 
 To understand how these indexes are stored, let's look at this image below:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_1.png "1")
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_1.jpg "1")
 
 As you can see, for the front face (square) we use vertices stored at positions __0__ through __3__ in the `vertex_buffer`. Later on we will add the other __4__ vertices as well. The front face is made of two triangles. We first draw the triangle that uses vertices __0__, __1__ and __2__ and then we draw the triangle that uses vertices __2__, __3__ and __0__. Notice that two of the vertices are re-used, as expected. Also notice that the drawing is done __counterclockwise__. This is the default rendering rule in `Metal` but it can be changed to `clockwise` as well.
 
@@ -200,10 +200,10 @@ In `drawRect(:)` call the `update` function:
 update()
 {% endhighlight %}
 
-In the main playground page, see the generated new image:
+In the main playground page, you should see a similar image:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_7.png "7")
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_7.gif "7")
 
-The [source code](https://github.com/Swiftor/Raytracing5) is posted on Github as usual.
+The [source code](https://github.com/Swiftor/Metal/tree/master/ch09/chapter09.playground) is posted on Github as usual.
 
 Until next time!
