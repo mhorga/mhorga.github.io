@@ -120,7 +120,7 @@ In the main playground page, see the generated new image:
 
 Hmm... the cube almost looks right, but something is still missing. The next transformation the pixels need to go through is from `world space` to `camera space`. Everything we see on the screen is `viewed` by a virtual camera through a __frustum__ (pyramidal shape) that has a __near__ and __far__ planes to limit the `view (camera) space:
 
-![alt text](http://www.pspwizard.de/fileadmin/_migrated/pics/ViewingFrustum.png "5")
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_5.png "5")
 
 Back in `MathUtils.swift` let's create the __viewMatrix()__ as well: 
 
