@@ -87,7 +87,7 @@ Now that we have the entire cube geometry ready for rendering, let's go to `Math
 
 Hmm, but it's still a square! Yes, it is, because we still don't have the notion of `depth` and the cube looks just flat. It's time to tweak some math logic now. We don't need to use the `Matrix` struct anymore because the __simd__ framework offers us similar data structures and math functions we can readily use. We can easily rewrite our transform functions to work with __matrix_float4x4__ instead of the custom `Matrix` struct we used. 
 
-But how do 3D objects end up on our 2D screens, you might ask. This process takes each pixel through a series of transformations: first we use a __modelMatrix__ that transforms the pixel from `object space` to `world space`. This matrix is the one we already know, the one responsible for translations, rotations and scaling. With the newly rewritten functions above, the `modelMatrix` could look like this:
+But how do 3D objects end up on our 2D screens, you might ask. This process takes each pixel through a series of transformations. First the __modelMatrix()__ transforms the pixel from `object space` to `world space`. This matrix is the one we already know, the one responsible for translations, rotations and scaling. With the newly rewritten functions above, the `modelMatrix` could look like this:
 
 {% highlight swift %}
 func modelMatrix() -> matrix_float4x4 {
