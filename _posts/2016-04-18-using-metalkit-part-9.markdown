@@ -28,7 +28,7 @@ To understand how these indexes are stored, let's look at this image below:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_1.jpg "1")
 
-As you can see, for the front face (square) we use vertices stored at positions __0__ through __3__ in the `vertex_buffer`. Later on we will add the other __4__ vertices as well. The front face is made of two triangles. We first draw the triangle that uses vertices __0__, __1__ and __2__ and then we draw the triangle that uses vertices __2__, __3__ and __0__. Notice that two of the vertices are re-used, as expected. Also notice that the drawing is done __counterclockwise__. This is the default rendering rule in `Metal` but it can be changed to `clockwise` as well.
+So for the front face (square) we use vertices stored at positions __0__ through __3__ in the `vertex_buffer`. Later on we will add the other __4__ vertices as well. The front face is made of two triangles. We first draw the triangle that uses vertices __0__, __1__ and __2__ and then we draw the triangle that uses vertices __2__, __3__ and __0__. Notice that two of the vertices are re-used, as expected. Also notice that the drawing is done __counterclockwise__. This is the default rendering rule in `Metal` but it can be changed to `clockwise` as well.
 
 Then, we need to create the __index_buffer__:
 
@@ -81,7 +81,7 @@ let index_data: [UInt16] = [
 ]
 {% endhighlight %}
 
-Now you have the entire cube geometry ready for rendering. If you go to `MathUtils.swift` and comment out the `rotation` and the `translation` and only leave the scaling on for a factor of __0.5__ you will most likely see an image like this:
+Now that we have the entire cube geometry ready for rendering, let's go to `MathUtils.swift` and in `modelMatrix()` comment out the `rotation` and the `translation` calls, and only leave the scaling on for a factor of __0.5__. You will most likely see an image like this:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_3.png "3")
 
