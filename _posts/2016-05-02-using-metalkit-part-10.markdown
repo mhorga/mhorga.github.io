@@ -17,7 +17,7 @@ Notice that the `currentRenderPassDescriptor` is not used anymore. The command e
 
 Finally, we go the `Shaders.metal` file and replace everything inside, with the code below:
 
-{% highlight swift %} #include <metal_stdlib>
+{% highlight swift %}#include <metal_stdlib>
 using namespace metal;
 
 kernel void compute(texture2d<float, access::write> output [[texture(0)]],
