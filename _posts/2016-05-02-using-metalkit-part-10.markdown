@@ -3,7 +3,9 @@ published: false
 title: Using MetalKit part 10
 layout: post
 ---
-Let's start by stripping down the playground we used in [Part 8](http://mhorga.org/2016/03/07/using-metalkit-part-8.html).
+Today we will look at the only other type of `shader function` we have not used so far, the __kernel function__ or __compute shader__. You will seldom hear even a variation of intermixing words from both of them. A few important facts to keep in mind about them: there is no rendering going on, the function always returns `void` and its name always starts with the __kernel__ keyword, just like the other functions we used before we preceded by the `vertex` and `fragment` keyword.
+
+Let's start by stripping down the playground we used in [Part 8](http://mhorga.org/2016/03/07/using-metalkit-part-8.html). 
 
 {% highlight swift %} 
 {% endhighlight %}
