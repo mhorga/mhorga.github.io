@@ -33,8 +33,7 @@ We basically just set the same color to every pixel/position in the texture. Now
 
 If you see the output above, you are now ready to proceed. From this point forward, we will not look at the host code (`MetalView.swift`) at all anymore because all our work will be inside the shader. Alright, let's start with something simple. Replace the content of the kernel function with the code below:
 
-{% highlight swift %} 
-int width = output.get_width();
+{% highlight swift %}int width = output.get_width();
 int height = output.get_height();
 float red = float(gid.x) / float(width);
 float green = float(gid.y) / float(height);
@@ -47,8 +46,7 @@ As you probably guessed already, we get the `width` and `height` of the texture,
 
 Next, let's draw a black circle in the middle of the screen. Replace last line with these lines:
 
-{% highlight swift %}
-float2 uv = float2(gid) / float2(width, height);
+{% highlight swift %}float2 uv = float2(gid) / float2(width, height);
 uv = uv * 2.0 - 1.0;
 bool inside = length(uv) < 0.5;
 output.write(inside ? float4(0) : float4(red, green, 0, 1), gid); 
@@ -62,8 +60,7 @@ How exactly did we just do that? This is a common technique used in shading, and
 
 Let's abstract the inside/outside circle calculation into a useful distance function:
 
-{% highlight swift %} 
-float dist(float2 point, float2 center, float radius)
+{% highlight swift %}float dist(float2 point, float2 center, float radius)
 {
     return length(point - center) - radius;
 } 
@@ -71,15 +68,13 @@ float dist(float2 point, float2 center, float radius)
 
 Then replace the line where we define `inside` with these lines:
 
-{% highlight swift %} 
-float distToCircle = dist(uv, float2(0), 0.5);
+{% highlight swift %}float distToCircle = dist(uv, float2(0), 0.5);
 bool inside = distToCircle < 0;
 {% endhighlight %}
 
 Visually, nothing's changed, but we now have a function we can easily reuse later on. Next, let's see how we can modify the background color based on the distance from the circle rather than just the absolute pixel position. We change the value of the alpha channel by calculating the distance from the pixel to the circle. Simply replace the last one with this one:
 
-{% highlight swift %} 
-output.write(inside ? float4(0) : float4(1, 0.7, 0, 1) * (1 - distToCircle), gid);
+{% highlight swift %}output.write(inside ? float4(0) : float4(1, 0.7, 0, 1) * (1 - distToCircle), gid);
 {% endhighlight %}
 
 You should see something like this:
@@ -88,8 +83,7 @@ You should see something like this:
 
 Beautiful, right? Now that we just got this idea of a total eclipse of the Sun, let's make it look more realistic. We need one more circle (the Sun) and we want to move the initial circle a bit to the left and a little lower so they are both visible. Replace the line where we define `inside` with these ones:
 
-{% highlight swift %} 
-float distToCircle2 = dist(uv, float2(-0.1, 0.1), 0.5);
+{% highlight swift %}float distToCircle2 = dist(uv, float2(-0.1, 0.1), 0.5);
 bool inside = distToCircle2 < 0;
 {% endhighlight %}
 
