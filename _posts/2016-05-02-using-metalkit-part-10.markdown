@@ -58,7 +58,7 @@ You should see something like this:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_5.png "5")
 
-How exactly did we just do that? This is a common technique used in shading, and is named __distance function__. We use the `length` function to determine whether the pixel is within __0.5__ distance from the center of the screen which we are just using as the center of the circle as well. Notice that we normalized the __uv__ vector to match the range of the window coordinates __[-1, 1]__. Finally, we look whether the pixel is inside and color it `black`, or otherwise color it with a gradient, as we did before.
+How exactly did we just do that? Well, this is a common technique used in shading, and is named __distance function__. We use the `length` function to determine whether the pixel is within __0.5__ distance from the center of the screen which we are just using as the center of the circle as well. Notice that we normalized the __uv__ vector to match the range of the window coordinates __[-1, 1]__. Finally, we look whether the pixel is inside and color it `black`, or otherwise color it with a gradient, as we did before.
 
 Let's abstract the inside/outside circle calculation into a useful distance function:
 
