@@ -47,7 +47,7 @@ As you probably guessed already, we get the `width` and `height` of the texture,
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_4.png "4")
 
-Next, let’s draw a black circle in the middle of the screen. Replace last line with these lines:
+Next, let's draw a black circle in the middle of the screen. Replace last line with these lines:
 
 {% highlight swift %}
 float2 uv = float2(gid) / float2(width, height);
@@ -60,11 +60,45 @@ You should see something like this:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_5.png "5")
 
-How did we do that?
+How exactly did we just do that? This is a common technique used in shading, and is named __distance function__. We use the `length` function to determine whether the pixel is within __0.5__ distance from the center of the screen which we are just using as the center of the circle as well. Notice that we normalized the __uv__ vector to match the range of the window coordinates __[-1, 1]__. Finally, we look whether the pixel is inside and color it `black`, or otherwise color it with a gradient, as we did before.
 
-In the next episode we will look into more complex and dynamic compute tasks. Special thanks to [Chris Wood](https://twitter.com/_psonice) for his valuable advising. The [source code](https://github.com/Swiftor/Metal/tree/master/ch10) is posted on Github as usual.
+Let's abstract the inside/outside circle calculation into a useful distance function:
 
 {% highlight swift %} 
+float dist(float2 point, float2 center, float radius)
+{
+    return length(point - center) - radius;
+} 
 {% endhighlight %}
+
+Then replace the line where we define `inside` with these lines:
+
+{% highlight swift %} 
+float distToCircle = dist(uv, float2(0), 0.5);
+bool inside = distToCircle < 0;
+{% endhighlight %}
+
+Visually, nothing's changed, but we now have a function we can easily reuse later on. Next, let's see how we can modify the background color based on the distance from the circle rather than just the absolute pixel position. We change the value of the alpha channel by calculating the distance from the pixel to the circle. Simply replace the last one with this one:
+
+{% highlight swift %} 
+output.write(inside ? float4(0) : float4(1, 0.7, 0, 1) * (1 - distToCircle), gid);
+{% endhighlight %}
+
+You should see something like this:
+
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_6.png "6")
+
+Beautiful, right? Now that we just got this idea of a total eclipse of the Sun, let's make it look more realistic. We need one more circle (the Sun) and we want to move the initial circle a bit to the left and a little lower so they are both visible. Replace the line where we define `inside` with these ones:
+
+{% highlight swift %} 
+float distToCircle2 = dist(uv, float2(-0.1, 0.1), 0.5);
+bool inside = distToCircle2 < 0;
+{% endhighlight %}
+
+You should see something like this:
+
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_7.png "7")
+
+We are just beginning to scratch the surface of shading techniques. In the next episode we will look into more complex and dynamic compute tasks. Special thanks to [Chris Wood](https://twitter.com/_psonice) for his valuable advising. The [source code](https://github.com/Swiftor/Metal/tree/master/ch10) is posted on Github as usual.
 
 Until next time!
