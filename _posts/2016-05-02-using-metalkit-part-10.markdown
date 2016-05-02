@@ -31,7 +31,7 @@ We basically just set the same color to every pixel/position in the texture. Now
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_3.png "3")
 
-If you see the output above, you are now ready to proceed. From this point forward, we will not look at the host code (`MetalView.swift`) at all anymore because all our work will be inside the shader. Alright, let's start with something simple. Replace the content of the kernel function with the code below:
+If you see the output above, you are now ready to proceed. From this point forward, we will not look at the host code (`MetalView.swift`) anymore because all our work will be inside the kernel shader. Alright, let's start with something simple. Replace the content of the kernel function with the code below:
 
 {% highlight swift %}int width = output.get_width();
 int height = output.get_height();
