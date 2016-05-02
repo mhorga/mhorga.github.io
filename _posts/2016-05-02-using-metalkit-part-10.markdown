@@ -13,7 +13,7 @@ As you notice, we're not using a `MTLRenderPipelineDescriptor` anymore and inste
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter10_2.png "2")
 
-You notice immediately that the `currentRenderPassDescriptor` is not used anymore. As such, the command encoder is created by using the `computeCommandEncoder()` function instead. Obviously, we do not need to set the vertex buffers anymore or draw primitives either. Instead, with a kernel function we set a texture to work with, create thread groups and then dispatch them to do work. We use `MTLSize` to set the dimensions of each thread group and the number of thread groups that will be executed in each compute call.
+You notice immediately that the `currentRenderPassDescriptor` is not used anymore. The command encoder is created by using the `computeCommandEncoder()` function instead. Obviously, we do not need to set the vertex buffers anymore or draw primitives either. Instead, with a kernel function we set a texture to work with, create thread groups and then dispatch them to do work. We use `MTLSize` to set the dimensions of each thread group and the number of thread groups that will be executed in each compute call.
 
 Finally, we go the `Shaders.metal` file and replace everything with the code below:
 
