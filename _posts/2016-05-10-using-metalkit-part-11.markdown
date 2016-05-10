@@ -47,20 +47,23 @@ The last function we look at before moving on, is `mix`. The `mix` function perf
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_2.png "2")
 
-The next functions we look at are `abs` and `fmod`.
+The next functions we look at are `abs` and `fmod`. The `abs` function simply returns the absolute value, or the distance of a number from `0`. In other words, any value loses its sign and always returns a non-negative value. The `fmod` function returns the remainder fractional part of a float (the equivalent of the modulo operator % for integers). Let's apply these two functions to some values and see what we can get:  
 
 {% highlight swift %}float3 color = float3(0.7);
 if(fmod(uv.x, 0.1) < 0.005 || fmod(uv.y, 0.1) < 0.005) color = float3(0,0,1);
 float2 uv_ext = uv * 2.0 - 1.0;
 if(abs(uv_ext.x) < 0.02 || abs(uv_ext.y) < 0.02) color = float3(1, 0, 0);
-// x+y = `up and right` diagonal and x-y = `down and right` diagonal
 if(abs(uv_ext.x - uv_ext.y) < 0.02 || abs(uv_ext.x + uv_ext.y) < 0.02) color = float3(0, 1, 0);
 output.write(float4(color, 1), gid);
 {% endhighlight %}
 
+The output image should look like this:
+
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_3.png "3")
 
-Next, let's generate a beautiful fractal, another piece of work courtesy of Inigo Quilez, where we use many of the math functions:
+First, we drew a grid of blue lines spaced out at __0.1__ between them and with a thickness of __0.005__. Next, we normalized the screen coordinates so we can work with the __[-1, 1]__ interval, and then drew the `X` and `Y` axes in red with a thickness of __0.02__. Finally, we drew the two diagonals in green with the same thickness, keeping in mind that __x - y__ gives us the decreasing slope (diagonal) while __x + y__ gives us the increasing one. 
+
+Finally, let's use __sin()__, __cos()__, __fract()__, __dot()__ and __pow()__ together with other functions we already discussed:
 
 {% highlight swift %}float2 cc = 1.1 * float2(0.5 * cos(0.1) - 0.25 * cos(0.2), 0.5 * sin(0.1) - 0.25 * sin(0.2) );
 float4 dmin = float4(1000.0);
@@ -78,8 +81,10 @@ color *= 0.5 + 0.5 * pow(16.0 * uv.x * (1.0 - uv.x) * uv.y * (1.0 - uv.y), 0.15)
 output.write(float4(color, 1), gid);
 {% endhighlight %}
 
+The `sin()` function is just the `sine` of an angle, the `cos()` function is obviously the `cosine` of an angle, the `fract()` function returns the fractional part of a value, the `dot()` function returns the scalar product of two vectors and finally, the `pow()` function returns the value of a number raised to the power of another number. This code generates a beautiful fractal, a true piece of art courtesy of `Inigo Quilez`. The output image should look like this:
+
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_4.png "4")
 
-The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
+You should take some time to try to understand how the `magic` works here. If you have any questions about this code, feel free to contact me either on this blog or on [Twitter](https://twitter.com/mhorga_). The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
 
 Until next time!
