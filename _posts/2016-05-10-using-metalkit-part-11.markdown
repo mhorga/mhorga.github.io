@@ -5,7 +5,7 @@ layout: post
 ---
 Let's continue our journey into the wonderful world of shaders using the `Metal Shading Language (MSL)` by picking up where we left off in [Part 10](http://mhorga.org/2016/05/02/using-metalkit-part-10.html). Using the same playground we worked on last time, we will next try to get close to making art using `MSL` math functions such as `sin`, `cos`, `pow`, `abs`, `fmod`, `clamp`, `mix`, `step` and `smoothstep`. 
 
-First, let's look at our "sun eclipse" example from last time. Strangely enough, we start from the end of the functions list above because `smoothstep` is the function we need to fix an issue we had last time and we did not pay attention to it -- our output image has jaggies (is aliased) as you can see below if we zoom in enough to make it visible:
+First, let's look at our "sun eclipse" code from last time. Strangely enough, we start from the end of the functions list above because `smoothstep` is the function we need to fix an issue we had last time and we did not pay attention to it -- our output image has jaggies (is aliased) as you can see below if we zoom in enough to make it visible:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_1.png "1")
 
