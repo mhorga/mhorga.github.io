@@ -3,7 +3,7 @@ published: false
 title: Using MetalKit part 11
 layout: post
 ---
-Let's continue our journey into the wonderful world of shaders using the `Metal Shading Language (MSL)` by picking up where we left off in [Part 10](http://mhorga.org/2016/05/02/using-metalkit-part-10.html). Using the same playground we worked on last time, we will next try to get close to making art using `MSL` math functions such as `sin`, `cos`, `tan`, `abs`, `fmod`, `clamp`, `mix`, `step` and `smoothstep`. 
+Let's continue our journey into the wonderful world of shaders using the `Metal Shading Language (MSL)` by picking up where we left off in [Part 10](http://mhorga.org/2016/05/02/using-metalkit-part-10.html). Using the same playground we worked on last time, we will next try to get close to making art using `MSL` math functions such as `sin`, `cos`, `pow`, `abs`, `fmod`, `clamp`, `mix`, `step` and `smoothstep`. 
 
 First, let's look at our "sun eclipse" example from last time. Strangely enough, we start from the end of the list of functions above because `smoothstep` is the function we need to fix an issue we had last time and we did not pay attention to it -- our output image has jaggies (is aliased) as you can see below if we zoom in enough to make it visible:
 
@@ -46,6 +46,19 @@ output.write(pixel, gid);
 The last function we look at before moving on, is `mix`. The `mix` function performs a linear interpolation between `x` and `y` using `a` to weight between them. The return value is computed as `x * (1 - w) + y * w`. In this case, the `planet` color and `sun` color are interpolated using `smootherstep` as weight. If you execute the playground, the output image now has anti-aliasing and the jaggies are all gone:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_2.png "2")
+
+The next functions we look at are `abs` and `fmod`.
+
+{% highlight swift %}float3 color = float3(0.7);
+if(fmod(uv.x, 0.1) < 0.005 || fmod(uv.y, 0.1) < 0.005) color = float3(0,0,1);
+float2 uv_ext = uv * 2.0 - 1.0;
+if(abs(uv_ext.x) < 0.02 || abs(uv_ext.y) < 0.02) color = float3(1, 0, 0);
+// x+y = `up and right` diagonal and x-y = `down and right` diagonal
+if(abs(uv_ext.x - uv_ext.y) < 0.02 || abs(uv_ext.x + uv_ext.y) < 0.02) color = float3(0, 1, 0);
+output.write(float4(color, 1), gid);
+{% endhighlight %}
+
+Next
 
 {% highlight swift %}
 {% endhighlight %}
