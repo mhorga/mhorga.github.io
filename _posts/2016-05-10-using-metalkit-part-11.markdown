@@ -85,6 +85,6 @@ The `sin()` function is just the `sine` of an angle, the `cos()` function is obv
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_4.png "4")
 
-You should take some time to try to understand how the `magic` works here. If you have any questions about this code, feel free to contact me either on this blog or on [Twitter](https://twitter.com/mhorga_). The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
+Your assignment is to try to understand how the `magic` works here. If you have any questions, feel free to contact me either on this blog or on [Twitter](https://twitter.com/mhorga_), otherwise I will go over the "solution" to this assignment next week. The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
 
 Until next time!
