@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 11
 layout: post
 ---
