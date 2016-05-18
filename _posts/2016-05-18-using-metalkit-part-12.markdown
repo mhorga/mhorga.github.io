@@ -52,9 +52,46 @@ If you run the playground right now, you should see something similar:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_1.gif "1")
 
-There is another important and useful feature we could have, again by using `uniforms`, and that is mouse interaction.
+There is another important and useful feature we could have, and that is mouse interaction. Obviously, we can use `uniforms` again. Let's conform our `MetalView` class to the `NSWindowDelegate` protocol so we can use its `mouse` methods.
 
-{% highlight swift %}
+{% highlight swift %}public class MetalView: MTKView, NSWindowDelegate {
+{% endhighlight %}
+
+Next, let's create again, like we did for the timer, a global variable named __pos__ for the mouse position (coordinates) and a data buffer to hold it. We can now override the __mouseDown()__ method and work with the coordinates:
+
+{% highlight swift %}var mouseBuffer: MTLBuffer!
+var pos: NSPoint!
+
+override public func mouseDown(event: NSEvent) {
+    pos = convertPointToLayer(convertPoint(event.locationInWindow, fromView: nil))
+    let scale = layer!.contentsScale
+    pos.x *= scale
+    pos.y *= scale
+}
+{% endhighlight %}
+
+As you notice, we are scaling down the coordinates, from the entire screen to only our `MetalView` size, and then we update the coordinates with this scale factor we got from the view's layer. Next, inside the `registerShaders()` function let's initialize the mouse buffer:
+
+{% highlight swift %}mouseBuffer = device!.newBufferWithLength(sizeof(NSPoint), options: [])
+{% endhighlight %}
+
+Now go back to the `update()` function and add these lines at the end of it so we can send the current mouse coordinates to the buffer:
+
+{% highlight swift %}bufferPointer = mouseBuffer.contents()
+memcpy(bufferPointer, &pos, sizeof(NSPoint))
+{% endhighlight %}
+
+Next, in `drawRect()` we set the mouse buffer at index __2__: 
+
+{% highlight swift %}commandEncoder.setBuffer(mouseBuffer, offset: 0, atIndex: 2)
+{% endhighlight %}
+
+Then, in `Shaders.metal` we again update the kernel signature to also include the mouse buffer:
+
+{% highlight swift %}kernel void compute(texture2d<float, access::write> output [[texture(0)]],
+                    constant float &timer [[buffer(1)]],
+                    constant float2 &mouse [[buffer(2)]],
+                    uint2 gid [[thread_position_in_grid]])
 {% endhighlight %}
 
 Next,
