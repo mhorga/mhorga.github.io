@@ -40,12 +40,21 @@ Then, in `Shaders.metal` we need to update our kernel signature to also include 
 
 Next, here comes the fun part! Replace the line below:
 
-{% highlight swift %float2 cc = 1.1*float2( 0.5*cos(0.1) - 0.25*cos(0.2), 0.5*sin(0.1) - 0.25*sin(0.2) );
+{% highlight swift %}float2 cc = 1.1*float2( 0.5*cos(0.1) - 0.25*cos(0.2), 0.5*sin(0.1) - 0.25*sin(0.2) );
 {% endhighlight %}
 
 with this line:
 
-{% highlight swift %}}float2 cc = 1.1*float2( 0.5*cos(0.1*timer) - 0.25*cos(0.2*timer), 0.5*sin(0.1*timer) - 0.25*sin(0.2*timer) );
+{% highlight swift %}float2 cc = 1.1*float2( 0.5*cos(0.1*timer) - 0.25*cos(0.2*timer), 0.5*sin(0.1*timer) - 0.25*sin(0.2*timer) );
+{% endhighlight %}
+
+If you run the playground right now, you should see something similar:
+
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_1.gif "1")
+
+There is another important and useful feature we could have, again by using `uniforms`, and that is mouse interaction.
+
+{% highlight swift %}
 {% endhighlight %}
 
 Next,
@@ -55,7 +64,7 @@ Next,
 
 The output image should look like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_1.png "1")
+![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_2.gif "2")
 
 The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
 
