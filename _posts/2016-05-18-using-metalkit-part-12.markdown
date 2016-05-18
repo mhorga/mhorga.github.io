@@ -52,7 +52,7 @@ If you run the playground right now, you should see something similar:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_1.gif "1")
 
-There is another important and useful feature we could have, and that is mouse interaction. Obviously, we can use `uniforms` again. Let's conform our `MetalView` class to the `NSWindowDelegate` protocol so we can use its `mouse` methods.
+Wasn't that easy and fun? There is another important and useful feature we could have, and that is mouse interaction. Obviously, we can use `uniforms` again. Let's conform our `MetalView` class to the `NSWindowDelegate` protocol so we can use its `mouse` methods.
 
 {% highlight swift %}public class MetalView: MTKView, NSWindowDelegate {
 {% endhighlight %}
