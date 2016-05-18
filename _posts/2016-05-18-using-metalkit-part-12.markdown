@@ -38,7 +38,7 @@ Then, in `Shaders.metal` we need to update our kernel signature to also include 
                     uint2 gid [[thread_position_in_grid]])
 {% endhighlight %}
 
-Next, here comes the fun part! Replace the line below:
+Here comes the fun part! Replace the line below:
 
 {% highlight swift %}float2 cc = 1.1*float2( 0.5*cos(0.1) - 0.25*cos(0.2), 0.5*sin(0.1) - 0.25*sin(0.2) );
 {% endhighlight %}
