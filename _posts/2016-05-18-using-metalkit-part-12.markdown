@@ -108,6 +108,6 @@ What we are trying to do here is change the way color is calculated, by passing 
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_2.gif "2")
 
-The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
+You can play with the kernel code to achieve prettier effects by using the mouse coordinates in other parts of the code. There is one other matter I need to take a closer look at, the fact that `NSPoint` might not correctly map to the kernel `float2` type we used. The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
 
 Until next time!
