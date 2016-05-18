@@ -94,12 +94,17 @@ Then, in `Shaders.metal` we again update the kernel signature to also include th
                     uint2 gid [[thread_position_in_grid]])
 {% endhighlight %}
 
-Next,
+Finally, we update the line below:
 
-{% highlight swift %}
+{% highlight swift %}float3 color = float3( dmin.w );
 {% endhighlight %}
 
-The output image should look like this:
+with this line:
+
+{% highlight swift %}float3 color = float3(mouse.x - mouse.y);
+{% endhighlight %}
+
+What we are trying to do here is change the way color is calculated, by passing the mouse coordinates to the `color` variable. Run the playground and click in various view areas, then notice the effect. The output image should look like this:
 
 ![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_2.gif "2")
 
