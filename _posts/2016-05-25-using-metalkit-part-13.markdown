@@ -30,7 +30,7 @@ So far so good. The planet looks pretty flat and the lighting is too uniformly d
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_4.png "4")
 
-The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
+The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
 
