@@ -54,7 +54,7 @@ float light = dot(normal, source);
 output.write(distance < 0 ? float4(float3(light), 1) : float4(0), gid); 
 {% endhighlight %}
 
-We adopted a basic light model above, called [Lambertian](https://en.wikipedia.org/wiki/Lambertian_reflectance) (diffuse) light, where we need to multiply the normal with the normalized light source. We will talk more about lighting in a future article, however, if you are interested in learning more about lighting models, [here](https://www.evl.uic.edu/aej/488/lecture12.html) is a great resource for your reference. The output image should look like this:
+We adopted a basic light model called [Lambertian](https://en.wikipedia.org/wiki/Lambertian_reflectance) (diffuse) light, where we need to multiply the normal with the normalized light source. We will talk more about lighting in a future article, however, if you are interested in learning more about lighting models, [here](https://www.evl.uic.edu/aej/488/lecture12.html) is a great resource for your reference. The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
