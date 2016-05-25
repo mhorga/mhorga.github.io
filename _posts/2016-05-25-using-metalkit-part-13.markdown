@@ -26,8 +26,8 @@ So far so good. The planet looks pretty flat and the lighting is too uniformly d
 
 In our particular case __x0__, __y0__ and __z0__ are all __0__ because our sphere is in the center of the screen. Solving for __z__ gives us the equation below, so let's replace the last line in the kernel, with these lines:
 
-{% highlight swift %}float planetSquared = float(sqrt(radius * radius - uv.x * uv.x - uv.y * uv.y));
-float planet = planetSquared / radius;
+{% highlight swift %}float planet = float(sqrt(radius * radius - uv.x * uv.x - uv.y * uv.y));
+planet /= radius;
 output.write(distance < 0 ? float4(planet) : float4(0), gid);
 {% endhighlight %}
 
@@ -35,7 +35,7 @@ The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
 
-As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour.
+As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour. For that to happen, we had to divide the color by the `radius`, in order to normalize our range to the __[0, 1]__ interval.
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
