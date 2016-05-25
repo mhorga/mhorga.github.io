@@ -18,13 +18,17 @@ output.write(distance < 0 ? float4(1) : float4(0), gid);
 
 You surely recognize all this code from few weeks ago. The only thing we did is replace the outside circle color with `black` and the inside circle color with `white`. The output image should look like this:
 
-![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_0.png "0")
 
 So far so good. The planet looks pretty flat and the lighting is too uniformly distributed to look real. Let's fix that next. Geometry
 
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
+
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_2.png "2")
 
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_4.png "4")
 
 The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
 
