@@ -24,7 +24,7 @@ So far so good. The planet looks pretty flat and the lighting is too uniformly d
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_2.png "2")
 
-In our particular case __x0__, __y0__ and __z0__ are all __0__ because our sphere is in the center of the screen. Solving for __z__ gives us the equation below, so let's replace the last line in the kernel, with these lines:
+In our particular case __x0__, __y0__ and __z0__ are all __0__ because our sphere is in the center of the screen. Solving for __z__ gives us the the value of the `planet` color, so let's replace the last line in the kernel, with these lines:
 
 {% highlight swift %}float planet = float(sqrt(radius * radius - uv.x * uv.x - uv.y * uv.y));
 planet /= radius;
