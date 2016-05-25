@@ -20,11 +20,20 @@ You surely recognize all this code from few weeks ago. The only thing we did is 
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_0.png "0")
 
-So far so good. The planet looks pretty flat and the lighting is too uniformly distributed to look real. Let's fix that next. Geometry
-
-![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
+So far so good. The planet looks pretty flat and the lighting is too uniformly distributed to look real. Let's fix that next. Geometry tells us that in order to find any point on a sphere, we need the sphere equation:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_2.png "2")
+
+To make our calculations simple, __x0__, __y0__ and __z0__ are all __0__ since we put our sphere in the center of the screen. We also assume __z__ is always __0__ because we are currently working with a __texture2d__ so we will just fake the notion of `depth` for now. So let's replace the last line in the kernel, with these lines:
+
+{% highlight swift %}float planet = float(sqrt(radius * radius - uv.x * uv.x - uv.y * uv.y));
+planet /= radius;
+output.write(distance < 0 ? float4(planet) : float4(0), gid);
+{% endhighlight %}
+
+The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
