@@ -24,16 +24,18 @@ So far so good. The planet looks pretty flat and the lighting is too uniformly d
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_2.png "2")
 
-To make our calculations simple, __x0__, __y0__ and __z0__ are all __0__ since we put our sphere in the center of the screen. We also assume __z__ is always __0__ because we are currently working with a __texture2d__ so we will just fake the notion of `depth` for now. So let's replace the last line in the kernel, with these lines:
+In our particular case __x0__, __y0__ and __z0__ are all __0__ because our sphere is in the center of the screen. Solving for __z__ gives us the equation below, so let's replace the last line in the kernel, with these lines:
 
-{% highlight swift %}float planet = float(sqrt(radius * radius - uv.x * uv.x - uv.y * uv.y));
-planet /= radius;
+{% highlight swift %}float planetSquared = float(sqrt(radius * radius - uv.x * uv.x - uv.y * uv.y));
+float planet = planetSquared / radius;
 output.write(distance < 0 ? float4(planet) : float4(0), gid);
 {% endhighlight %}
 
 The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
+
+As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour.
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
