@@ -35,7 +35,19 @@ The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
 
-As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour. For that to happen, we had to divide the color by the `radius`, in order to normalize our range to the __[0, 1]__ interval.
+As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour. For that to happen, we had to divide the color by the `radius`, in order to normalize our range to the __[0, 1]__ interval. We basically faked having a light source positioned at __(0, 0, 1)__, which brings up to the next topic, `Lighting`.
+
+In order to have lights in our scene we need to compute the `normal` at each coordinate. Normals are perpendicular vectors on the surface, showing us where the surface "points" to at each coordinate. Replace the last two lines with these lines:
+
+{% highlight swift %}float3 normal = normalize(float3(uv.x, uv.y, planet));
+output.write(distance < 0 ? float4(float3(normal), 1) : float4(0), gid);
+{% endhighlight %}
+
+The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_5.png "5")
+
+This is probably not what we wanted to see, but at least we now know how normals look like when calculating the color at each coordinate.
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
