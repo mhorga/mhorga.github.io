@@ -58,6 +58,15 @@ We adopted a basic light model above, called [Lambertian](https://en.wikipedia.o
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
+Remember from last time that our kernel also gives us a timer uniform? Let's use it for fun and profit! Replace the `source` line with this one:
+
+{% highlight swift %}float3 source = normalize(float3(cos(timer), sin(timer), 1));
+{% endhighlight %}
+
+By using the `cos` and `sin` functions, we gave the light source a circular movement. `x` and `y` are both ranging from __-1__ to __1__ using the parametric equation of a circle. The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter13_6.gif "6")
+
 We how have a good looking, illuminated object in the scene (planet in the sky), however, the object still presents a homogeneous surface. We can make it look more realistic in two ways: either apply a texture to it (in a later article), or add some noise to the `planet` color, which is what we are going to do next.
 
 __Noise__
