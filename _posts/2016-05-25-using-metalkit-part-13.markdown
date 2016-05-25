@@ -35,7 +35,7 @@ The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_1.png "1")
 
-As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour. For that to happen, we had to divide the color by the `radius`, in order to normalize our range to the __[0, 1]__ interval. We basically faked having a light source positioned at __(0, 0, 1)__, which brings up to the next topic, `Lighting`.
+As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the circle contour. For that to happen, we had to divide the color by the `radius`, in order to normalize our range to the __[0, 1]__ interval for the `z` value, which gives us a full range light effect. We actually faked having a light source positioned at __(0, 0, 1)__. This brings up to the next topic, __Lighting__.
 
 In order to have lights in our scene we need to compute the `normal` at each coordinate. Normals are perpendicular vectors on the surface, showing us where the surface "points" to at each coordinate. Replace the last two lines with these lines:
 
@@ -43,11 +43,18 @@ In order to have lights in our scene we need to compute the `normal` at each coo
 output.write(distance < 0 ? float4(float3(normal), 1) : float4(0), gid);
 {% endhighlight %}
 
-The output image should look like this:
+Notice we already had the value of `z` in the `planet` variable. The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_5.png "5")
 
-This is probably not what we wanted to see, but at least we now know how normals look like when calculating the color at each coordinate.
+This is probably not what we wanted to see, but at least we now know how normals look like when calculating the color at each normalized coordinate. Next, let's create a source of light located to our left (negative `x`) and a little behind us (positive `z`). Replace the last line with these lines:
+
+{% highlight swift %}float3 source = normalize(float3(-1, 0, 1));
+float light = dot(normal, source);
+output.write(distance < 0 ? float4(float3(light), 1) : float4(0), gid); 
+{% endhighlight %}
+
+We adopted a basic light model above, called [Lambertian](https://en.wikipedia.org/wiki/Lambertian_reflectance) (diffuse) light, where we need to multiply the normal with the normalized light source. The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter13_3.png "3")
 
