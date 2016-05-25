@@ -37,7 +37,7 @@ The output image should look like this:
 
 As you expected, the color is now calculated starting with fully white in the center of the circle and ending  with fully black on the outer circle. For that to happen, we had to divide the color by the `radius`, in order to normalize our range to the __[0, 1]__ interval for the `z` value, which gives us a full range light effect. We actually faked having a light source positioned at __(0, 0, 1)__. This brings up to the next topic: `lighting`.
 
-__Lighting__ is what gives life to our colors. In order to have lights in our scene we need to compute the `normal` at each coordinate. Normals are perpendicular vectors on the surface, showing us where the surface "points" to at each coordinate. Replace the last two lines with these lines:
+__Lighting__ is what gives life to our colors. In order to have lights in our scene we need to compute the `normal` at each coordinate. Normals vectors that are are perpendicular on the surface, showing us where the surface "points" to at each coordinate. Replace the last two lines with these lines:
 
 {% highlight swift %}float3 normal = normalize(float3(uv.x, uv.y, planet));
 output.write(distance < 0 ? float4(float3(normal), 1) : float4(0), gid);
