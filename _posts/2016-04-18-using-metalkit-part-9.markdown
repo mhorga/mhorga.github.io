@@ -1,7 +1,7 @@
 ---
 published: true
 title: Using MetalKit part 9
-summary: Learn how to draw 3D content in Metal. You will use an index buffer, a projection matrix and learn how vertices go through a series of transformations.
+summary: Learn how to draw 3D content in Metal. You will build a projection matrix and learn how your vertices go through a series of transformations.
 layout: post
 ---
 I bet many of you missed the `MetalKit` series, so today we are returning back to it, and we will learn how to draw 3D content in `Metal`. Let's continue working on our playground and pick up where we left off in [part 8](https://github.com/Swiftor/Metal/tree/master/ch08/chapter08.playground) of the series. 
