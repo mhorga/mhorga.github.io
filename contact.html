@@ -9,8 +9,10 @@ permalink: /contact/
   <form action="https://getsimpleform.com/messages?form_api_token=2690242b31b4950f934dbd41d1f1a2ee" method="POST" class="form-stacked form-light">
   -->
   <form action="https://formspree.io/mhorga@gmail.com" method="POST" class="form-stacked form-light">
-    <input type="text" name="email" class="input mobile-block" placeholder="Email Address">
+    <input type="text" name="_replyto" class="input mobile-block" placeholder="Your Email Address">
     <textarea type="text" name="content" class="input mobile-block" rows="5" placeholder="Your message here."></textarea>
     <input type="submit" class="button button-blue button-big mobile-block" value="Send">
+    <input type="hidden" name="_next" value="http://mhorga.org" />
+    <input type="hidden" name="_subject" value="Using MetalKit" />
   </form>
 </div>
