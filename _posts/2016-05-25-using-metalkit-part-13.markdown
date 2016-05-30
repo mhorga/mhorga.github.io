@@ -1,7 +1,7 @@
 ---
 published: true
 title: Using MetalKit part 13
-summary: Learn about 3D drawing and basic lighting using the Metal Shading Language and compute kernels.
+summary: Using the same playground we worked on in part 12, you will learn about basic lighting and 3D drawing using MSL in a compute shader. 
 layout: post
 ---
 Let's pick up where we left off in [Part 12](http://mhorga.org/2016/05/18/using-metalkit-part-12.html). Using the same playground we worked on last time, we will learn about lighting and `3D` objects today. Remember the sun eclipse we worked on a couple of weeks ago? It's back! Well, we are going to remove the sun and just focus on the planet this time.
