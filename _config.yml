@@ -6,5 +6,5 @@ author: Marius Horga
 description: A blog about games, graphics and mobile development. 
 paginate: 5
 animated: true
-disqus_shortname: enable
+disqus_shortname: mhorga
 google_analytics: "UA-64309195-1"
