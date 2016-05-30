@@ -1,7 +1,7 @@
 ---
 published: true
 title: Using MetalKit part 11
-summary: Using the same playground you worked on in part 10, you will learn how fun is to work with MSL math functions such as sin, cos, pow, abs, fmod, clamp, mix, step and smoothstep. 
+summary: Learn how fun is to work with MSL math functions such as sin, cos, pow, abs, fmod, clamp, mix, step and smoothstep. 
 layout: post
 ---
 Let's continue our journey into the wonderful world of shaders using the `Metal Shading Language (MSL)` by picking up where we left off in [Part 10](http://mhorga.org/2016/05/02/using-metalkit-part-10.html). Using the same playground we worked on last time, we will next try to get close to making art using `MSL` math functions such as `sin`, `cos`, `pow`, `abs`, `fmod`, `clamp`, `mix`, `step` and `smoothstep`. 
