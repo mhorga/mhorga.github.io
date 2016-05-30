@@ -1,6 +1,7 @@
 ---
 published: true
 title: Using MetalKit part 10
+summary: Learn about the Metal compute kernels (shaders) and see how they are different from the Vertex/Fragment shaders. 
 layout: post
 ---
 Today we will look at the only other type of `shader function` we have not used so far, the __kernel function__ or __compute shader__. You will often hear a variation of intermixed words from both of them. The kernel is used for `compute` tasks, that is, massively parallel computations done on the `GPU`. Some examples include: image processing, scientific simulations, and so on. A few important facts to keep in mind about kernels: there is no rendering pipeline, the function always returns `void` and its name always starts with the __kernel__ keyword, like the other functions we used before were preceded by the `vertex` and `fragment` keyword.
