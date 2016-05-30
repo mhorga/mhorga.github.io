@@ -71,3 +71,4 @@ By using the `cos` and `sin` functions, we gave the light source a circular move
 We how have a good looking, illuminated object in the scene (planet in the sky), however, the object still presents a homogeneous surface. We can make it look more realistic in two ways: either apply a texture to it, or add some noise to the `planet` color. The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
+ 
