@@ -1,6 +1,7 @@
 ---
 published: true
 title: Using MetalKit part 14
+summary: Learn about noise using MSL, and why it is commonly used as a procedural texture primitive in computer graphics.
 layout: post
 ---
 Let's pick up where we left off in [Part 13](http://mhorga.org/2016/05/25/using-metalkit-part-13.html). Using the same playground we worked on last time, we will learn about __noise__ today. From _Wikipedia_:
