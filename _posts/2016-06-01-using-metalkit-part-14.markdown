@@ -31,7 +31,7 @@ The __noise()__ function will bilinearly interpolate a lattice (grid) and return
 
 We first use __i__ to move along grid points and __f__ as an offset between the grid points. Then we calculate a __Cubic Hermite Spline__ with the formula `3f^2 - 2f^3` and which creates a S-shaped curve that has values between __[0, 1]__. Next we interpolate values along the bottom and top of the grid, and finally we interpolate the vertical line between those 2 horizontal points to get our final value for noise.
 
-Next we create a `Fractional Brownian Motion` function that calls our `noise()` function multiple times and adds up the results. 
+Next we create a __Fractional Brownian Motion__ function that calls our `noise()` function multiple times and adds up the results. 
 
 {% highlight swift %}float fbm(float2 uv)
 {
@@ -58,6 +58,6 @@ For fun, we add the `timer` uniform again to animate the content. The output ima
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter14.gif "chapter 14")
 
-You can read more about [bilinear filtering](http://www.scratchapixel.com/old/lessons/3d-advanced-lessons/interpolation/bilinear-interpolation) and about [value noise](http://www.scratchapixel.com/old/lessons/3d-advanced-lessons/noise-part-1/creating-a-simple-2d-noise) if you're interested. You can also see an example of the [Cubic Hermit Spline](https://www.desmos.com/calculator/mnrgw3yias). The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
+You can read more about [bilinear filtering](http://www.scratchapixel.com/old/lessons/3d-advanced-lessons/interpolation/bilinear-interpolation), about [value noise](http://www.scratchapixel.com/old/lessons/3d-advanced-lessons/noise-part-1/creating-a-simple-2d-noise) and [Fractional Brownian motion](https://en.wikipedia.org/wiki/Fractional_Brownian_motion) if you're interested. You can also see an example of the [Cubic Hermit Spline](https://www.desmos.com/calculator/mnrgw3yias). The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
