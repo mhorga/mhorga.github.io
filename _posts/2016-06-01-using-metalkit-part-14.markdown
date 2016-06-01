@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 14
 layout: post
 ---
@@ -29,21 +29,35 @@ The __noise()__ function will bilinearly interpolate a lattice (grid) and return
 }
 {% endhighlight %}
 
-We first use __i__ to move along grid points and __f__ as an offset between the grid points. Then we calculate a __Cubic Hermite Spline__ with the formula `3f^2 - 2f^3` and which creates a S-shaped curve that has values between __[0, 1]__. 
-    // https://www.desmos.com/calculator/mnrgw3yias
-    // Interpolate the along the bottom of our grid.
-    // Interpolate the along the top of our grid.
-    // We have now interpolated the horizontal top and bottom grid lines.
-    // We will now interpolate the vertical line between those 2 horizontal points
-    // to get our final value for noise.
+We first use __i__ to move along grid points and __f__ as an offset between the grid points. Then we calculate a __Cubic Hermite Spline__ with the formula `3f^2 - 2f^3` and which creates a S-shaped curve that has values between __[0, 1]__. Next we interpolate values along the bottom and top of the grid, and finally we interpolate the vertical line between those 2 horizontal points to get our final value for noise.
 
-The output image should look like this:
+Next we create a `Fractional Brownian Motion` function that calls our `noise()` function multiple times and adds up the results. 
 
-![alt text](https://github.com/MetalKit/images/raw/master/chapter13_6.gif "6")
+{% highlight swift %}float fbm(float2 uv)
+{
+    float sum = 0;
+    float amp = 0.7;
+    for(int i = 0; i < 4; ++i)
+    {
+        sum += noise(uv) * amp;
+        uv += uv * 1.2;
+        amp *= 0.4;
+    }
+    return sum;
+}
+{% endhighlight %}
+
+By adding various (four -- in this case) `octaves` of this noise at different amplitudes (as explained in the beginning), we can generate a simple cloud-like pattern. We have one more thing to do: inside the kernel replace all the lines after the one where `distance` is defined, with these lines:
+
+{% highlight swift %}uv = fmod(uv + float2(timer * 0.2, 0), float2(width, height));
+float t = fbm( uv * 3 );
+output.write(distance < 0 ? float4(float3(t), 1) : float4(0), gid);
+{% endhighlight %}
+
+For fun, we add the `timer` uniform again to animate the content. The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter14.gif "chapter 14")
 
 You can read more about [bilinear filtering](http://www.scratchapixel.com/old/lessons/3d-advanced-lessons/interpolation/bilinear-interpolation) and about [value noise](http://www.scratchapixel.com/old/lessons/3d-advanced-lessons/noise-part-1/creating-a-simple-2d-noise) if you're interested. You can also see an example of the [Cubic Hermit Spline](https://www.desmos.com/calculator/mnrgw3yias). The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
-
-{% highlight swift %}
-{% endhighlight %}
