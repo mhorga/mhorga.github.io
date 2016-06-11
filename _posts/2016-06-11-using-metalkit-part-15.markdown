@@ -3,7 +3,7 @@ published: false
 title: Using MetalKit part 15
 layout: post
 ---
-In `part 13` of this series, we said we can make our planet look more realistic in two ways: either apply a texture to it, or add some noise to the `planet` color. We showed how to add noise last week, in `part 14`. This week we will learn about __textures__ and __samplers__.  Let's pick up where we left off in [Part 13](http://mhorga.org/2016/05/25/using-metalkit-part-13.html) since we do not need the noise code this time. 
+At the end of `part 13` of this series, we said we can make our planet look more realistic in two ways: either apply a texture to it, or add some noise to the `planet` color. We showed how to add noise last week, in `part 14`. This week we will learn about __textures__ and __samplers__.  Let's pick up where we left off in [Part 13](http://mhorga.org/2016/05/25/using-metalkit-part-13.html) since we do not need the noise code this time. 
 
 First, let's clean our kernel to only include these lines:
 
