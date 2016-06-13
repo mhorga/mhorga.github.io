@@ -3,7 +3,7 @@ published: true
 title: Ray tracing in a Swift playground part 3
 layout: post
 ---
-Since I missed my Monday post, as a punishment, I will write two posts this week! Let's continue working on our `ray tracer` and pick up where we left off last week. If we want to render spheres of different materials, `Peter Shirley` recommends creating an abstract material class that encapsulates behavior. As a computer scientist myself, I couldn't agree more! 
+Let's continue working on our `ray tracer` and pick up where we left off last week. If we want to render spheres of different materials, `Peter Shirley` recommends creating an abstract material class that encapsulates behavior. As a computer scientist myself, I couldn't agree more! 
 
 The `material` class will let us produce a scattered ray and calculate how much it was absorbed or attenuated by its reflectance. Let's create a new file named __material.swift__ or any other name of your choice. Inside, let's create a `protocol` which is well suited for an abstract class in `Swift`:
 
