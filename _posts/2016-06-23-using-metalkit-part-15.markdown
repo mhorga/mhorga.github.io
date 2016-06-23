@@ -118,6 +118,6 @@ The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter15_4.gif "4")
 
-Now this is what I call a realistic planet surface! The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
+Now this is what I call a realistic planet surface! Many thanks again to [Chris](https://twitter.com/_psonice) for his assistance. The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
