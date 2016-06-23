@@ -21,31 +21,41 @@ First, let's clean our kernel to only include these lines:
 
 Next, let's work in `MetalView.swift`. First create a new texture object:
 
-var texture: MTLTexture!
+{% highlight swift %}var texture: MTLTexture!
+{% endhighlight %}
 
 Next, replace this line:
 
-commandEncoder.setBuffer(mouseBuffer, offset: 0, atIndex: 2)
+{% highlight swift %}commandEncoder.setBuffer(mouseBuffer, offset: 0, atIndex: 2)
+{% endhighlight %}
 
 with this line:
 
-commandEncoder.setTexture(texture, atIndex: 1)
+{% highlight swift %}commandEncoder.setTexture(texture, atIndex: 1)
+{% endhighlight %}
+
+and also change the buffer index for our `timer` from __1__ to __0__:
+
+{% highlight swift %}commandEncoder.setBuffer(timerBuffer, offset: 0, atIndex: 0)
+{% endhighlight %}
 
 Then, let's create a function that sets up or texture:
 
-    func setUpTexture() {
-        let path = NSBundle.mainBundle().pathForResource("texture", ofType: "jpg")
-        let textureLoader = MTKTextureLoader(device: device!)
-        texture = try! textureLoader.newTextureWithContentsOfURL(NSURL(fileURLWithPath: path!), options: nil)   
-    }
+{% highlight swift %}func setUpTexture() {
+    let path = NSBundle.mainBundle().pathForResource("texture", ofType: "jpg")
+    let textureLoader = MTKTextureLoader(device: device!)
+    texture = try! textureLoader.newTextureWithContentsOfURL(NSURL(fileURLWithPath: path!), options: nil)   
+}
+{% endhighlight %}
 
 Next, call this function in our `init` function:
 
-    override public init(frame frameRect: CGRect, device: MTLDevice?) {
-        super.init(frame: frameRect, device: device)
-        registerShaders()
-        setUpTexture()
-    }
+{% highlight swift %}override public init(frame frameRect: CGRect, device: MTLDevice?) {
+    super.init(frame: frameRect, device: device)
+    registerShaders()
+    setUpTexture()
+}
+{% endhighlight %}
 
 Finally, I added an image named __texture.jpg__ in the `Resources` folder of our playground, but you can add yours instead if you want.
 
