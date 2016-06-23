@@ -56,13 +56,23 @@ Now, let's clean our kernel in __Shaders.metal__ to only include these lines:
 }
 {% endhighlight %}
 
-You will first notice that we get the `input` texture through the __[[texture(1)]]__ attribute since that is the index we set it to in the command encoder. Also, the access we requested for it is __read__. Then we read it into the `color` variable, however, it comes in flipped upside-down. In order to fix this, on the next line we just flip the __Y__ coordinate for each pixel.
+You will first notice that we get the `input` texture through the __[[texture(1)]]__ attribute since that is the index we set it to in the command encoder. Also, the access we requested for it is __read__. Then we read it into the `color` variable, however, it comes in flipped upside-down. In order to fix this, on the next line we just flip the __Y__ coordinate for each pixel. The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter15_1.png "1")
 
 The output image should look like this:
 
-![alt text](https://github.com/MetalKit/images/raw/master/chapter13_6.gif "6")
+![alt text](https://github.com/MetalKit/images/raw/master/chapter15_2.png "2")
 
-The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
+The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter15_3.gif "3")
+
+The output image should look like this:
+
+![alt text](https://github.com/MetalKit/images/raw/master/chapter15_4.gif "4")
+
+Now this is what I call a realistic planet surface! The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
  
