@@ -19,7 +19,35 @@ First, let's clean our kernel to only include these lines:
 }
 {% endhighlight %}
 
-Next, let's clean the host code in `MetalView.swift` as well.
+Next, let's work in `MetalView.swift`. First create a new texture object:
+
+var texture: MTLTexture!
+
+Next, replace this line:
+
+commandEncoder.setBuffer(mouseBuffer, offset: 0, atIndex: 2)
+
+with this line:
+
+commandEncoder.setTexture(texture, atIndex: 1)
+
+Then, let's create a function that sets up or texture:
+
+    func setUpTexture() {
+        let path = NSBundle.mainBundle().pathForResource("texture", ofType: "jpg")
+        let textureLoader = MTKTextureLoader(device: device!)
+        texture = try! textureLoader.newTextureWithContentsOfURL(NSURL(fileURLWithPath: path!), options: nil)   
+    }
+
+Next, call this function in our `init` function:
+
+    override public init(frame frameRect: CGRect, device: MTLDevice?) {
+        super.init(frame: frameRect, device: device)
+        registerShaders()
+        setUpTexture()
+    }
+
+Finally, I added an image named __texture.jpg__ in the `Resources` folder of our playground, but you can add yours instead if you want.
 
 The output image should look like this:
 
