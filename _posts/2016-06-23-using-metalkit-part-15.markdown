@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 15
 layout: post
 ---
@@ -60,13 +60,59 @@ You will first notice that we get the `input` texture through the __[[texture(1)
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter15_1.png "1")
 
-The output image should look like this:
+If you open the image and compare it with the output, you will notice it is now correctly oriented. Next, we want to bring back our planet and the dark sky around it. Replace the `output` line with this block of code:
+
+{% highlight swift %}int width = input.get_width();
+int height = input.get_height();
+float2 uv = float2(gid) / float2(width, height);
+uv = uv * 2.0 - 1.0;
+float radius = 0.5;
+float distance = length(uv) - radius;
+output.write(distance < 0 ? color : float4(0), gid);
+{% endhighlight %}
+
+This code looks familiar since we already discussed in the previous chapters how to create the planet and the black space surrounding it. The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter15_2.png "2")
 
-The output image should look like this:
+So far so good! We next want to make our planet rotate again. Replace the `output` line with this block of code:
+
+{% highlight swift %}uv = fmod(float2(gid) + float2(timer * 100, 0), float2(width, height));
+color = input.read(uint2(uv));
+output.write(distance < 0 ? color : float4(0), gid);
+{% endhighlight %}
+
+This code again looks familiar from the previous chapters where we discussed how to use `timer` to animate the planet. The output image should look like this:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter15_3.gif "3")
+
+This is a bit awkward! The output looks like someone would walk in a dark cave, next to the wall and carrying a torch. Replace the last three lines we added with this block of code:
+
+{% highlight swift %}uv = uv * 2;
+radius = 1;
+constexpr sampler textureSampler(coord::normalized,
+                                 address::repeat,
+                                 min_filter::linear,
+                                 mag_filter::linear,
+                                 mip_filter::linear );
+float3 norm = float3(uv, sqrt(1.0 - dot(uv, uv)));
+float pi = 3.14;
+float s = atan2( norm.z, norm.x ) / (2 * pi);
+float t = asin( norm.y ) / (2 * pi);
+t += 0.5;
+color = input.sample(textureSampler, float2(s + timer * 0.1, t));
+output.write(distance < 0 ? color : float4(0), gid);
+{% endhighlight %}
+
+First, we  scale down to half the size of the texture and set the radius to __1__ so we can match the planet object size with the texture size. Then comes the magic. Let me introduce the __sampler__. A `sampler` is an object that contains various rendering states that a texture needs to configure: its coordinates, the addressing mode (set to `repeat` here) and the filtering method (set to `linear` here). Next, we calculate the `normal` at each point on the sphere, then we compute the angles around the sphere using the normals. Finally, we calculate the `color` by sampling it instead of reading it as we did before. There is one more thing to do. In the kernel list of arguments, let's also reconfigure the texture access to `sample` instead of `read`. Replace this line:
+ 
+{% highlight swift %}texture2d<float, access::read> input [[texture(1)]],
+{% endhighlight %}
+ 
+with this line:
+
+{% highlight swift %}texture2d<float, access::sample> input [[texture(1)]],
+{% endhighlight %}
 
 The output image should look like this:
 
@@ -75,6 +121,3 @@ The output image should look like this:
 Now this is what I call a realistic planet surface! The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
- 
-{% highlight swift %}
-{% endhighlight %}
