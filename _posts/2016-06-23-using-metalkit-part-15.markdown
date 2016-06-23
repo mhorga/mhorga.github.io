@@ -3,7 +3,7 @@ published: false
 title: Using MetalKit part 15
 layout: post
 ---
-At the end of `part 13` we said we can make our planet look more realistic in two ways: either apply a texture to it, or add some noise to the `planet` color. We showed how to add noise in `part 14`. This week we look at __textures__ and __samplers__. Textures are useful because they can provide a greater level of detail to surfaces than color computing for each vertex could.
+At the end of `part 13` we concluded we can make our planet look more realistic in two ways: either apply a texture to it, or add some noise to the `planet` color. We showed how to add noise in `part 14`. This week we look at __textures__ and __samplers__. Textures are useful because they can provide a greater level of detail to surfaces than color computing for each vertex could.
 
 Let's pick up where we left off in [Part 13](http://mhorga.org/2016/05/25/using-metalkit-part-13.html) since we do not need the noise code this time. First, in `MetalView.swift` let's remove the `mouseDown` function as we are not going to need it anymore. Also remove the `mouseBuffer` and `pos` variables, as well as any references to them in the code. Then, create a new texture object:
 
