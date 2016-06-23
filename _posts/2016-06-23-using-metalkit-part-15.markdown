@@ -19,12 +19,12 @@ First, let's clean our kernel to only include these lines:
 }
 {% endhighlight %}
 
-Next, let's work in `MetalView.swift`. First create a new texture object:
+Next, let's work in `MetalView.swift`. First, remove the `mouseDown` function as we are not going to need it anymore. Also remove the `mouseBuffer` and `pos` variables, as well as any references to them in the code. Then, create a new texture object:
 
 {% highlight swift %}var texture: MTLTexture!
 {% endhighlight %}
 
-Next, replace this line:
+Next, replace this line (it's likely you removed it already in the above cleaning step):
 
 {% highlight swift %}commandEncoder.setBuffer(mouseBuffer, offset: 0, atIndex: 2)
 {% endhighlight %}
