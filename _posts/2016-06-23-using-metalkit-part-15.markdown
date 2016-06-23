@@ -25,7 +25,7 @@ and also change the buffer index for our `timer` from __1__ to __0__:
 {% highlight swift %}commandEncoder.setBuffer(timerBuffer, offset: 0, atIndex: 0)
 {% endhighlight %}
 
-I added an image named __texture.jpg__ in the `Resources` folder of our playground, but you can add yours instead if you want. Let's create a function that sets up or texture:
+I added an image named __texture.jpg__ in the `Resources` folder of our playground, but you can add yours instead if you want. Let's create a function that sets up or texture using this image:
 
 {% highlight swift %}func setUpTexture() {
     let path = NSBundle.mainBundle().pathForResource("texture", ofType: "jpg")
@@ -43,7 +43,7 @@ Next, call this function in our `init` function:
 }
 {% endhighlight %}
 
-Next, let's clean our kernel in __Shaders.metal__ to only include these lines:
+Now, let's clean our kernel in __Shaders.metal__ to only include these lines:
 
 {% highlight swift %}kernel void compute(texture2d<float, access::write> output [[texture(0)]],
                     texture2d<float, access::read> input [[texture(1)]],
@@ -56,7 +56,7 @@ Next, let's clean our kernel in __Shaders.metal__ to only include these lines:
 }
 {% endhighlight %}
 
-You will first notice that we get the texture through the __[[texture(1)]]__ attribute since that is the index we set it to in the command encoder. Also, the access we requested for it is __read__. Then we read it into the `color` variable, however, it comes in flipped upside-down. In order to fix this, on the next line we just flip the __Y__ coordinate for each `texel` (texture pixel).
+You will first notice that we get the `input` texture through the __[[texture(1)]]__ attribute since that is the index we set it to in the command encoder. Also, the access we requested for it is __read__. Then we read it into the `color` variable, however, it comes in flipped upside-down. In order to fix this, on the next line we just flip the __Y__ coordinate for each pixel.
 
 The output image should look like this:
 
