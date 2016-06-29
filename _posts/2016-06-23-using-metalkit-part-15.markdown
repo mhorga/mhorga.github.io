@@ -1,6 +1,7 @@
 ---
 published: true
 title: Using MetalKit part 15
+summary: Learn how to use textures and samplers to give object surfaces a greater level of detail, by using MSL in a compute shader.
 layout: post
 ---
 At the end of `part 13` we concluded we can make our planet look more realistic in two ways: either apply a texture to it, or add some noise to the `planet` color. We showed how to add noise in `part 14`. This week we look at __textures__ and __samplers__. Textures are useful because they can provide a greater level of detail to surfaces than color computing for each vertex could.
