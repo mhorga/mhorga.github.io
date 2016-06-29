@@ -1,6 +1,7 @@
 ---
 published: true
 title: What's new in graphics and games at WWDC 2016
+summary: Find out what's new in Metal, Model I/O, GameplayKit, ReplayKit, SceneKit, SpriteKit, Accelerate and Core Image.
 layout: post
 ---
 Like every year, `June` is my favorite month of the year for several reasons, but __WWDC__ is most likely the top one! Watching the opening `Keynote` and the `Platforms State Of The Union` sessions yesterday revealed a plethora of new features and even a few new frameworks. In this article, I am only going to focus on what's new in the __Graphics and Games__ track.
