@@ -3,7 +3,7 @@ published: false
 title: Using MetalKit part 16
 layout: post
 ---
-A couple of weeks ago, at the `WWDC 2016`, the `Apple` engineers released a new document, the __Metal Best Practices Guide__ which includes useful information about organizing your code for better performance in your `Metal` apps. Because the documentation is quite extensive, we are just outlining the main concepts in this article. An efficient `Metal` app requires:
+A couple of weeks ago, at the `WWDC 2016`, the `Apple` engineers released a new document, the __Metal Best Practices Guide__ which includes useful information about organizing your code for better performance in your `Metal` apps. Because the documentation is quite extensive, we are just going to outline the main concepts in this article. An efficient `Metal` app requires:
 
 - Low `CPU` overhead.
 - Optimal `GPU` performance.
@@ -57,7 +57,7 @@ For more information, consult the [Triple Buffering](https://developer.apple.com
 
 __Best Practice__: Use an appropriate method to bind your buffer data to a graphics or compute function.
 
-Metal provides several API options for binding buffer data to a graphics or compute function. The __setVertexBytes:length:atIndex:__ method is the best option for binding an amount of dynamic buffer data (a transient buffer) that is less than __4 KB__ to a vertex function. If the data size is larger than 4 KB, you should create a __MTLBuffer__ once and update its contents as needed. 
+`Metal` provides several `API` options for binding buffer data to a graphics or compute function. The __setVertexBytes:length:atIndex:__ method is the best option for binding an amount of dynamic buffer data (a transient buffer) that is less than __4 KB__ to a vertex function. If the data size is larger than 4 KB, you should create a __MTLBuffer__ once and update its contents as needed. 
 
 For more information, consult the [Buffer Bindings](https://developer.apple.com/library/prerelease/content/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/BufferBindings.html) section of the documentation. 
 
@@ -105,7 +105,7 @@ For more information, consult the [Frame Rate](https://developer.apple.com/libra
 
 __Best Practice__: Set appropriate load and store actions for your render targets.
 
-Actions performed on your Metal render targets must be configured appropriately to avoid costly and unnecessary rendering work at the start (load action) or end (store action) of a rendering pass.
+Actions performed on your `Metal` render targets must be configured appropriately to avoid costly and unnecessary rendering work at the start (load action) or end (store action) of a rendering pass.
 
 - Choose an Appropriate Load Action
 - Choose an Appropriate Store Action
@@ -129,7 +129,7 @@ For more information, consult the [Render Command Encoders](https://developer.ap
 
 __Best Practice__: Submit the fewest command buffers per frame without underutilizing the `GPU`.
 
-Command buffers are the unit of work submission in Metal; they are created by the CPU and executed by the GPU. This relationship allows you to balance CPU and GPU work by adjusting the number of command buffers submitted per frame.
+Command buffers are the unit of work submission in `Metal`; they are created by the `CPU` and executed by the `GPU`. This relationship allows you to balance `CPU` and `GPU` work by adjusting the number of command buffers submitted per frame.
 
 For more information, consult the [Command Buffers](https://developer.apple.com/library/prerelease/content/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/CommandBuffers.html) section of the documentation. 
 
@@ -151,7 +151,7 @@ For more information, consult the [Indirect Buffers](https://developer.apple.com
 
 __Best Practice__: Compile your functions and build your library at build time.
 
-Compiling `Metal Shading Language` source is one of the most expensive stages in a `Metal` app. `Metal` is designed to minimize this cost by allowing you to compile graphics and compute functions at build time, then load them at runtime as a library.
+Compiling `Metal Shading Language` source code is one of the most expensive stages in a `Metal` app. `Metal` is designed to minimize this cost by allowing you to compile graphics and compute functions at build time, then load them at runtime as a library.
 
 - Build Your Library at Build Time
 - Group Your Functions into a Single Library
