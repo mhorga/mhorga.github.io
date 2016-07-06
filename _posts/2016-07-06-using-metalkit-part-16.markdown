@@ -10,7 +10,6 @@ A couple of weeks ago, at the `WWDC 2016`, the `Apple` engineers released a new 
 - Continuous processor parallelism. 
 - Effective resource management. 
 
->
 
 ## __1 Resource Management__
 
@@ -61,7 +60,6 @@ __Best Practice__: Use an appropriate method to bind your buffer data to a graph
 
 For more information, consult the [Buffer Bindings](https://developer.apple.com/library/prerelease/content/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/BufferBindings.html) section of the documentation. 
 
->
 
 ## __2 Display Management__
 
@@ -97,7 +95,6 @@ The display refresh rate of `iOS` devices is `60 Hz`. Apps that are consistently
 
 For more information, consult the [Frame Rate](https://developer.apple.com/library/prerelease/content/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/FrameRate.html) section of the documentation. 
 
->
 
 ## __3 Command Generation__
 
@@ -143,7 +140,6 @@ Indirect buffers are `MTLBuffer` objects with a specific data layout representin
 
 For more information, consult the [Indirect Buffers](https://developer.apple.com/library/prerelease/content/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/IndirectBuffers.html) section of the documentation. 
 
->
 
 ## __4 Compilation__
 
@@ -166,7 +162,6 @@ Having multiple render or compute pipelines allows your app to use different sta
 
 For more information, consult the [Pipelines](https://developer.apple.com/library/prerelease/content/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/Pipelines.html) section of the documentation. 
 
->
 
 This guide, along with the [__Metal Programming Guide__](https://developer.apple.com/library/prerelease/content/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Introduction/Introduction.html) and the [__Metal Shading Language Guide__](https://developer.apple.com/library/prerelease/content/documentation/Metal/Reference/MetalShadingLanguageGuide/Introduction/Introduction.html) both already updated for `iOS 10`, `tvOS 10` and `OS X 10.12`, give you the trilogy of documents containing everything you need to start creating performant `Metal` apps. 
 
