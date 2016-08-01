@@ -9,7 +9,7 @@ To start, let's create a new `iOS` playground in `Xcode`. You can any image you 
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_1.png "1")
 
-Let's go over this code
+Let's go over the code
 
 {% highlight swift %}
 {% endhighlight %}
