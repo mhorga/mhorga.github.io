@@ -26,7 +26,7 @@ So far so good! We are now ready to send our playground to the `iPad` through th
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_8.PNG "2")
 
-We are finally getting to use the `iPad`! Open the new `Playgrounds` app that you downloaded from the `App Store` and go to `My Playgrounds`. In the top left corner of the screen, tap on __+__. As you can see you can also create a new playground on the `iPad` and then easily export it to your `macOS` devices or share it using various other tools. For now, however, we are going to tap on `iCloud Drive` as seen below:
+We are finally getting to use the `iPad`! Open the new `Playgrounds` app that you downloaded from the `App Store` and go to `My Playgrounds`. In the top left corner of the screen, tap on the __+__ button. As you can see you can also create a new playground on the `iPad` and then easily export it to your `macOS` devices or share it using various other tools. For now, however, we are going to tap on `iCloud Drive` as seen below:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_2.PNG "2")
 
