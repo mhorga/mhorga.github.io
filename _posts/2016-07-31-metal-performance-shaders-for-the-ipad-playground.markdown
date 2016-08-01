@@ -9,9 +9,16 @@ To start, let's create a new `iOS` playground in `Xcode`. You can any image you 
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_1.png "1")
 
-Let's go over the code
+Let's go over the code. We have been writing most of this code over and over in the previous blog posts. The first new addition you will notice immediately is also generating an error, and that is because `macOS` does not "know" about it:
 
-{% highlight swift %}
+{% highlight swift %}import MetalPerformanceShaders
+{% endhighlight %}
+
+Next, we use `MTKTextureLoader` to create a new texture from the image we added above. Now comes the really interesting part! Once we created our `MTLCommandBuffer` object, we are not going to also create a `MTLCommandEncoder` from this command buffer as we were used to do. Rather we create a new `MPSImageGaussianBlur` object which is a subclass of `MPSImageGaussianBlur` which is a subclass of `MPSKernel`.
+
+{% highlight swift %}let texOut = view.currentDrawable!.texture
+let shader = MPSImageGaussianBlur(device: view.device!, sigma: 5)
+shader.encode(commandBuffer: commandBuffer, sourceTexture: texIn, destinationTexture: texOut)
 {% endhighlight %}
 
 The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
