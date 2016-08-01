@@ -1,5 +1,5 @@
 ---
 published: false
-title: Using MetalKit part 17
+title: Metal Performance Shaders for the iPad playground
 layout: post
 ---
