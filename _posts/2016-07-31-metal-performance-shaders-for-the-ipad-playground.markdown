@@ -47,8 +47,20 @@ All you have to do now is tap on `Run My Code` and see our image with a nice blu
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_6.gif "6")
 
+Now you can see that blurred image entirely! And when you're done admiring the image, tap that handy button on left side (and at the center) of the screen to go back to split screen. Before we wrap it up, one more piece of awesomeness. Replace the line below:
 
+{% highlight swift %}let shader = MPSImageGaussianBlur(device: view.device!, sigma: 5)
+{% endhighlight %}
 
-The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
+with this line:
+
+{% highlight swift %}let shader = MPSImageSobel(device: device)
+{% endhighlight %}
+
+Check out the new output image:
+
+![alt text](https://github.com/MetalKit/images/raw/master/mps_7.PNG "7")
+
+Imagine the possibilities you have here, by only changing one line of code! There are a couple dozen different shaders that you can try. Check out the [Metal Performance Shaders API](https://developer.apple.com/reference/metalperformanceshaders#symbols) for more details. If you are really into image processing, you might want to also check Simon Gladman's [Core Image for Swift](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980?mt=13) book. If you want to learn more about the `Metal` backend of `MPS`, also check out Warren Moore's [Metal by Example](https://gum.co/metalbyexample) book. The [source code](https://github.com/MetalKit/metal) for the playground in this article is posted on Github as usual.
 
 Until next time!
