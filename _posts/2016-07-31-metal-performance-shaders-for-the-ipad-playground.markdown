@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Metal Performance Shaders for the iPad playground
 layout: post
 ---
@@ -61,6 +61,6 @@ Check out the new output image:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_7.PNG "7")
 
-Imagine the possibilities you have here, by only changing one line of code! There are a couple dozen different shaders that you can try. Check out the [Metal Performance Shaders API](https://developer.apple.com/reference/metalperformanceshaders#symbols) for more details. If you are really into image processing, you might want to also check Simon Gladman's [Core Image for Swift](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980?mt=13) book. If you want to learn more about the `Metal` backend of `MPS`, also check out Warren Moore's [Metal by Example](https://gum.co/metalbyexample) book. The [source code](https://github.com/MetalKit/metal) for the playground in this article is posted on Github as usual.
+Imagine the possibilities you have here, by only changing one line of code! There are a couple dozen different shaders that you can try. Check out the [Metal Performance Shaders API](https://developer.apple.com/reference/metalperformanceshaders#symbols) for more details. If you are really into image processing, you might want to also check Simon Gladman's [Core Image for Swift](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980?mt=13) book. If you want to learn more about the `Metal` backend of `MPS`, also check out Warren Moore's [Metal by Example](https://gum.co/metalbyexample) book. The [source code](https://github.com/MetalKit/mps) for the playground in this article is posted on Github as usual.
 
 Until next time!
