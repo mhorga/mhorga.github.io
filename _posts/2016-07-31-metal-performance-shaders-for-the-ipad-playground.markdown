@@ -16,8 +16,7 @@ Let's go over the code. We have been writing most of this code over and over in 
 
 Next, we use `MTKTextureLoader` to create a new texture from the image we added above. Now comes the really interesting part! Once we created our `MTLCommandBuffer` object, we are not going to also create a `MTLCommandEncoder` from this command buffer as we were used to do. Rather, we create a new `MPSImageGaussianBlur` object as in the code below:
 
-{% highlight swift %}let texOut = view.currentDrawable!.texture
-let shader = MPSImageGaussianBlur(device: view.device!, sigma: 5)
+{% highlight swift %}let shader = MPSImageGaussianBlur(device: view.device!, sigma: 5)
 shader.encode(commandBuffer: commandBuffer, sourceTexture: texIn, destinationTexture: texOut)
 {% endhighlight %}
 
