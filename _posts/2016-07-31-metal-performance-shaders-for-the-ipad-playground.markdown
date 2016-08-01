@@ -20,7 +20,7 @@ Next, we use `MTKTextureLoader` to create a new texture from the image we added 
 shader.encode(commandBuffer: commandBuffer, sourceTexture: texIn, destinationTexture: texOut)
 {% endhighlight %}
 
-What's great about the `MPS` objects is that they let you apply a compute shader (kernel function) to an input texture without us even having to configure any states, descriptors, pipelines or even a kernel function! The `MPS` object takes care of everything for us. Of course, by taking this approach we are somewhat limited to only picking a preset shader and possibly changing a parameter such as __sigma__, for this particular shader.
+What's great about the `MPS` objects is that they let you apply a compute shader (kernel function) to an input texture without us even having to configure any states, descriptors, pipelines or even write a kernel function, ever! The `MPS` object takes care of everything for us. Of course, by taking this approach we are somewhat limited to only picking a preset shader and possibly changing a parameter such as __sigma__, for this particular shader.
 
 So far so good! We are now ready to send our playground to the `iPad` through the `iCloud Drive`. Open a `Finder` window, click on `iCloud Drive` and copy your playground into this folder:
 
