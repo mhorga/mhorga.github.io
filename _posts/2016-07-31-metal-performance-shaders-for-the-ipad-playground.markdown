@@ -42,7 +42,7 @@ All you have to do now is tap on `Run My Code` and see our image with a nice blu
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_5.PNG "5")
 
-"Ok," you might say, "but how do we see the entire image?" The answer is in the animated GIF below. It's as easy as long pressing in the middle of the screen until a screen separating line shows. With the finger still on the screen, drag the line to either the left side or the right side, depending on what do you need to see, your code or your output image:
+"Ok," you might say, "but how do we see the entire image?" The answer is in the animated GIF below. It's as easy as long pressing in the middle of the screen until a screen separating line shows. With the finger still on the screen, drag the line to either the left side or the right side, depending on what do you need to see, your code or your output image (you might want to reload the page as the animated GIF may only run once before it stops):
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_6.gif "6")
 
