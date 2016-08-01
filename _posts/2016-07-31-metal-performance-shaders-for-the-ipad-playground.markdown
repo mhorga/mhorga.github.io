@@ -14,12 +14,14 @@ Let's go over the code. We have been writing most of this code over and over in 
 {% highlight swift %}import MetalPerformanceShaders
 {% endhighlight %}
 
-Next, we use `MTKTextureLoader` to create a new texture from the image we added above. Now comes the really interesting part! Once we created our `MTLCommandBuffer` object, we are not going to also create a `MTLCommandEncoder` from this command buffer as we were used to do. Rather we create a new `MPSImageGaussianBlur` object which is a subclass of `MPSImageGaussianBlur` which is a subclass of `MPSKernel`.
+Next, we use `MTKTextureLoader` to create a new texture from the image we added above. Now comes the really interesting part! Once we created our `MTLCommandBuffer` object, we are not going to also create a `MTLCommandEncoder` from this command buffer as we were used to do. Rather we create a new `MPSImageGaussianBlur` object as in the code below
 
 {% highlight swift %}let texOut = view.currentDrawable!.texture
 let shader = MPSImageGaussianBlur(device: view.device!, sigma: 5)
 shader.encode(commandBuffer: commandBuffer, sourceTexture: texIn, destinationTexture: texOut)
 {% endhighlight %}
+
+What's great about the `MPS` objects is that they let you apply a compute shader to an input texture without us even having to configure any states, descriptors, pipelines or even a kernel function! The `MPS` object takes care of everything for us. Of course, by taking this approach we are somewhat limited to only pick a preset shader and possibly change a parameter such as __sigma__ is for this shader in particular.
 
 The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
