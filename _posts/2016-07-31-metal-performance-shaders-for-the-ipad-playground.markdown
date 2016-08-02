@@ -9,7 +9,7 @@ To start, let's create a new `iOS` playground in `Xcode`. You can add any image 
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_1.png "1")
 
-Let's go over the code. We have been writing most of this code over and over in the previous blog posts. The first new addition you will notice immediately is also generating an error, and that is because `macOS` does not "know" about it. Once we load this playground on an iPad, the error will go away:
+Let's go over the code. We have been writing most of this code over and over in the previous blog posts. The first new addition you will notice immediately is also generating an error, and that is because `macOS` does not "know" about the `MPS` framework. Once we load this playground on an iPad, the error will go away:
 
 {% highlight swift %}import MetalPerformanceShaders
 {% endhighlight %}
