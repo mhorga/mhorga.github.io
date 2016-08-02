@@ -46,7 +46,7 @@ All you have to do now is tap on `Run My Code` and see our image with a nice blu
 
 ![alt text](https://github.com/MetalKit/images/raw/master/mps_6.gif "6")
 
-Now you can see that blurred image entirely! And when you're done admiring the image, tap that handy button on left side (and at the center) of the screen to go back to split screen. Before we wrap it up, one more piece of awesomeness. Replace the line below:
+Now you can see that blurred image entirely! And when you're done admiring the image, tap that handy button on left side (and midway vertically) of the screen to go back to split screen. Before we wrap it up, one more piece of awesomeness. Replace the line below:
 
 {% highlight swift %}let shader = MPSImageGaussianBlur(device: view.device!, sigma: 5)
 {% endhighlight %}
