@@ -9,7 +9,7 @@ If you run the playground, now you have the option to play with the __number of 
 
 ![alt text](https://github.com/MetalKit/images/raw/master/raytracing_01.png "1")
 
-You can amp up the resolution as well to say, `800 x 400`, but this will also increase the running time of your playground. However, the output image is worth the waiting!
+In order to get the image to show, you need to tap on the little icon that looks like an image, at the end of the line, and choose `Add viewer`. You can amp up the resolution as well to say, `800 x 400`, but this will also increase the running time of your playground. However, the output image is worth the waiting!
 
 ![alt text](https://github.com/MetalKit/images/raw/master/raytracing_02.png "2")
 
