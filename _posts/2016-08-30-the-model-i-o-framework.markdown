@@ -62,7 +62,7 @@ renderPipelineDescriptor.vertexDescriptor = vertexDescriptor
 let rps = device.newRenderPipelineStateWithDescriptor(renderPipelineDescriptor)
 {% endhighlight %}
 
-###Step 2: set up the asset initialization
+### Step 2: set up the asset initialization
 
 We need to also create a `Model I/O` vertex descriptor to describe the layout of the vertex attributes in a mesh. We are using a model named __Farmhouse.obj__ that also has a texture __Farmhouse.png__ (both already added to the sample project for you):
 
@@ -88,7 +88,7 @@ let data = try Data(contentsOf: URL(fileURLWithPath: file))
 let texture = try loader.newTexture(with: data, options: nil)
 {% endhighlight %}
 
-###Step 3: set up `MetalKit` mesh and submesh objects
+### Step 3: set up `MetalKit` mesh and submesh objects
 
 We are now creating the meshes and submeshes needed in the final, fourth step. We also compute the __Ambient Occlusion__, which is a measure of geometry obstruction, and it tells us how much of the ambient light actually reaches any given pixel or point of our object, and and how much of this light is blocked by surrounding meshes. `Model I/O` provides a `UV` mapper that creates a `2D` texture and wraps it around the object's `3D` mesh. For every pixel in the texture we can compute the ambient occlusion value, which is a just one extra float added for each vertex:
 
@@ -97,7 +97,7 @@ mesh.generateAmbientOcclusionVertexColors(withQuality: 1, attenuationFactor: 0.9
 let meshes = try MTKMesh.newMeshes(from: asset, device: device!, sourceMeshes: nil)
 {% endhighlight %}
 
-###Step 4: set up `Metal` rendering and drawing of meshes
+### Step 4: set up `Metal` rendering and drawing of meshes
 
 Finally, we configure the command encoder with the mesh data it needs to draw:
 
