@@ -21,18 +21,38 @@ try! asset.export(to: url!)
 
 Model I/O will save both the __.obj__ file and an additional __.mtl__ file that contains information about the object materials, such as in this example:
 
-{% highlight text %}newmtl lambert1
-Ns 0.000000
-Ka 0.400000 0.400000 0.400000
-Kd 0.480000 0.480000 0.480000
-Ks 0.496564 0.496564 0.496564
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd diffuse.png
+{% highlight text %}# Apple ModelI/O MTL File: exported.mtl
+
+newmtl material_1
+	Kd 0.8 0.8 0.8
+	Ka 0 0 0
+	Ks 0 0 0
+	ao 0 0 0
+	subsurface 0 0 0
+	metallic 0 0 0
+	specularTint 0 0 0
+	roughness 0.9 0 0
+	anisotropicRotation 0 0 0
+	sheen 0.05 0 0
+	sheenTint 0 0 0
+	clearCoat 0 0 0
+	clearCoatGloss 0 0 0
 {% endhighlight %}
 
-where the last line represents the name of the texture map file for the `Lambertian` (diffuse) lighting.
+###Step 1: set up the render pipeline state
+
+###Step 2: set up the asset initialization
+
+__Ambient Occlusion__ is a measure of geometry obstruction, and it tells us how much of the ambient light actually reaches any given pixel or point of our object, and and how much of this light is blocked by surrounding meshes. `Model I/O` provides a `UV` mapper that creates a `2D` texture and wraps it around the object's `3D` mesh. For every pixel in the texture we can compute the ambient occlusion value, which is a just one extra float added for each vertex:
+
+{% highlight swift %}mesh.generateAmbientOcclusionVertexColors(withQuality: 1, attenuationFactor: 0.98, objectsToConsider: [mesh], vertexAttributeNamed: MDLVertexAttributeOcclusionValue)
+{% endhighlight %}
+
+###Step 3: set up `MetalKit` mesh and submesh objects
+
+###Step 4: set up `Metal` rendering and drawing of meshes
+
+![alt text](https://github.com/MetalKit/images/raw/master/modelio_6.png "6")
 
 {% highlight swift %}
 {% endhighlight %}
