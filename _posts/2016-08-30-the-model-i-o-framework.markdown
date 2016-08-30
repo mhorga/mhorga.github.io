@@ -130,7 +130,7 @@ struct Uniforms {
 {% endhighlight %}
 
 Notice that we are matching the information we set up in the vertex descriptor, with the `VertexIn` struct.
-For the vertex function, we use a __[[ stage_in ]]__ attribute because we are passing per-vertex inputs as an argument to this function:
+For the vertex function, we use a __[[stage_in]]__ attribute because we are passing per-vertex inputs as an argument to this function:
 
 {% highlight swift %}vertex VertexOut vertex_func(const VertexIn vertices [[stage_in]],
                              constant Uniforms &uniforms [[buffer(1)]],
