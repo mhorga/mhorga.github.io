@@ -90,7 +90,7 @@ let texture = try loader.newTexture(with: data, options: nil)
 
 ### Step 3: set up `MetalKit` mesh and submesh objects
 
-We are now creating the meshes and submeshes needed in the final, fourth step. We also compute the __Ambient Occlusion__, which is a measure of geometry obstruction, and it tells us how much of the ambient light actually reaches any given pixel or point of our object, and and how much of this light is blocked by surrounding meshes. `Model I/O` provides a `UV` mapper that creates a `2D` texture and wraps it around the object's `3D` mesh. For every pixel in the texture we can compute the ambient occlusion value, which is a just one extra float added for each vertex:
+We are now creating the meshes and submeshes needed in the final, fourth step. We also compute the __Ambient Occlusion__, which is a measure of geometry obstruction, and it tells us how much of the ambient light actually reaches any given pixel or point of our object, and and how much of this light is blocked by surrounding meshes. `Model I/O` provides a `UV` mapper that creates a `2D` texture and wraps it around the object's `3D` mesh. For every pixel in the texture we can compute the ambient occlusion value, which is just one extra float added for each vertex:
 
 {% highlight swift %}let mesh = asset.object(at: 0) as? MDLMesh
 mesh.generateAmbientOcclusionVertexColors(withQuality: 1, attenuationFactor: 0.98, objectsToConsider: [mesh], vertexAttributeNamed: MDLVertexAttributeOcclusionValue)
