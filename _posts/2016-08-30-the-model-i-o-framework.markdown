@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: The Model I/O framework
 layout: post
 ---
@@ -130,7 +130,7 @@ struct Uniforms {
 {% endhighlight %}
 
 Notice that we are matching the information we set up in the vertex descriptor, with the `VertexIn` struct.
-For the vertex function, we use a __[[ stage_in ]]__ attribute to signal the `GPU` that we are passing 
+For the vertex function, we use a __[[ stage_in ]]__ attribute because we are passing per-vertex inputs as an argument to this function:
 
 {% highlight swift %}vertex VertexOut vertex_func(const VertexIn vertices [[stage_in]],
                              constant Uniforms &uniforms [[buffer(1)]],
@@ -147,9 +147,50 @@ For the vertex function, we use a __[[ stage_in ]]__ attribute to signal the `GP
 }
 {% endhighlight %}
 
+The fragment function reads the per-fragment inputs passed from the vertex function and also processes the texture we passed via the command encoder: 
+
+{% highlight swift %}fragment half4 fragment_func(VertexOut fragments [[stage_in]],
+                             texture2d<float> textures [[texture(0)]])
+{
+    float4 baseColor = fragments.color;
+    return half4(baseColor);
+}
+{% endhighlight %}
+
+If you run the playground, you will see this output image:
+
+![alt text](https://github.com/MetalKit/images/raw/master/modelio_3.png "3")
+
+That's a pretty dull white model. Let's apply the ambient occlusion to it by replacing the last line in the fragment function with these lines:
+
+{% highlight swift %}float4 occlusion = fragments.occlusion;
+return half4(baseColor * occlusion);
+{% endhighlight %}
+
+If you run the playground again, you will see this output image:
+
+![alt text](https://github.com/MetalKit/images/raw/master/modelio_4.png "4")
+
+The ambient occlusion also seems a bit raw and that is because our model is quite flat, without any curves or surface irregularities which would give way more credit to the realism that the ambient occlusion brings. Next, let's apply the texture. Replace the last line in the fragment function with these lines: 
+
+{% highlight swift %}constexpr sampler samplers;
+float4 texture = textures.sample(samplers, fragments.texCoords);
+return half4(baseColor * texture);
+{% endhighlight %}    
+
+If you run the playground again, you will see this output image:
+
+![alt text](https://github.com/MetalKit/images/raw/master/modelio_5.png "5")
+
+The texture looks really great on this model, but it would looks even more realistic if we brought the ambient occlusion back. Replace the last line in the fragment function with these lines: 
+
+{% highlight swift %}return half4(baseColor * occlusion * texture);
+{% endhighlight %}
+
+If you run the playground again, you will see this output image:
+
 ![alt text](https://github.com/MetalKit/images/raw/master/modelio_6.png "6")
 
-{% highlight swift %}
-{% endhighlight %}
+Not bad for a few lines of code, right? `Model I/O` is such a great framework for `3D` graphics and game programmers. There are a couple of articles on the web about using `Model I/O` with `SceneKit`, however, I thought using it with `Metal` is even more interesting! The [source code](https://github.com/MetalKit/modelio) is posted on Github as usual.
 
 Until next time!
