@@ -64,7 +64,7 @@ let rps = device.newRenderPipelineStateWithDescriptor(renderPipelineDescriptor)
 
 ###Step 2: set up the asset initialization
 
-We need to also create a `Model I/O` vertex descriptor to describe the layout of the vertex attributes in a mesh. We are using a model named __Farmhouse.obj__ (already added to the sample project for you):
+We need to also create a `Model I/O` vertex descriptor to describe the layout of the vertex attributes in a mesh. We are using a model named __Farmhouse.obj__ that also has a texture __Farmhouse.png__ (both already added to the sample project for you):
 
 {% highlight swift %}let desc = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
 var attribute = desc.attributes[0] as! MDLVertexAttribute
@@ -80,14 +80,72 @@ let url = Bundle.main.url(forResource: "Farmhouse", withExtension: "obj")
 let asset = MDLAsset(url: url!, vertexDescriptor: desc, bufferAllocator: mtkBufferAllocator)
 {% endhighlight %}
 
-__Ambient Occlusion__ is a measure of geometry obstruction, and it tells us how much of the ambient light actually reaches any given pixel or point of our object, and and how much of this light is blocked by surrounding meshes. `Model I/O` provides a `UV` mapper that creates a `2D` texture and wraps it around the object's `3D` mesh. For every pixel in the texture we can compute the ambient occlusion value, which is a just one extra float added for each vertex:
+Next, we load the texture for our asset:
 
-{% highlight swift %}mesh.generateAmbientOcclusionVertexColors(withQuality: 1, attenuationFactor: 0.98, objectsToConsider: [mesh], vertexAttributeNamed: MDLVertexAttributeOcclusionValue)
+{% highlight swift %}let loader = MTKTextureLoader(device: device)
+let file = Bundle.main.path(forResource: "Farmhouse", ofType: "png")
+let data = try Data(contentsOf: URL(fileURLWithPath: file))
+let texture = try loader.newTexture(with: data, options: nil)
 {% endhighlight %}
 
 ###Step 3: set up `MetalKit` mesh and submesh objects
 
+We are now creating the meshes and submeshes needed in the final, fourth step. We also compute the __Ambient Occlusion__, which is a measure of geometry obstruction, and it tells us how much of the ambient light actually reaches any given pixel or point of our object, and and how much of this light is blocked by surrounding meshes. `Model I/O` provides a `UV` mapper that creates a `2D` texture and wraps it around the object's `3D` mesh. For every pixel in the texture we can compute the ambient occlusion value, which is a just one extra float added for each vertex:
+
+{% highlight swift %}let mesh = asset.object(at: 0) as? MDLMesh
+mesh.generateAmbientOcclusionVertexColors(withQuality: 1, attenuationFactor: 0.98, objectsToConsider: [mesh], vertexAttributeNamed: MDLVertexAttributeOcclusionValue)
+let meshes = try MTKMesh.newMeshes(from: asset, device: device!, sourceMeshes: nil)
+{% endhighlight %}
+
 ###Step 4: set up `Metal` rendering and drawing of meshes
+
+Finally, we configure the command encoder with the mesh data it needs to draw:
+
+{% highlight swift %}let mesh = (meshes?.first)!
+let vertexBuffer = mesh.vertexBuffers[0]
+commandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, at: 0)
+let submesh = mesh.submeshes.first!
+commandEncoder.drawIndexedPrimitives(submesh.primitiveType, indexCount: submesh.indexCount, indexType: submesh.indexType, indexBuffer: submesh.indexBuffer.buffer, indexBufferOffset: submesh.indexBuffer.offset)
+{% endhighlight %}
+
+Next, we will work on our shader functions. First we set up our structs for the vertices and uniforms:
+
+{% highlight swift %}struct VertexIn {
+    float4 position [[attribute(0)]];
+    float4 color [[attribute(1)]];
+    float2 texCoords [[attribute(2)]];
+    float occlusion [[attribute(3)]];
+};
+
+struct VertexOut {
+    float4 position [[position]];
+    float4 color;
+    float2 texCoords;
+    float occlusion;
+};
+
+struct Uniforms {
+    float4x4 modelViewProjectionMatrix;
+};
+{% endhighlight %}
+
+Notice that we are matching the information we set up in the vertex descriptor, with the `VertexIn` struct.
+For the vertex function, we use a __[[ stage_in ]]__ attribute to signal the `GPU` that we are passing 
+
+{% highlight swift %}vertex VertexOut vertex_func(const VertexIn vertices [[stage_in]],
+                             constant Uniforms &uniforms [[buffer(1)]],
+                             uint vertexId [[vertex_id]])
+{
+    float4x4 mvpMatrix = uniforms.modelViewProjectionMatrix;
+    float4 position = vertices.position;
+    VertexOut out;
+    out.position = mvpMatrix * position;
+    out.color = float4(1);
+    out.texCoords = vertices.texCoords;
+    out.occlusion = vertices.occlusion;
+    return out;
+}
+{% endhighlight %}
 
 ![alt text](https://github.com/MetalKit/images/raw/master/modelio_6.png "6")
 
