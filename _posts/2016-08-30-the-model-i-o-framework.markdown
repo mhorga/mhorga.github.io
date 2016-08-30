@@ -45,7 +45,7 @@ Integrating `Model I/O` with `Metal` takes four steps:
 
 ### Step 1: set up the render pipeline state
 
-First we create a vertex descriptor so we can pass input to the vertex function/shader. The vertex descriptor is needed to describe the vertex attribute inputs to a render state pipeline. We need `3 x 4` bytes for the vertex position, `4 x 1` byte for color, `2 x 2` bytes for the texture coordinates and `4 x 1` byte for ambient occlusion. At the end we tell the descriptor how large (__24__) our `stride` is in total:
+First we create a vertex descriptor so we can pass input to the vertex function. The vertex descriptor is needed to describe the vertex attribute inputs to a render state pipeline. We need `3 x 4` bytes for the vertex position, `4 x 1` byte for color, `2 x 2` bytes for the texture coordinates and `4 x 1` byte for ambient occlusion. At the end we tell the descriptor how large (__24__) our `stride` is in total:
 
 {% highlight swift %}let vertexDescriptor = MTLVertexDescriptor()
 vertexDescriptor.attributes[0].offset = 0
@@ -64,7 +64,7 @@ let rps = device.newRenderPipelineStateWithDescriptor(renderPipelineDescriptor)
 
 ### Step 2: set up the asset initialization
 
-We need to also create a `Model I/O` vertex descriptor to describe the layout of the vertex attributes in a mesh. We are using a model named __Farmhouse.obj__ that also has a texture __Farmhouse.png__ (both already added to the sample project for you):
+We need to also create a `Model I/O` vertex descriptor to describe the layout of the vertex attributes in a mesh. We use a model named __Farmhouse.obj__ that also has a texture __Farmhouse.png__ (both already added to the sample project for you):
 
 {% highlight swift %}let desc = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
 var attribute = desc.attributes[0] as! MDLVertexAttribute
