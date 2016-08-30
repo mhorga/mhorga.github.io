@@ -99,7 +99,7 @@ let meshes = try MTKMesh.newMeshes(from: asset, device: device!, sourceMeshes: n
 
 ### Step 4: set up `Metal` rendering and drawing of meshes
 
-Finally, we configure the command encoder with the mesh data it needs to draw:
+Finally, we configure the command encoder with the mesh data that it needs to draw:
 
 {% highlight swift %}let mesh = (meshes?.first)!
 let vertexBuffer = mesh.vertexBuffers[0]
