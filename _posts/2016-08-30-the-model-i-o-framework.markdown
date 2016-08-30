@@ -43,7 +43,7 @@ Integrating `Model I/O` with `Metal` takes four steps:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/modelio_2.png "2")
 
-###Step 1: set up the render pipeline state
+### Step 1: set up the render pipeline state
 
 First we create a vertex descriptor so we can pass input to the vertex function/shader. The vertex descriptor is needed to describe the vertex attribute inputs to a render state pipeline. We need `3 x 4` bytes for the vertex position, `4 x 1` byte for color, `2 x 2` bytes for the texture coordinates and `4 x 1` byte for ambient occlusion. At the end we tell the descriptor how large (__24__) our `stride` is in total:
 
