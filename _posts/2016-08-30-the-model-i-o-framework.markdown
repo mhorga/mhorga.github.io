@@ -182,7 +182,7 @@ If you run the playground again, you will see this output image:
 
 ![alt text](https://github.com/MetalKit/images/raw/master/modelio_5.png "5")
 
-The texture looks really great on this model, but it would look even more realistic if we brought the ambient occlusion back. Replace the last line in the fragment function with these lines: 
+The texture looks really great on this model, but it would look even more realistic if we brought the ambient occlusion back. Replace the last line in the fragment function with this line: 
 
 {% highlight swift %}return half4(baseColor * occlusion * texture);
 {% endhighlight %}
