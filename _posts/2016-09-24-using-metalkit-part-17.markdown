@@ -1,11 +1,11 @@
 ---
-published: false
+published: true
 title: Using MetalKit part 17
 layout: post
 ---
 I am writing this article for three reasons: first, I am working on updating all the `Metal` code to `Swift 3` and then moving the tutorials to a new home with a nicer design and a proper domain name; second, I wanted to show you a different way than subclassing `MTKView`, and that is, using the `MTKViewDelegate`. And third, I wanted to answer one of our readers' question about how to draw wireframes.
 
-Let's start by using the code from Part 4. This is going to be a shockingly short tutorial but all you have to do is add the following line right before encoding the draw command:
+Let's start by using the code from Part 4 which was an Xcode project and turn that into a playground this time. This is going to be a shockingly short tutorial but all you have to do is add the following line right before encoding the draw command:
 
 {% highlight swift %}renderEncoder.setTriangleFillMode(.lines)
 {% endhighlight %}
