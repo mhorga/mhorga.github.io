@@ -159,6 +159,6 @@ In conclusion, we saw how to use __sqrt__ to shape transitions, then __cos__ to 
 
 ![alt text](https://github.com/MetalKit/images/raw/master/chapter18_16.png "16")
 
-The [source code](https://github.com/MetalKit/metal) is posted on `Github` as usual.
+I want to say thanks to [Inigo Quilez](https://twitter.com/iquilezles) again, for keep inspiring me to write more and more about drawing with math. The [source code](https://github.com/MetalKit/metal) is posted on `Github` as usual.
 
 Until next time!
