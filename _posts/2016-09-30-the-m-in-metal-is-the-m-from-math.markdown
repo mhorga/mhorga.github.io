@@ -1,5 +1,5 @@
 ---
 published: false
-title: The M in Metal is the M from Math
+title: Using MetalKit part 2*3^2
 layout: post
 ---
