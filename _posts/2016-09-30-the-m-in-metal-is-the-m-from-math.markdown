@@ -52,7 +52,7 @@ From here we could go to drawing a black hole. We would achieve that by using a 
 
 The output image should look like this:
 
-![alt text](https://github.com/MetalKit/images/raw/master/chapter18_4.png "4")
+![alt text](https://github.com/MetalKit/images/raw/master/chapter18_4.png.png "4")
 
 Next we use __smootstep__ to draw a round shape that is black inside, blue outside and a blended color between __r__ and __(r + 0.01)__. Replace the last line with:
 
