@@ -89,6 +89,6 @@ The last thing we need to do before running the program is to configure the `IBA
 }
 {% endhighlight %}
 
-Now run the program and notice how various amounts are added/subtracted from the current balance. The label color also reflects whether we have a negative or a positive balance. The [source code](https://github.com/Swiftor/KVO) is available on Github.
+Now run the program and notice how various amounts are added/subtracted from the current balance. The label color also reflects whether we have a negative or a positive balance. The [source code](https://github.com/mhorga/KVO) is available on Github.
 
 Until next time!
