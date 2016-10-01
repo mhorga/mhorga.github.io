@@ -272,6 +272,6 @@ This image looks great, however, we can also get rid of those small ripples easi
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing6.png "Raytracing 6")
 
-Now, this image looks gorgeous! Stay tuned for the next part of this series, where we will look into topics such as specular lights, transparency, refraction and reflection. The [source code](https://github.com/Swiftor/Raytracing2) is posted on Github as usual.
+Now, this image looks gorgeous! Stay tuned for the next part of this series, where we will look into topics such as specular lights, transparency, refraction and reflection. The [source code](https://github.com/mhorga/Raytracing2) is posted on Github as usual.
 
 Until next time!
