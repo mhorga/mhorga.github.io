@@ -13,7 +13,7 @@ As I promised last time, I am starting today a new series about the [__Metal fra
 
 Since `Metal` does not run on the `Xcode` simulator, and since we cannot assume all our readers have an `iOS` device that has an __A7__ `CPU` or newer, we will rather create an `OS X` project instead. In `Xcode` create a `Cocoa Application`. In the storyboard, drag and drop a `Label` onto the `View Controller`. Center it, enlarge it so we can make sure we can display 2 lines of text, and set necessary constraints. When you're done, the storyboard should look like this: 
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter01_1.png "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter01_1.png?raw=true "1")
 
 Next, go to __ViewController.swift__ and create an `IBOutlet` for the label we just created. You can name it simply __label__ or anything else you wish. Finally, let's write some code. Your class should look like this:
 
@@ -42,10 +42,10 @@ Then, inside __viewDidLoad()__ is where all the magic happens. We create a `Meta
 
 If you run the project, you should be able to see the following output:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter01_2.png "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter01_2.png?raw=true "2")
 
 Yeah, I know, my GPU is a bit old but hey, it runs Metal! There is not much to see, but for now you learned how to "talk" to the `GPU` at the lowest possible level. In the next episode we will learn how we can send data to the `GPU` and get results back from it. 
 
-I wanted to say a special `Thank You` to my good friend [@warrenm](https://twitter.com/warrenm) without whose guidance and inspiration this series would not have existed. In his book, [Metal by Example](https://gum.co/metalbyexample), you can find a lot of high quality projects written in Objective-C. The [source code](https://github.com/Swiftor/Metal/tree/master/ch01) for this article is posted on Github, as usual.
+I wanted to say a special `Thank You` to my good friend [@warrenm](https://twitter.com/warrenm) without whose guidance and inspiration this series would not have existed. In his book, [Metal by Example](https://gum.co/metalbyexample), you can find a lot of high quality projects written in Objective-C. The [source code](https://github.com/MetalKit/metal) for this article is posted on Github, as usual.
 
 Until next time!
