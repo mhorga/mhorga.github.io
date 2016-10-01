@@ -7,7 +7,7 @@ One of our readers contacted me about an apparently weird behavior he was seeing
 
 To deal with this matter, we need to re-organize the code, again! And that is always a good thing to do. We need to get the non-transient `Metal` objects (devices, queues, data buffers, textures, states and pipelines) out of __drawRect(_:)__ and put them in a method that only runs once when the view loads. The command buffers and encoders are the only two transient objects designed for a single use, so we can thus create them with each draw call.
 
-We will pick up where we left off in [part 5](https://github.com/Swiftor/Metal/tree/master/ch05) of the series. To start, let's create a new method -- an initializer -- that only runs once when the view is loaded:
+We will pick up where we left off in [part 5](https://github.com/MetalKit/metal) of the series. To start, let's create a new method -- an initializer -- that only runs once when the view is loaded:
 
 {% highlight swift %} 
 required init(coder: NSCoder) {
@@ -97,6 +97,6 @@ struct Matrix {
 }
 {% endhighlight %}
 
-Run the program to make sure you are still seeing the glorious triangle as we have seen it in the previous part. We are now ready to move on to the next stage -- rendering 3D objects -- in the next part of this series. The [source code](https://github.com/Swiftor/Metal/tree/master/ch07) is posted on Github as usual.
+Run the program to make sure you are still seeing the glorious triangle as we have seen it in the previous part. We are now ready to move on to the next stage -- rendering 3D objects -- in the next part of this series. The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
