@@ -13,6 +13,6 @@ As we progress through the book, we are diving deeper and deeper into the `Core 
 
 The book then goes in-depth to explain techniques for displaying images in various setups such as working with `UIKit`, `OpenGL` and `Metal`. We are then showed how to create our own custom filters. Next, we are introduced to `kernels` written in the `Core Image shading language` and the benefit of using the `GPU` for image processing. Another great way of leveraging the tremendous power of the `GPU` is by writing your own custom `Metal kernels` or by even using the `Metal Performance Shaders` that are tuned to run optimally on each and every `GPU` family.
 
-The author states oh [his website](https://flexmonkey.blogspot.co.uk) that this is the first of the two books in the `Core Image` series. This one focuses on working with still images. The second book will focus on working with video and with other frameworks (eg. SpriteKit). The book can be [pre-ordered now](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980) and it will be available next week. 
+The author states oh [his website](https://flexmonkey.blogspot.co.uk) that this is the first of the two books in the `Core Image` series. This one focuses on working with still images. The second book will focus on working with video and with other frameworks (eg. `SpriteKit`). The book can be [pre-ordered now](https://itunes.apple.com/us/book/core-image-for-swift/id1073029980) and it will be available next week. 
 
 Until next time!
