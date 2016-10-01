@@ -97,6 +97,6 @@ In the main playground page, see the generated new image:
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing7.png "Raytracing 7")
 
-Stay tuned for the next part of this series, where we will look at different type of materials and tweak the camera for a better viewing angle, so the two side spheres don't look distorted anymore. The [source code](https://github.com/Swiftor/Raytracing3) is posted on Github as usual.
+Stay tuned for the next part of this series, where we will look at different type of materials and tweak the camera for a better viewing angle, so the two side spheres don't look distorted anymore. The [source code](https://github.com/mhorga/Raytracing3) is posted on Github as usual.
 
 Until next time!
