@@ -46,7 +46,7 @@ The __rotation matrix__ is also similar to an __identity matrix__ where dependin
 | 0     0     0     1 |
 {% endhighlight %}
 
-Alright, we had enough math for a whole week, so let's put these matrices into code. We will continue with the code from where we left off after [part 3](https://github.com/Swiftor/Metal/tree/master/ch04). It comes in handy for us to create a `struct` named __Matrix__ that will include these `transformations`:
+Alright, we had enough math for a whole week, so let's put these matrices into code. We will continue with the code from where we left off after [part 3](https://github.com/MetalKit/metal). It comes in handy for us to create a `struct` named __Matrix__ that will include these `transformations`:
 
 {% highlight swift %} 
 struct Matrix {
@@ -143,7 +143,7 @@ vertex Vertex vertex_func(constant Vertex *vertices [[buffer(0)]],
 
 All we did here was to pass __uniforms__ as the __2nd__ argument (buffer), and then multiply the model matrix with the vertices. If you run the app now, you will see our good old triangle friend, taking the entire space of the view.
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter05_1.png "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter05_1.png?raw=true "1")
 
 Let's __scale__ it down to a quarter of its original size. Add this line to the __modelMatrix__ function:
 
@@ -153,7 +153,7 @@ matrix = scalingMatrix(matrix, 0.25)
 
 Run the app again and notice that the triangle is way smaller now:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter05_2.png "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter05_2.png?raw=true "2")
 
 Next, let's __translate__ the triangle up on the __y__ axis by moving it up half the screen size:
 
@@ -163,7 +163,7 @@ matrix = translationMatrix(matrix, float3(0.0, 0.5, 0.0))
 
 Run the app again and notice that the triangle is now higher than before:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter05_3.png "3")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter05_3.png?raw=true "3")
 
 Finally, let's __rotate__ the triangle about the __z__ axis:
 
@@ -173,8 +173,8 @@ matrix = rotationMatrix(matrix, float3(0.0, 0.0, 0.1))
 
 Run the app again and notice that the triangle is now also rotated:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter05_4.png "4")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter05_4.png?raw=true "4")
 
-Next week we will finally get to drawing 3D objects (such as cubes or spheres). The [source code](https://github.com/Swiftor/Metal/tree/master/ch05) is posted on Github as usual.
+Next week we will finally get to drawing 3D objects (such as cubes or spheres). The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
