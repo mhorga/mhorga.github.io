@@ -103,6 +103,6 @@ The above function call will print out as you expected:
 $5
 {% endhighlight %}
 
-The [source code](https://github.com/Swiftor/Generics) is posted on `Github`, as usual.
+The [source code](https://github.com/mhorga/Generics) is posted on `Github`, as usual.
 
 Until next time!
