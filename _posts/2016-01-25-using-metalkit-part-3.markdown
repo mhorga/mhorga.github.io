@@ -3,7 +3,7 @@ published: true
 title: Using MetalKit part 3
 layout: post
 ---
-In the previous part I promised we will learn more about the `Metal shading language`. Before that, first let's do some code cleaning and structuring since we are already getting into the habit of doing this from previous episodes. Start by downloading the [source code](https://github.com/Swiftor/Metal/tree/master/ch03) from the previous episode. We want to refactor the huge __render()__ function, to start with. So let's take the _vertex buffer_ and the _render pipeline state_ outside of the function, and also create __3__ new smaller functions, so that our old function reduces to this:
+In the previous part I promised we will learn more about the `Metal shading language`. Before that, first let's do some code cleaning and structuring since we are already getting into the habit of doing this from previous episodes. Start by downloading the [source code](https://github.com/MetalKit/metal) from the previous episode. We want to refactor the huge __render()__ function, to start with. So let's take the _vertex buffer_ and the _render pipeline state_ outside of the function, and also create __3__ new smaller functions, so that our old function reduces to this:
 
 {% highlight swift %} 
 var vertex_buffer: MTLBuffer!
@@ -118,7 +118,7 @@ fragment float4 fragment_func(Vertex vert [[stage_in]]) {
     
 If you run the app, you should now see a more nicely colored triangle:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter04.png "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter04.png?raw=true "1")
 You might be wondering why are the colors becoming gradients as we move away from the three vertexes we passed to the shaders? To understand this, it's important to first understand the difference between the two shaders and their role in the graphics pipeline. Let's look at the syntax for writing any shader (we choose the vertex shader as example):
 
 {% highlight swift %} 
@@ -133,6 +133,6 @@ The `vertex shader` takes a pointer to the vertex list as the 1st parameter. We 
 
 So you might be still asking: "Ok, but what about the color gradients"? Well, now that you understand what each shader does and how often they run, you can think about the color at any given pixel as the __average__ color value of its neighbors. For example, the color halfway between the the `red` and the `green` pixel will be `yellow` simply because the `fragment shader` interpolates the two colors by averaging them: __0.5 * red + 0.5 * green__. The same happens with the color halfway between `red` and `blue` resulting `magenta`, as well as halfway between `blue` and `green` resulting `cyan`. From here on, the rest of the pixels are interpolated with unequal parts of the primary colors resulting the gradient range you see.
 
-The [source code](https://github.com/Swiftor/Metal/tree/master/ch04) is posted on Github as usual.
+The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
