@@ -50,7 +50,7 @@ override func layoutSubviews() {
 
 In the storyboard let's add a `UIView` and in `Identity Inspector` change its _class_ to __CustomView__, and finally set constraints for it, like this:
 
-![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib1.png "IB1")
+![alt text](https://github.com/mhorga/IBDesignable-and-IBInspectable/raw/master/images/ib1.png "IB1")
 
 The imageview and label are displayed now, but they are both empty! Here comes the magic. Modify the class signature to include the __@IBDesignable__ attribute and add the following method:
 
@@ -91,11 +91,11 @@ Next, let's make use of the other attribute we mentioned in the beginning, __@IB
 
 This allows us to set values for variables in `Attributes Inspector` so if you go there now, you will notice a new section appears for our `UIView`, named `CustomView`, under `Attributes Inspector`, and it has two fields: __Text__ and __Image__. If you want, you could download that `iPhone` image from the `URL` we used above (or any other image you want) and add it to the project. Next, if you click the `Image` drop down menu, you should be able to choose it, and it will be displayed in real time, like this:
 
-![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib2.png "IB2")
+![alt text](https://github.com/mhorga/IBDesignable-and-IBInspectable/raw/master/images/ib2.png "IB2")
 
 Lastly, write `iPhone 6s Plus` (or anything else you want) and it will show on the label on top of the image, in real time as well:
 
-![alt text](https://github.com/Swiftor/IBDesignable-and-IBInspectable/raw/master/images/ib3.png "IB3")
+![alt text](https://github.com/mhorga/IBDesignable-and-IBInspectable/raw/master/images/ib3.png "IB3")
 
 These are two powerful attributes that are very useful when designing your apps, without having to actually build and run your app. There are unlimited opportunities for using these attributes. Imagine playing with numbers that show a completion wheel spinning in real time, or colors that change as you are watching them live.
 
