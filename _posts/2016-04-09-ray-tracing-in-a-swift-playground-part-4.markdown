@@ -147,6 +147,6 @@ In the main playground page, see the generated new image:
 
 ![alt text](https://github.com/mhorga/mhorga.github.io/raw/master/images/raytracing9.png "Raytracing 9")
 
-The [source code](https://github.com/Swiftor/Raytracing4) is posted on Github as usual.
+The [source code](https://github.com/mhorga/Raytracing4) is posted on Github as usual.
 
 Until next time!
