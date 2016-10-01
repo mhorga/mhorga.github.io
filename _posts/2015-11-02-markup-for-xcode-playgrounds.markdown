@@ -107,6 +107,6 @@ Similar to the way we referenced links, we can also reference `images`. The only
 
 ![alt text](https://github.com/Swiftor/Markup/raw/master/images/page4.png "Page 4")
 
-The playground is available on [Github](https://github.com/Swiftor/Markup/).
+The playground is available on [Github](https://github.com/mhorga/Markup/).
 
 Until next time!
