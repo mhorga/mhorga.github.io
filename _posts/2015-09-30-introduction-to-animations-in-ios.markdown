@@ -58,6 +58,6 @@ Run the program again and now you will be able to tap once to zoom in, and then 
 }
 {% endhighlight %}
 
-Do the same inside the `else` block but this time set the color to `.yellowColor()`. Run the program again and notice how nicely the color changes, fractions of a second after the scaling finished. You can go on and have even more fun at it by working with multiple views and colors. The complete [source code](https://github.com/Swiftor/AnimationIntro) for this project is available on Github.
+Do the same inside the `else` block but this time set the color to `.yellowColor()`. Run the program again and notice how nicely the color changes, fractions of a second after the scaling finished. You can go on and have even more fun at it by working with multiple views and colors. The complete [source code](https://github.com/mhorga/AnimationIntro) for this project is available on Github.
 
 Until next time!
