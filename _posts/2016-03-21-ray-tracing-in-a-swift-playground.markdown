@@ -64,7 +64,7 @@ image
 
 You should see the following image:
 
-![alt text](https://github.com/Swiftor/Raytracing/raw/master/images/raytracing1.png "Raytracing 1")
+![alt text](https://github.com/MetalKit/images/blob/master/raytracing1.png?raw=true "Raytracing 1")
 
 Ok, you might be wondering, but where does `ray tracing` come into play? Let's deal with that next. Under the `Sources` folder again, let's create a convenience class named __vec3.swift__ where we will have a few `math` helper methods:
 
@@ -168,8 +168,8 @@ public func makePixelSet(width: Int, _ height: Int) -> ([Pixel], Int, Int) {
 
 In the main playground page, see the generated new image:
 
-![alt text](https://github.com/Swiftor/Raytracing/raw/master/images/raytracing2.png "Raytracing 2")
+![alt text](https://github.com/MetalKit/images/blob/master/raytracing2.png?raw=true "Raytracing 2")
 
-Stay tuned for a part 2 of this article, where we will calculate lights and shades for a more realistic image rendering. The [source code](https://github.com/Swiftor/Raytracing) is posted on Github as usual.
+Stay tuned for a part 2 of this article, where we will calculate lights and shades for a more realistic image rendering. The [source code](https://github.com/MetalKit/raytracing) is posted on Github as usual.
 
 Until next time!
