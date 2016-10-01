@@ -65,7 +65,7 @@ let vertex_buffer = device!.newBufferWithBytes(vertex_data, length: data_size, o
 
 The vertices above are located in order: bottom left, bottom right and top center. We notice that each vertex uses __4__ floats for its coordinate. The first two are the __x__ and __y__ axes. The ones we do not use this time are: the third one is the `depth (Z-axis)` and the fourth one is the `W coordinate` making our coordinates `homogeneous`. We will talk about them in our next episode. Then we compute the size of this array to simply be the size of __12__ floats and finally we create the buffer based on the array and its size. Now that we have our vertexes stored, we need a way to send them to the `GPU` so it can display them on the screen. Let's look at the entire process (`pipeline`) that facilitates drawing graphics on the screen:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter03_1.png "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter03_1.png?raw=true "1")
 
 We have completed the first stage so far, storing the vertexes. You notice that the next stages require that we have a new construct named __shader__. A `shader` is where programmers are allowed to interfere in the graphics pipeline with their custom functions. `Metal` provides a few types of shaders, however, today we only look at two of them: the __vertex shader__ which is responsible for the __location__ of our point, and the __fragment shader__ which is responsible for the __color__ of our point.
 
@@ -123,8 +123,8 @@ The code is pretty straightforward. We first create a `struct` named __Vertex__ 
     
 If you run the app, you should see a triangle like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter03_2.png "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter03_2.png?raw=true "2")
 
-In the next part we will learn more about the `Metal shading language` as well as how `3D graphics` is rendered on the `GPUs`. The [source code](https://github.com/Swiftor/Metal/tree/master/ch03) is posted on Github as usual.
+In the next part we will learn more about the `Metal shading language` as well as how `3D graphics` is rendered on the `GPUs`. The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
