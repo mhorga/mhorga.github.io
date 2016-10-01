@@ -7,7 +7,7 @@ By now, you might have all noticed I am in love with `Swift`. I am also an avid 
 
 Let's start by creating a new `Xcode` playground for `OS X`. Once created, click the `Show the Assistant editor` button and also press `Command + 1` to show the `Project navigator` as well. Your playground should look like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter08_1.png "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter08_1.png?raw=true "1")
 
 First thing we do is create __Shaders.metal__ under the __Resources__ folder in the `Project navigator` with the same source code from the previous episode of this series. Next, we create __MathUtils.swift__ and __MetalView.swift__ under the __Sources__ folder. The only change we make in `MathUtils.swift` is we create a handy initializer for the `Vertex` struct:
 
@@ -93,8 +93,8 @@ XCPlaygroundPage.currentPage.liveView = view
 
 If you are showing the `Timeline` in the `Assistant editor` you should have a similar view:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter08_2.png "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter08_2.png?raw=true "2")
 
-The [source code](https://github.com/Swiftor/Metal/tree/master/ch08) is posted on Github as usual.
+The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
