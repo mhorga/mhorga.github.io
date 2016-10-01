@@ -1,10 +1,9 @@
 ---
 published: true
 title: Using MetalKit part 9
-summary: Learn how to draw 3D content in Metal. You will build a projection matrix and learn how your vertices go through a series of transformations.
 layout: post
 ---
-I bet many of you missed the `MetalKit` series, so today we are returning back to it, and we will learn how to draw 3D content in `Metal`. Let's continue working on our playground and pick up where we left off in [part 8](https://github.com/Swiftor/Metal/tree/master/ch08/chapter08.playground) of the series. 
+I bet many of you missed the `MetalKit` series, so today we are returning back to it, and we will learn how to draw 3D content in `Metal`. Let's continue working on our playground and pick up where we left off in [part 8](https://github.com/MetalKit/metal) of the series. 
 
 We will render a 3D cube by the end of this episode but first let's draw a 2D square and then we can re-use the square logic for all the other faces of the cube. Let's modify the `vertex_data` array so that it holds __4__ vertices instead of __3__ we needed for a triangle:
 
@@ -27,7 +26,7 @@ let index_data: [UInt16] = [
 
 To understand how these indexes are stored, let's look at this image below:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_1.jpg "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_1.jpg?raw=true "1")
 
 So for the front face (square) we use vertices stored at positions __0__ through __3__ in the `vertex_buffer`. Later on we will add the other __4__ vertices as well. The front face is made of two triangles. We first draw the triangle that uses vertices __0__, __1__ and __2__ and then we draw the triangle that uses vertices __2__, __3__ and __0__. Notice that two of the vertices are re-used, as expected. Also notice that the drawing is done __counterclockwise__. This is the default rendering rule in `Metal` but it can be changed to `clockwise` as well.
 
@@ -57,7 +56,7 @@ command_encoder.drawIndexedPrimitives(.Triangle, indexCount: index_buffer.length
 
 In the main playground page, see the generated new image:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_2.png "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_2.png?raw=true "2")
 
 Now that we know how to draw a square, let's see how to draw more squares!
 
@@ -84,7 +83,7 @@ let index_data: [UInt16] = [
 
 Now that we have the entire cube geometry ready for rendering, let's go to `MathUtils.swift` and in `modelMatrix()` comment out the `rotation` and the `translation` calls, and only leave the scaling on for a factor of __0.5__. You will most likely see an image like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_3.png "3")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_3.png?raw=true "3")
 
 Hmm, but it's still a square! Yes, it is, because we still don't have the notion of `depth` and the cube looks just flat. It's time to tweak some math logic now. We don't need to use the `Matrix` struct anymore because the __simd__ framework offers us similar data structures and math functions we can readily use. We can easily rewrite our transform functions to work with __matrix_float4x4__ instead of the custom `Matrix` struct we used. 
 
@@ -117,11 +116,11 @@ memcpy(bufferPointer, &uniforms, sizeof(Uniforms))
 
 In the main playground page, see the generated new image:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_4.png "4")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_4.png?raw=true "4")
 
 Hmm... the cube almost looks right, but something is still missing. The next transformation the pixels need to go through is from `world space` to `camera space`. Everything we see on the screen is `viewed` by a virtual camera through a __frustum__ (pyramidal shape) that has a __near__ and __far__ planes to limit the `view (camera) space:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_5.png "5")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_5.png?raw=true "5")
 
 Back in `MathUtils.swift` let's create the __viewMatrix()__ as well: 
 
@@ -167,7 +166,7 @@ command_encoder.setCullMode(.Back)
 
 In the main playground page, see the generated new image:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_6.png "6")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_6.png?raw=true "6")
 
 This is finally the 3D cube we were all waiting to see! There is one more thing we can do to make it even more realistic and lively looking: give it a spin. First, let's create a global variable named __rotation__ which we want to update as time goes by:
 
@@ -203,8 +202,8 @@ update()
 
 In the main playground page, you should see a similar image:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter09_7.gif "7")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter09_7.gif?raw=true "7")
 
-The [source code](https://github.com/Swiftor/Metal/tree/master/ch09/chapter09.playground) is posted on Github as usual.
+The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
