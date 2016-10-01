@@ -100,6 +100,6 @@ Build and run your project again, and point your browser to [localhost:9999/elec
 [{"name":"Bernie"},{"name":"Hillary"},{"name":"Donald"}]
 {% endhighlight %}
 
-In conclusion, I was really impressed by the ease and the practicality of using `Swift Express` to generate a web service in a matter of minutes! Not only we have the convenience of writing all our app code in Swift, but now we can also write our back-end structure in Swift as well. For more information about the open source project, see the [Swift Express](https://github.com/crossroadlabs/Express) documentation. You can look at the complete list of features and see the roadmap. You can (and should) also contribute to this project!
+In conclusion, I was really impressed by the ease and the practicality of using `Swift Express` to generate a web service in a matter of minutes! Not only we have the convenience of writing all our app code in `Swift`, but now we can also write our back-end structure in Swift as well. For more information about the open source project, see the [Swift Express](https://github.com/crossroadlabs/Express) documentation. You can look at the complete list of features and see the roadmap. You can (and should) also contribute to this project!
 
 Until next time!
