@@ -82,6 +82,6 @@ let moreAction = UIAlertAction(title: "More", style: UIAlertActionStyle.Default)
 actionController.addAction(moreAction)
 {% endhighlight %}
 
-This time we create a `UIActivityViewController`. If you run the app now, you will notice our message is not presented to us anymore, and we instead see the extensions view popping up from the bottom of the screen. This gives us even more sharing options for future integrations with other applications. The source code is available on [Github](https://github.com/Swiftor/SocialFramework).
+This time we create a `UIActivityViewController`. If you run the app now, you will notice our message is not presented to us anymore, and we instead see the extensions view popping up from the bottom of the screen. This gives us even more sharing options for future integrations with other applications. The source code is available on [Github](https://github.com/mhorga/SocialFramework).
 
 Until next time!
