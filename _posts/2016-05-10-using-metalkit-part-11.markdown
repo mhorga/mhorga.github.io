@@ -1,14 +1,13 @@
 ---
 published: true
 title: Using MetalKit part 11
-summary: Learn how fun is to work with MSL math functions such as sin, cos, pow, abs, fmod, clamp, mix, step and smoothstep. 
 layout: post
 ---
 Let's continue our journey into the wonderful world of shaders using the `Metal Shading Language (MSL)` by picking up where we left off in [Part 10](http://mhorga.org/2016/05/02/using-metalkit-part-10.html). Using the same playground we worked on last time, we will next try to get close to making art using `MSL` math functions such as `sin`, `cos`, `pow`, `abs`, `fmod`, `clamp`, `mix`, `step` and `smoothstep`. 
 
 First, let's look at our "sun eclipse" code from last time. Strangely enough, we start from the end of the functions list above because `smoothstep` is the function we need to fix an issue we had last time and we did not pay attention to it -- our output image has jaggies (is aliased) as you can see below if we zoom in enough to make it visible:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_1.png "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter11_1.png?raw=true "1")
 
 The __smoothstep__ function depends on a `left edge` being smaller than a `right edge`. The function takes a real number `x` as input and outputs `0` if `x` is less than or equal to the left edge, `1` if `x` is greater than or equal to the right edge, and smoothly interpolates between `0` and `1` otherwise. The difference between the `step` and the `smoothstep` function is that `step` makes a sudden jump from `0` to `1` at the edge. The `smoothstep` function implements cubic `Hermite` interpolation after doing a clamp. An improved version, named `smootherstep`, has zero `1st` and `2nd` order derivatives at `x=0` and `x=1`:
 
@@ -46,7 +45,7 @@ output.write(pixel, gid);
 
 The last function we look at before moving on, is `mix`. The __mix()__ function performs a linear interpolation between `x` and `y` using `a` to weight between them. The return value is computed as `x * (1 - w) + y * w`. In this case, the `planet` color and `sun` color are interpolated using `smootherstep` as weight. If you execute the playground, the output image now has anti-aliasing and the jaggies are all gone:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_2.png "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter11_2.png?raw=true "2")
 
 The next functions we look at are `abs` and `fmod`. The __abs()__ function simply returns the absolute value, or the distance of a number from `0`. In other words, any value loses its sign and always returns a non-negative value. The __fmod()__ function returns the remainder fractional part of a float (the equivalent of the modulo operator `%` for integers). Let's apply these two functions to some values and see what we can get:  
 
@@ -60,7 +59,7 @@ output.write(float4(color, 1), gid);
 
 The output image should look like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_3.png "3")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter11_3.png?raw=true "3")
 
 First, we drew a grid of blue lines spaced out at __0.1__ between them and with a thickness of __0.005__. Next, we normalized the screen coordinates so we can work with the __[-1, 1]__ interval, and then drew the `X` and `Y` axes in red with a thickness of __0.02__. Finally, we drew the two diagonals in green with the same thickness, keeping in mind that __x - y__ gives us the decreasing slope (diagonal) while __x + y__ gives us the increasing one. 
 
@@ -84,8 +83,8 @@ output.write(float4(color, 1), gid);
 
 The `sin()` function is just the `sine` of an angle, the `cos()` function is obviously the `cosine` of an angle, the `fract()` function returns the fractional part of a value, the `dot()` function returns the scalar product of two vectors and finally, the `pow()` function returns the value of a number raised to the power of another number. This code generates a beautiful fractal, a true piece of art courtesy of `Inigo Quilez`. The output image should look like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter11_4.png "4")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter11_4.png?raw=true "4")
 
-Your assignment is to try to understand how the `magic` works here. If you have any questions, feel free to contact me either on this blog or on [Twitter](https://twitter.com/mhorga_), otherwise I will go over the "solution" to this assignment next week. The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
+Your assignment is to try to understand how the `magic` works here. If you have any questions, feel free to contact me either on this blog or on [Twitter](https://twitter.com/mhorga_), otherwise I will go over the "solution" to this assignment next week. The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
