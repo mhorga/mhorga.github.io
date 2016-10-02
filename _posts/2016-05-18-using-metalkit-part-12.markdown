@@ -1,7 +1,6 @@
 ---
 published: true
 title: Using MetalKit part 12
-summary: Learn how to use MSL uniforms to create animated objects and then interact with them using your touchpad or mouse.
 layout: post
 ---
 Today we continue working on that beautiful fractal, so let's pick up where we left off in [Part 11](http://mhorga.org/2016/05/10/using-metalkit-part-11.html). Using the same playground we worked on last time, we will next see how to bring it to life, that is, animate it. For that, we will use `uniforms` again. We introduced them in [Part 5](http://mhorga.org/2016/02/08/using-metalkit-part-5.html) in case you want to read again why they are useful in cases such as this one. 
@@ -51,7 +50,7 @@ with this line:
 
 If you run the playground right now, you should see something similar:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_1.gif "1")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter12_1.gif?raw=true "1")
 
 Wasn't that easy and fun? There is another important and useful feature we could have, and that is mouse interaction. Obviously, we can use `uniforms` again. Let's conform our `MetalView` class to the `NSWindowDelegate` protocol so we can use its `mouse` methods.
 
@@ -107,8 +106,8 @@ with this line:
 
 What we did here is change the way color is calculated, by passing the mouse coordinates to the `color` variable. Run the playground and click in various view areas, then notice the effect. The output image should look like this:
 
-![alt text](https://github.com/Swiftor/Metal/raw/master/images/chapter12_2.gif "2")
+![alt text](https://github.com/MetalKit/images/blob/master/chapter12_2.gif?raw=true "2")
 
-Play with the kernel code to achieve prettier effects by using the mouse coordinates in other parts of the code. There is one other matter I need to take a closer look at, the fact that `NSPoint` might not correctly map to the kernel `float2` type we used. The [source code](https://github.com/Swiftor/Metal) is posted on Github as usual.
+Play with the kernel code to achieve prettier effects by using the mouse coordinates in other parts of the code. There is one other matter I need to take a closer look at, the fact that `NSPoint` might not correctly map to the kernel `float2` type we used. The [source code](https://github.com/MetalKit/metal) is posted on Github as usual.
 
 Until next time!
