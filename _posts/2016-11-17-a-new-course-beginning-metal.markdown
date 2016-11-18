@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: A new course: Beginning Metal
 layout: post
 ---
